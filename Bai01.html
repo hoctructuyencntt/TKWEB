@@ -1,0 +1,477 @@
+<!DOCTYPE html>
+<html>
+<title>Bài mở đầu: Tổng quan về World Wide Web </title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="w3.css">
+<link rel="stylesheet" href="font.css">
+<link rel="stylesheet" href="font-awesome.min.css">
+<style>
+  #myBtn {
+    display: none;
+    position: fixed;
+    bottom: 20px;
+    right: 30px;
+    z-index: 99;
+    font-size: 18px;
+    border: none;
+    outline: none;
+    background-color: pink;
+    color: black;
+    cursor: pointer;
+    padding: 15px;
+    border-radius: 4px;
+  }
+
+  #myBtn:hover {
+    background-color: #555;
+  }
+
+  .w3-main a {
+    background-color: #04AA6D;
+  }
+
+  .pagination {
+    display: inline-block;
+  }
+
+  .pagination a {
+    color: white;
+    float: left;
+    padding: 8px 16px;
+    text-decoration: none;
+    transition: background-color .3s;
+    border: 1px solid #ddd;
+    background-color: gray;
+  }
+
+  .pagination a.active {
+    background-color: gray;
+    color: white;
+    border: 1px solid #4CAF50;
+  }
+
+  .pagination a:hover:not(.active) {
+    background-color: #ddd;
+  }
+
+  body,
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-family: "Raleway", sans-serif
+  }
+
+
+  #tab {
+    font-family: Arial, Helvetica, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+  }
+
+  #tab td,
+  #tab th {
+    border: 1px solid #ddd;
+    padding: 8px;
+  }
+
+  /*
+  #tab tr:nth-child(even) {
+    background-color: #f2f2f2;
+  }
+*/
+  #tab tr:hover {
+    background-color: #ddd;
+  }
+
+  #tab th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: left;
+    background-color: #04AA6D;
+    color: white;
+  }
+
+  .center {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
+  }
+
+  .w3-code a {
+    background-color: transparent;
+    text-decoration: none;
+    color: blue;
+  }
+
+  .container {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+    padding-top: 56.25%;
+    /* 16:9 Aspect Ratio */
+  }
+
+  .responsive-iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+    border: none;
+  }
+</style>
+
+<body class="w3-black w3-content" style="max-width:1600px">
+
+  <!-- Sidebar/menu -->
+  <nav class="w3-sidebar w3-collapse w3-white w3-animate-left" style="z-index:3;width:300px;" id="mySidebar"><br>
+    <div class="w3-container">
+      <a href="#" style="text-decoration: none;" onclick="w3_close()"
+        class="w3-hide-large w3-right w3-jumbo w3-padding w3-hover-grey" title="close menu"> X </a>
+      <!--<h4><b>Giáo trình</b></h4>-->
+    </div>
+    <div class="w3-bar-block">
+      <a href="Bai01.html" onclick="w3_close()" class="w3-bar-item w3-button w3-padding w3-text-teal">Bài mở đầu: Tổng
+        quan về World Wide Web </a>
+      <a href="Bai02.html" onclick="w3_close()" class="w3-bar-item w3-button w3-padding">Bài 1: Tạo các trang HTML
+        tĩnh</a>
+      <a href="Bai03.html" onclick="w3_close()" class="w3-bar-item w3-button w3-padding">Bài 2: Thiết kế giao diện với
+        HTML và CSS</a>
+      <a href="Bai04.html" onclick="w3_close()" class="w3-bar-item w3-button w3-padding">Bài 3: Lập trình Javascript</a>
+      <a href="Bai05.html" onclick="w3_close()" class="w3-bar-item w3-button w3-padding">Bài 4: Thiết kế và quản trị
+        website với công cụ (WordPress, Blogger, Wix) </a>
+      <a href="Thamkhao.html" onclick="w3_close()" class="w3-bar-item w3-button w3-padding">Nguồn tham khảo</a>
+    </div>
+  </nav>
+
+  <!-- Overlay effect when opening sidebar on small screens -->
+  <div class="w3-overlay w3-hide-large w3-animate-opacity" onclick="w3_close()" style="cursor:pointer"
+    title="close side menu" id="myOverlay">=</div>
+
+  <!-- !PAGE CONTENT! -->
+  <div class="w3-main" style="margin-left:300px">
+    <button onclick="topFunction()" id="myBtn" title="Go to top">Lên đầu trang</button>
+    <!-- Header -->
+    <header id="portfolio">
+      <!--<a href="#"><img src="/w3images/avatar_g2.jpg" style="width:65px;"
+          class="w3-circle w3-right w3-margin w3-hide-large w3-hover-opacity"></a>-->
+      <span class="w3-button w3-hide-large w3-xxlarge w3-hover-text-grey" onclick="w3_open()">=</span>
+      <div class="w3-container">
+        <h1><b>Bài mở đầu: Tổng quan về World Wide Web </b></h1>
+      </div>
+    </header>
+    <div class="w3-container w3-padding-large" style="margin-bottom:32px">
+      <div class="w3-center">
+        <div class="pagination">
+          <a href="Bai02.html">Bài tiếp theo</a>
+        </div>
+      </div>
+      <div class="w3-code notranslate htmlHigh">
+        <h4>Nội dung bài học</h4>
+        <ol>
+          <li><a href="#muc1">Một số dịch vụ quan trọng trên Internet</a>
+            <ul>
+              <li><a href="#muc1_1">Dịch vụ truyền file FTP</a>
+              <li><a href="#muc1_2">Dịch vụ thư điện tử Email</a>
+              <li><a href="#muc1_3"> Dịch vụ Telnet</a>
+              <li><a href="#muc1_4">Dịch vụ WWW/ HTTP</a>
+              <li><a href="#muc1_5">Bộ định vị tài nguyên URL</a>
+            </ul>
+          </li>
+          <li><a href="#muc2">Cấu trúc và hoạt động của dịch vụ WWW</a>
+            <ul>
+              <li><a href="#muc2_1"> Kiến trúc WWW</a>
+              <li><a href="#muc2_2">Web tĩnh và Web động</a>
+              <li><a href="#muc2_3">Web server - Web browser</a>
+            </ul>
+          </li>
+        </ol>
+      </div>
+      <h4><b>Tham khảo: Bài giảng WWW và Ngôn ngữ HTML</b></h4>
+      <div class="container">
+        <iframe class="responsive-iframe" width="560" height="315" src="https://www.youtube.com/embed/OWcVfDae8yI"
+          title="YouTube video player" frameborder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allowfullscreen></iframe>
+      </div>
+      <h4 id="muc1"><b>1. Một số dịch vụ quan trọng trên Internet</b></h4>
+      <h4><b>Video tham khảo:</b></h4>
+      <div class="container">
+        <iframe class="responsive-iframe" width="560" height="315" src="https://www.youtube.com/embed/XE_FPEFpHt4"
+          title="YouTube video player" frameborder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allowfullscreen></iframe>
+      </div>
+      <p style="text-align: center;"><a href="https://www.youtube.com/">Nguồn Youtube</a></p>
+      <h5 id="muc1_1"><b>1.1. Dịch vụ truyền file FTP</b></h5>
+      <p>
+        FTP (viết tắt của File Transfer Protocol dịch ra là "Giao thức truyền tập tin") thường được dùng để trao đổi tập
+        tin qua mạng lưới truyền thông dùng giao thức TCP/IP (chẳng hạn như Internet - mạng ngoại bộ - hoặc intranet -
+        mạng nội bộ). </p>
+      <p>Hoạt động của FTP cần có hai máy tính, một máy chủ và một máy khách. Máy chủ FTP, dùng chạy phần mềm
+        cung cấp dịch vụ FTP, gọi là trình chủ, lắng nghe yêu cầu về dịch vụ của các máy tính khác trên mạng lưới. Máy
+        khách chạy phần mềm FTP dành cho người sử dụng dịch vụ, gọi là trình khách, thì khởi đầu một liên kết với máy
+        chủ.
+        Một khi hai máy đã liên kết với nhau, máy khách có thể xử lý một số thao tác về tập tin, như tải tập tin lên máy
+        chủ, tải tập tin từ máy chủ xuống máy của mình, đổi tên của tập tin, hoặc xóa tập tin ở máy chủ v.v. </p>
+      <p> Vì giao thức
+        FTP là một giao thức chuẩn công khai, cho nên bất cứ một công ty phần mềm nào, hay một lập trình viên nào cũng
+        có
+        thể viết trình chủ FTP hoặc trình khách FTP. Hầu như bất cứ một nền tảng hệ điều hành máy tính nào cũng hỗ trợ
+        giao thức FTP. Điều này cho phép tất cả các máy tính kết nối với một mạng lưới có nền TCP/IP, xử lý tập tin trên
+        một máy tính khác trên cùng một mạng lưới với mình, bất kể máy tính ấy dùng hệ điều hành nào (nếu các máy tính
+        ấy
+        đều cho phép sự truy cập của các máy tính khác, dùng giao thức FTP). </p>
+      <p>Hiện nay trên thị trường có rất nhiều các
+        trình khách và trình chủ FTP, và phần đông các trình ứng dụng này cho phép người dùng được lấy tự do, không mất
+        tiền.</p>
+      <h5 id="muc1_2"><b>1.2. Dịch vụ thư điện tử Email</b></h5>
+      <p>
+        Thư điện tử, hay email (từ chữ electronic mail), đôi khi được dịch không chính xác là điện thư, là một hệ thống
+        chuyển nhận thư từ qua các mạng máy tính.</p>
+      <p>Email là một phương tiện thông tin rất nhanh. Một mẫu thông tin (thư từ) có thể được gửi đi ở dạng mã hoá hay
+        dạng
+        thông thường và được chuyển qua các mạng máy tính đặc biệt là mạng Internet. Nó có thể chuyển mẫu thông tin từ
+        một
+        máy nguồn tới một hay rất nhiều máy nhận trong cùng lúc.</p>
+      <p>Ngày nay, email chẳng những có thể truyền gửi được chữ, nó còn có thể truyền được các dạng thông tin khác như
+        hình
+        ảnh, âm thanh, phim, và đặc biệt các phần mềm thư điện tử kiểu mới còn có thể hiển thị các email dạng sống động
+        tương thích với kiểu tệp HTML.</p>
+      <p>Phần mềm thư điện tử (email software) là loại phần mềm nhằm hỗ trợ cho người dùng việc chuyển và nhận các mẫu
+        thông tin (thường là dạng chữ). Thông tin có thể đưa vào phần mềm thư điện tử bằng cách thông dụng nhất là gõ
+        chữ
+        bàn phím hay cách phương cách khác ít dùng hơn như là dùng máy quét hình (scanner), dùng máy ghi hình số
+        (digital
+        camera) đặc biệt là các Web cam. Phần mềm thư điện tử giúp đỡ cho việc tiến hành soạn thảo, gửi, nhận, đọc, in,
+        xoá hay lưu giữ các (điện) thư. Có hai trường hợp phân biệt phần mềm thư điện tử là:</p>
+      <ul>
+        <li>Loại phần mềm thư điện tử được cài đặt trên từng máy tính của người dùng gọi là email client, hay phần mềm
+          thư
+          điện tử (cho) máy khách. Các thí dụ loại phần mềm này bao gồm: Microsoft Outlook, Microsoft Outlook Express,
+          Netscape Comunicator, hay Eudora. Phần mềm thư điện tử này còn có tên là MUA (từ chữ mail user agent) tức là
+          Tác
+          nhân sử dụng thư. Một cách gọi tên thông dụng khác của email client là ứng dụng thư điện tử (email
+          application)
+          nếu không bị nhầm lẫn;</li>
+        <li>Ngược lại, loại phần mềm thư điện tử không cần phải cài đặt mà nó được cung ứng bởi các máy chủ (web server)
+          trên Internet gọi là WebMail, hay Phần mềm thư điện tử qua Web. Để dùng được các phần mềm loại này thường các
+          máy
+          tính nối vào phải có một máy truy cập tương thích với sự cung ứng của WebMail. Thí dụ loại này là
+          mail.Yahoo.com,
+          hay hotmail.com.</li>
+      </ul>
+      <p>Nơi cung ứng phần mềm cũng như phương tiện chuyển thư điện tử gọi là nhà cung ứng dịch vụ thư điện tử (email
+        sevice provider).</p>
+      <p>Máy tính làm việc cung ứng các dịch vụ thư điện tử là MTA (từ chữ mail transfer agent) hay là đại lý chuyển
+        thư.
+        Vì đây là máy chủ nên khi không bị nhầm lẫn với các loại máy chủ khác thì người ta cũng gọi MTA là máy chủ hay
+        rõ
+        hơn là máy chủ thư điện tử.</p>
+      <p>Các dịch vu thư điện tử có thể được cung ứng miễn phí hay có lệ phí tuỳ theo nhu cầu và mụch đích của ngưòi
+        dùng.
+        Ngày nay, email thường được cung cấp kèm với các phương tiện Internet khi người tiêu dùng ký hợp đồng với các
+        dịch
+        vụ Internet một cách miễn phí.</p>
+      <h5 id="muc1_3"><b>1.3. Dịch vụ Telnet</b></h5>
+      <p>Telnet là một ứng dụng cho phép người dùng ngồi trên một thiết bị đầu cuối có thể thông qua kết nối mạng đến
+        một
+        thiết bị từ xa để điều khiển nó bằng câu lệnh như là đang ngồi tại máy ở xa. Một máy trạm có thể thực hiện đồng
+        thời nhiều phiên telnet đến nhiều địa chỉ IP khác nhau. Đồng thời đối với cùng một host đích ở xa, có thể telnet
+        đến các cổng khác nhau (ví dụ cổng 80 của web, cổng 20,21 của FTP).</p>
+      <h5 id="muc1_4"><b>1.4. Dịch vụ WWW/ HTTP</b></h5>
+      <p>World Wide Web, gọi tắt là Web hoặc WWW, là mạng lưới toàn cầu hay là một không gian thông tin toàn cầu mà mọi
+        người có thể truy nhập (đọc và viết) qua các máy tính nối với mạng Internet. Thuật ngữ này thường được hiểu nhầm
+        là từ đồng nghĩa với chính thuật ngữ Internet. Nhưng Web thực ra chỉ là một trong các dịch vụ chạy trên
+        Internet,
+        chẳng hạn như dịch vụ thư điện tử. Web được phát minh và đưa vào sử dụng vào khoảng năm 1990, 1991 bởi viện sĩ
+        Viện Hàn lâm Anh Tim Berners-Lee và Robert Cailliau (Bỉ) tại CERN, Geneva, Switzerland.</p>
+      <p>
+        HTTP là chữ viết tắt của HyperText Transfer Protocol (giao thức truyền tải siêu văn bản). Đây là một giao thức
+        ứng
+        dụng trong bộ các giao thức TCP/IP (gồm một nhóm các giao thức nền tảng cho internet).</p>
+      <p>
+        HTTP hoạt động dựa trên mô hình Client – Server. Trong mô hình này, các máy tính của người dùng sẽ đóng vai trò
+        làm máy khách (Client). Sau một thao tác nào đó của người dùng, các máy khách sẽ gửi yêu cầu đến máy chủ
+        (Server)
+        và chờ đợi câu trả lời từ những máy chủ này. Để có thể nói chuyện được với nhau, các máy chủ và máy khách phải
+        thực hiện việc trao đổi thông qua các giao thức. Một trong những giao thức được sử dụng thường xuyên nhất chính
+        là
+        HTTP.</p>
+      <h5 id="muc1_5"><b> 1.5. Bộ định vị tài nguyên URL</b></h5>
+      <p> URL, viết tắt của Uniform Resource Locator (Định vị Tài nguyên thống nhất), được dùng để tham chiếu tới tài
+        nguyên
+        trên Internet. URL mang lại khả năng siêu liên kết cho các trang mạng. Các tài nguyên khác nhau được tham chiếu
+        tới bằng địa chỉ, chính là URL, còn được gọi là địa chỉ web hay là liên kết mạng (hay ngắn gọn là liên kết).
+        Về kỹ thuật, URL là một dạng của URI (Uniform Resource Identifier), nhưng trong nhiều tài liệu kỹ thuật và các
+        cuộc thảo luận, URL thường được sử dụng như một từ đồng nghĩa với URI, và điều này không bị coi là một vấn đề.
+        Khi bạn gõ một địa chỉ Web URL vào trình duyệt Web, một lệnh HTTP sẽ được gửi tới Web server để ra lệnh và hướng
+        dẫn nó tìm đúng trang Web được yêu cầu. Trang Web này sau đó sẽ được kéo về và mở trên trình duyệt Web. Nói đơn
+        giản hơn, HTTP là giao thức
+        giúp cho việc truyền tải file từ một Web server vào một trình duyệt Web để người dùng có thể xem một trang Web
+        đang hiện diện trên trình duyệt.</p>
+      <img src="img/bai01_1.jpg" class="center">
+      <p style="text-align: center;">Minh hoạ URL và http</p>
+
+      <h4 id="muc2"><b> 2. Cấu trúc và hoạt động của dịch vụ WWW</b></h4>
+      <h4><b>Video tham khảo:</b></h4>
+      <div class="container">
+        <iframe class="responsive-iframe" width="560" height="315" src="https://www.youtube.com/embed/J8hzJxb0rpc"
+          title="YouTube video player" frameborder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allowfullscreen></iframe>
+      </div>
+      <p style="text-align: center;"><a href="https://www.youtube.com/">Nguồn Youtube</a></p>
+      <h5 id="muc2_1"><b> 2.1. Kiến trúc WWW</b></h5>
+      <p><b>Tổng quan</b></p>
+      <p> World Wide Web, gọi tắt là Web hoặc WWW, là mạng lưới toàn cầu hay là một không gian thông tin toàn cầu mà mọi
+        người có thể truy nhập (đọc và viết) qua các máy tính nối với mạng Internet. Thuật ngữ này thường được hiểu nhầm
+        là từ đồng nghĩa với chính thuật ngữ Internet. Nhưng Web thực ra chỉ là một trong các dịch vụ chạy trên
+        Internet,
+        chẳng hạn như dịch vụ thư điện tử. Web được phát minh và đưa vào sử dụng vào khoảng năm 1990, 1991 bởi viện sĩ
+        Viện Hàn lâm Anh Tim Berners-Lee và Robert Cailliau (Bỉ) tại CERN, Geneva, Switzerland.</p>
+      <p><b>Kiến trúc của WWW</b></p>
+      <p>Kiến trúc tổng quát của WWW thể hiện qua sơ đồ sau:</p>
+      <img src="img/bai01_2.jpg" class="center">
+      <p style="text-align: center;">Kiến trúc tổng quát cùa WWW</p>
+      <p><b>Nguyên lí hoạt động của www</b></p>
+      <p>Khi bạn gõ một địa chỉ Web URL vào trình duyệt Web, một lệnh HTTP sẽ được gửi tới Web server để ra lệnh và
+        hướng
+        dẫn nó tìm đúng trang Web được yêu cầu. Trang Web này sau đó sẽ được kéo về và mở trên trình duyệt Web. Nói đơn
+        giản hơn, HTTP là giao thức giúp cho việc truyền tải file từ một Web server vào một trình duyệt Web để người
+        dùng
+        có thể xem một trang Web đang hiện diện trên trình duyệt.</p>
+      <img src="img/bai01_3.jpg" class="center">
+      <p style="text-align: center;"> Hoạt động của WWW</p>
+      <h5 id="muc2_2"><b>2.2. Web tĩnh - Web động</b></h5>
+      <h4><b>Video tham khảo:</b></h4>
+      <div class="container">
+        <iframe class="responsive-iframe" width="560" height="315" src="https://www.youtube.com/embed/_wFJj94kSTU"
+          title="YouTube video player" frameborder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allowfullscreen></iframe>
+      </div>
+      <p style="text-align: center;"><a href="https://www.youtube.com/">Nguồn Youtube</a></p>
+      <p><b>Web tĩnh</b></p>
+      <ul>
+        <li>Trang web tĩnh thường được xây dựng bằng các ngôn ngữ HTML, DHTML,...</li>
+        <li>Trang web tĩnh thường được dùng để thiết kế các trang web có nội dung ít cần thay đổi và cập nhật.</li>
+        <li>Website tĩnh là website chỉ bao gồm các trang web tĩnh và không có cơ sở dữ liệu đi kèm.</li>
+        <li> Website tĩnh thích hợp với cá nhân, tổ chức, doanh nghiệp vừa và nhỏ mới làm quen với môi trường Internet.
+        </li>
+      </ul>
+      <p><b>Web động</b></p>
+      <ul>
+        <li>Web động là thuật ngữ được dùng để chỉ những website có cơ sở dữ liệu và được hỗ trợ bởi các phần mềm phát
+          triển
+          web.</li>
+        <li>Với web động, thông tin hiển thị được gọi ra từ một cơ sở dữ liệu khi người dùng truy vấn tới một trang web.
+          Trang web được gửi tới trình duyệt gồm những câu chữ, hình ảnh, âm thanh hay những dữ liệu số hoặc ở dạng bảng
+          hoặc ở nhiều hình thức khác nữa. Chẳng hạn ứng dụng cơ sở của bạn có chức năng như một công cụ thương mại điện
+          tử
+          (một cửa hàng trực tuyến) trưng bày catalogue sản phẩm trên website hay theo dõi kho hàng, khi một mặt hàng
+          được
+          giao, ngay lập tức những trang có liên quan đến sản phẩm đó phản ánh sự thay đổi này. Những website cơ sở dữ
+          liệu
+          còn có thể thực hiện những chức năng truyền và xử lý thông tin giữa doanh nghiệp – doanh nghiệp.</li>
+        <li>Web động thường được phát triển bằng các ngôn ngữ lập trình tiên tiến như PHP, ASP, ASP.NET, Java, CGI,
+          Perl, và
+          sử dụng các cơ sở dữ liệu quan hệ mạnh như Access, My SQL, MS SQL, Oracle, DB2.</li>
+        <li>Thông tin trên web động luôn luôn mới vì nó dễ dàng được bạn thường xuyên cập nhật thông qua việc Bạn sử
+          dụng
+          các công cụ cập nhật của các phần mềm quản trị web . Thông tin luôn được cập nhật trong một cơ sở dữ liệu và
+          người
+          dùng Internet có thể xem những chỉnh sửa đó ngay lập tức. Vì vậy website được hỗ trợ bởi cơ sở dữ liệu là
+          phương
+          tiện trao đổi thông tin nhanh nhất với người dùng Internet. Điều dễ nhận thấy là những website thường xuyên
+          được
+          cập nhật sẽ thu hút nhiều khách hàng tới thăm hơn những web site ít có sự thay đổi về thông tin.</li>
+        <li>Web động có tính tương tác với người sử dụng cao. Với web động, Bạn hoàn toàn có thể dễ dàng quản trị nội
+          dung
+          và điều hành website của mình thông qua các phần mềm hỗ trợ mà không nhất thiết Bạn cần phải có kiến thức nhất
+          định về ngôn ngữ html, lập trình web.</li>
+
+
+        <li>Bạn cũng có thể nhìn nhận vấn đề theo khía cạnh khác: chẳng hạn bạn đã có sẵn những cơ sở dữ liệu như cơ sở
+          dữ
+          liệu sản phẩm, nhân sự, khách hàng hay bất kỳ cơ sở dữ liệu nào đó mà bạn muốn đưa thêm giao diện web vào để
+          người
+          dùng nội bộ hay người dùng Internet đều có thể sử dụng chương trình chỉ với trình duyệt web của mình.</li>
+        <li>Tất cả các website thương mại điện tử, các mạng thương mại, các mạng thông tin lớn, các website của các tổ
+          chức,
+          doanh nghiệp hoạt động chuyên nghiệp trên Net đều sử dụng công nghệ web động. Có thể nói web động là website
+          của
+          giới chuyên nghiệp hoạt động trên môi trường Internet.</li>
+      </ul>
+      <h5 id="muc2_3"><b>2.3. Web server - Web browser</b></h5>
+      <p><b>Web browser (trình duyệt web)</b></p>
+      <p>
+        Một web browser là một phần mềm ứng dụng để truy xuất, trình diễn và chuyển các nguồn thông tin (information
+        resource) trên mạng hệ thống mạng toàn cầu (World Wide Web). Một nguồn thông tin được nhận dạng bởi một
+        Uniform
+        Resource Identifier (URI) và có thể là một trang web, phim - video, hình ảnh (images) hoặc các mẫu thông tin
+        khác.</p>
+      <p><b> Web server (máy chủ web)</b></p>
+      <p>Web server (máy phục vụ Web): máy tính mà trên đó cài đặt phần mềm phục vụ Web, đôi khi người ta cũng gọi
+        chính
+        phần mềm đó là Web Server.Tất cả các Web Server đều hiểu và chạy được các file *.htm và *.html, tuy nhiên mỗi
+        Web
+        Server lại phục vụ một số kiểu file chuyên biệt chẳng hạn như IIS của Microsoft dành cho *.asp, *.aspx...;
+        Apache
+        dành cho *.php...; Sun Java System Web Server của SUN dành cho *.jsp...</p>
+
+      <div class="w3-center">
+        <div class="pagination">
+          <a href="Bai02.html">Bài tiếp theo</a>
+        </div>
+      </div>
+
+
+
+    </div>
+    <!-- End page content -->
+  </div>
+
+  <script>
+    // Script to open and close sidebar
+    function w3_open() {
+      document.getElementById("mySidebar").style.display = "block";
+      document.getElementById("myOverlay").style.display = "block";
+    }
+
+    function w3_close() {
+      document.getElementById("mySidebar").style.display = "none";
+      document.getElementById("myOverlay").style.display = "none";
+    }
+
+    // Phần button top
+    var mybutton = document.getElementById("myBtn");
+
+
+    window.onscroll = function () { scrollFunction() };
+
+    function scrollFunction() {
+      if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+        mybutton.style.display = "block";
+      } else {
+        mybutton.style.display = "none";
+      }
+    }
+
+
+    function topFunction() {
+      document.body.scrollTop = 0;
+      document.documentElement.scrollTop = 0;
+    }
+  </script>
+
+</body>
+
+</html>

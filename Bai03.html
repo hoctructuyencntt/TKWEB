@@ -1,0 +1,2428 @@
+<!DOCTYPE html>
+<html>
+<title>Bài 2: Thiết kế giao diện với HTML và CSS</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="w3.css">
+<link rel="stylesheet" href="font.css">
+<link rel="stylesheet" href="font-awesome.min.css">
+<style>
+  #myBtn {
+    display: none;
+    position: fixed;
+    bottom: 20px;
+    right: 30px;
+    z-index: 99;
+    font-size: 18px;
+    border: none;
+    outline: none;
+    background-color: pink;
+    color: black;
+    cursor: pointer;
+    padding: 15px;
+    border-radius: 4px;
+  }
+
+  #myBtn:hover {
+    background-color: #555;
+  }
+
+  .w3-main a {
+    background-color: #04AA6D;
+  }
+
+  .pagination {
+    display: inline-block;
+  }
+
+  .pagination a {
+    color: white;
+    float: left;
+    padding: 8px 16px;
+    text-decoration: none;
+    transition: background-color .3s;
+    border: 1px solid #ddd;
+    background-color: gray;
+  }
+
+  .pagination a.active {
+    background-color: gray;
+    color: white;
+    border: 1px solid #4CAF50;
+  }
+
+  .pagination a:hover:not(.active) {
+    background-color: #ddd;
+  }
+
+  body,
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-family: "Raleway", sans-serif
+  }
+
+  #sourceCode1,
+  #sourceCode2,
+  #sourceCode3,
+  #sourceCode4,
+  #sourceCode5,
+  #sourceCode6,
+  #sourceCode7,
+  #sourceCode8,
+  #sourceCode9,
+  #sourceCode10,
+  #sourceCode11,
+  #sourceCode12,
+  #sourceCode13,
+  #sourceCode14,
+  #sourceCode15,
+  #sourceCode16,
+  #sourceCode17,
+  #sourceCode18,
+  #sourceCode19,
+  #sourceCode20,
+  #sourceCode21,
+  #sourceCode22,
+  #sourceCode23,
+  #sourceCode24,
+  #sourceCode25,
+  #sourceCode26,
+  #iframe1,
+  #iframe2,
+  #iframe3,
+  #iframe4,
+  #iframe5,
+  #iframe6,
+  #iframe7,
+  #iframe8,
+  #iframe9,
+  #iframe10,
+  #iframe11,
+  #iframe12,
+  #iframe13,
+  #iframe14,
+  #iframe15,
+  #iframe16,
+  #iframe17,
+  #iframe18,
+  #iframe19,
+  #iframe20,
+  #iframe21,
+  #iframe22,
+  #iframe23,
+  #iframe24,
+  #iframe25,
+  #iframe26 {
+    height: 300px;
+  }
+
+  #sourceCode1,
+  #sourceCode2,
+  #sourceCode3,
+  #sourceCode4,
+  #sourceCode5,
+  #sourceCode6,
+  #sourceCode7,
+  #sourceCode8,
+  #sourceCode9,
+  #sourceCode10,
+  #sourceCode11,
+  #sourceCode12,
+  #sourceCode13,
+  #sourceCode14,
+  #sourceCode15,
+  #sourceCode16,
+  #sourceCode17,
+  #sourceCode18,
+  #sourceCode19,
+  #sourceCode20,
+  #sourceCode21,
+  #sourceCode22,
+  #sourceCode23,
+  #sourceCode24,
+  #sourceCode25,
+  #sourceCode26,
+  #iframe1,
+  #iframe2,
+  #iframe3,
+  #iframe4,
+  #iframe5,
+  #iframe6,
+  #iframe7,
+  #iframe8,
+  #iframe9,
+  #iframe10,
+  #iframe11,
+  #iframe12,
+  #iframe13,
+  #iframe14,
+  #iframe15,
+  #iframe16,
+  #iframe17,
+  #iframe18,
+  #iframe19,
+  #iframe20,
+  #iframe21,
+  #iframe22,
+  #iframe23,
+  #iframe24,
+  #iframe25,
+  #iframe26,
+  #btn1,
+  #btn2,
+  #btn3,
+  #btn4,
+  #btn5,
+  #btn6,
+  #btn7,
+  #btn8,
+  #btn9,
+  #btn10,
+  #btn11,
+  #btn12,
+  #btn13,
+  #btn14,
+  #btn15,
+  #btn16,
+  #btn17,
+  #btn18,
+  #btn19,
+  #btn20,
+  #btn21,
+  #btn22,
+  #btn23,
+  #btn24,
+  #btn25,
+  #btn26 {
+    width: 100%;
+  }
+
+  #btn1,
+  #btn2,
+  #btn3,
+  #btn4,
+  #btn5,
+  #btn6,
+  #btn7,
+  #btn8,
+  #btn9,
+  #btn10,
+  #btn11,
+  #btn12,
+  #btn13,
+  #btn14,
+  #btn15,
+  #btn16,
+  #btn17,
+  #btn18,
+  #btn19,
+  #btn20,
+  #btn21,
+  #btn22,
+  #btn23,
+  #btn24,
+  #btn25,
+  #btn26 {
+    height: 30px;
+    background-color: aqua;
+    color: black;
+  }
+
+  #iframe1,
+  #iframe2,
+  #iframe3,
+  #iframe4,
+  #iframe5,
+  #iframe6,
+  #iframe7,
+  #iframe8,
+  #iframe9,
+  #iframe10,
+  #iframe11,
+  #iframe12,
+  #iframe13,
+  #iframe14,
+  #iframe15,
+  #iframe16,
+  #iframe17,
+  #iframe18,
+  #iframe19,
+  #iframe20,
+  #iframe21,
+  #iframe22,
+  #iframe23,
+  #iframe24,
+  #iframe25,
+  #iframe26 {
+    background-color: white;
+  }
+
+  #tab {
+    font-family: Arial, Helvetica, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+  }
+
+  #tab td,
+  #tab th {
+    border: 1px solid #ddd;
+    padding: 8px;
+  }
+
+  /*
+  #tab tr:nth-child(even) {
+    background-color: #f2f2f2;
+  }
+*/
+  #tab tr:hover {
+    background-color: #ddd;
+  }
+
+  #tab th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: left;
+    background-color: #04AA6D;
+    color: white;
+  }
+
+  .center {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
+  }
+
+  .w3-code a {
+    background-color: transparent;
+    text-decoration: none;
+    color: blue;
+  }
+
+  .container {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+    padding-top: 56.25%;
+    /* 16:9 Aspect Ratio */
+  }
+
+  .responsive-iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+    border: none;
+  }
+</style>
+
+<body class="w3-black w3-content" style="max-width:1600px">
+
+  <!-- Sidebar/menu -->
+  <nav class="w3-sidebar w3-collapse w3-white w3-animate-left" style="z-index:3;width:300px;" id="mySidebar"><br>
+    <div class="w3-container">
+      <a href="#" style="text-decoration: none;" onclick="w3_close()"
+        class="w3-hide-large w3-right w3-jumbo w3-padding w3-hover-grey" title="close menu"> X </a>
+      <!--<h4><b>Giáo trình</b></h4>-->
+    </div>
+    <div class="w3-bar-block">
+      <a href="Bai01.html" onclick="w3_close()" class="w3-bar-item w3-button w3-padding ">Bài mở đầu: Tổng
+        quan về World Wide Web </a>
+      <a href="Bai02.html" onclick="w3_close()" class="w3-bar-item w3-button w3-padding">Bài 1: Tạo các
+        trang HTML
+        tĩnh</a>
+      <a href="Bai03.html" onclick="w3_close()" class="w3-bar-item w3-button w3-padding w3-text-teal">Bài 2: Thiết kế
+        giao diện với
+        HTML và CSS</a>
+      <a href="Bai04.html" onclick="w3_close()" class="w3-bar-item w3-button w3-padding">Bài 3: Lập trình Javascript</a>
+      <a href="Bai05.html" onclick="w3_close()" class="w3-bar-item w3-button w3-padding">Bài 4: Thiết kế và quản trị
+        website với công cụ (WordPress, Blogger, Wix) </a>
+      <a href="Thamkhao.html" onclick="w3_close()" class="w3-bar-item w3-button w3-padding">Nguồn tham khảo</a>
+    </div>
+  </nav>
+
+  <!-- Overlay effect when opening sidebar on small screens -->
+  <div class="w3-overlay w3-hide-large w3-animate-opacity" onclick="w3_close()" style="cursor:pointer"
+    title="close side menu" id="myOverlay">=</div>
+
+  <!-- !PAGE CONTENT! -->
+  <div class="w3-main" style="margin-left:300px">
+    <button onclick="topFunction()" id="myBtn" title="Go to top">Lên đầu trang</button>
+    <!-- Header -->
+    <header id="portfolio">
+      <!--<a href="#"><img src="/w3images/avatar_g2.jpg" style="width:65px;"
+          class="w3-circle w3-right w3-margin w3-hide-large w3-hover-opacity"></a>-->
+      <span class="w3-button w3-hide-large w3-xxlarge w3-hover-text-grey" onclick="w3_open()">=</span>
+      <div class="w3-container">
+        <h1><b>Bài 2: Thiết kế giao diện với HTML và CSS</b></h1>
+      </div>
+    </header>
+    <div class="w3-container w3-padding-large" style="margin-bottom:32px">
+      <div class="w3-center">
+        <div class="pagination">
+          <a href="Bai02.html">Bài trước</a>
+          <a href="Bai04.html">Bài tiếp theo</a>
+        </div>
+      </div>
+      <div class="w3-code notranslate htmlHigh">
+        <h4>Nội dung bài học</h4>
+        <ol>
+          <li><a href="#muc1">Tổng quan về CSS</a>
+            <ul>
+              <li><a href="#muc1_1">Khái niệm chung</a>
+              <li><a href="#muc1_2">Bộ chọn (Selector)</a>
+              <li><a href="#muc1_3"> Cú pháp trình bày CSS</a>
+              <li><a href="#muc1_4">Các hình thức kết hợp CSS vào trang HTML</a>
+
+            </ul>
+          </li>
+          <li><a href="#muc2">Thiết kế giao diện với HTML và CSS</a>
+            <ul>
+              <li><a href="#muc3">CSS cơ bản</a></li>
+              <li><a href="#muc4">CSS nâng cao</a></li>
+            </ul>
+          </li>
+        </ol>
+      </div>
+      <h4 id="muc1"><b>1. Tổng quan về CSS</b></h4>
+      <h4><b>Tham khảo: Bài giảng Nhập môn CSS (Phần 1)</b></h4>
+      <div class="container">
+        <iframe class="responsive-iframe" width="560" height="315" src="https://www.youtube.com/embed/_oCwPdT14iQ"
+          title="YouTube video player" frameborder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allowfullscreen></iframe>
+      </div>
+      <h5 id="muc1_1"><b>1.1. Khái niệm chung</b></h5>
+      <p>
+        CSS viết tắt của từ Cascading Style Sheets, nhiệm vụ của nó là tách riêng phần định dạng (style) ra khỏi nội
+        dung
+        trang HTML.</p>
+      <p> Khi sử dụng css chúng ta sẽ dễ dàng quản lý nội dung trang HTML, dễ điều khiển phần định dạng, và đặc biệt là
+        sẽ
+        tốn ít thời gian khi code hay chỉnh sửa.</p>
+      <h5 id="muc1_2"><b>1.2. Bộ chọn (Selector)</b></h5>
+      <p>Bộ chọn (selector) được dùng để chọn các thành phần muốn định dạng css. Bộ chọn có thể
+        phân loại như sau:</p>
+      <p style="color:yellow">Bộ chọn các phần tử (the element selector): dùng để chọn các phần tử dựa vào tên của
+        chúng.</p>
+      <p>Ví dụ chọn tất cả
+        phần tử p. Nhấn nút
+        <b>Chạy thử</b> để xem kết quả.
+      </p>
+      <form>
+        <textarea name="sourceCode" id="sourceCode18">
+    <!DOCTYPE html>
+    <html>
+           <head>
+                <style>
+                   p {
+                      text-align: center;
+                      color: red;
+                    }
+                </style>
+           </head>
+           <body>
+            <p>Đoạn văn bản 1</p>
+            <p>Đoạn văn bản 2</p>
+            <p>Đoạn văn bản 3</p>
+           </body>
+    </html>
+      </textarea>
+        <input id="btn18" onclick="runCode18();" type="button" value="Chạy thử">
+
+      </form>
+      <iframe name="targetCode" id="iframe18"></iframe>
+      <p style="color:yellow">Bộ chọn id: dùng để chọn các phần tử theo giá trị của thuộc tính id cùa các phần tử đó. id
+        của một phần tử là duy nhất trong một trang, vì vậy bộ chọn id dùng để chọn một phần tử duy nhất. Để chọn một
+        phần tử với một id cụ thể, chúng ta viết dấu # trước giá trị thuộc tính id của phần tử. </p>
+      <p>Ví dụ chọn tất cả các phần tử có id= "para1"
+        . Nhấn nút
+        <b>Chạy thử</b> để xem kết quả.
+      </p>
+      <form>
+        <textarea name="sourceCode" id="sourceCode19">
+    <!DOCTYPE html>
+    <html>
+           <head>
+                <style>
+                   #para1 {
+                      text-align: center;
+                      color: red;
+                    } 
+                </style>
+           </head>
+           <body>
+              <p id="para1">Nội dung được định dạng dùng id.</p>
+              <p>Nội dung không được định dạng.</p>
+           </body>
+    </html>
+      </textarea>
+        <input id="btn19" onclick="runCode19();" type="button" value="Chạy thử">
+
+      </form>
+      <iframe name="targetCode" id="iframe19"></iframe>
+
+      <p style="color:yellow">Bộ chọn class: dùng để chọn các phần tử theo giá trị của thuộc tính class cùa các phần tử
+        đó. Để chọn một phần tử với một class cụ thể, chúng ta viết dấu chấm (.) trước giá trị thuộc tính class của phần
+        tử.
+      </p>
+      <p>Ví dụ chọn tất cả các phần tử có class= "center"
+        . Nhấn nút
+        <b>Chạy thử</b> để xem kết quả.
+      </p>
+      <form>
+        <textarea name="sourceCode" id="sourceCode20">
+    <!DOCTYPE html>
+    <html>
+           <head>
+                <style>
+                   .center {
+                      text-align: center;
+                      color: red;
+                    } 
+                </style>
+           </head>
+           <body>
+              <p class="center">Nội dung được định dạng dùng class.</p>
+              <p>Nội dung không được định dạng.</p>
+           </body>
+    </html>
+      </textarea>
+        <input id="btn20" onclick="runCode20();" type="button" value="Chạy thử">
+
+      </form>
+      <iframe name="targetCode" id="iframe20"></iframe>
+
+      <p>Một số bộ chọn phổ biến có thể được liệt kê như bảng sau:</p>
+      <table id="tab">
+        <tr>
+          <th>Bộ chọn</th>
+          <th>Ví dụ</th>
+          <th>Mô tả</th>
+        </tr>
+        <tr>
+          <td> *</td>
+          <td>*</td>
+          <td>Chọn tất cả các thành phần html.</td>
+        </tr>
+        <tr>
+          <td>tag</td>
+          <td>p</td>
+          <td>Chọn tất cả các nội dung được đánh dấu bởi <b>tag</b>.</td>
+        </tr>
+        <tr>
+          <td>tag01 tag02</td>
+          <td>div p</td>
+          <td>Chọn tất cả các nội dung được đánh dấu bởi <b>tag02</b> bên trong <b>tag01</b>.</td>
+        </tr>
+        <tr>
+          <td>tag01, tag02</td>
+          <td>div, p</td>
+          <td>Chọn tất cả các nội dung được đánh dấu bởi <b>tag01</b> và <b>tag02</b>.</td>
+        </tr>
+        <tr>
+          <td>tag01 + tag02</td>
+          <td>div + p</td>
+          <td>Chọn tất cả các nội dung được đánh dấu bởi <b>tag02</b> đặt kế và sau <b>tag01</b>.</td>
+        </tr>
+        <tr>
+          <td>tag01 > tag02</td>
+          <td>div > p</td>
+          <td>Chọn tất cả các nội dung được đánh dấu bởi <b>tag02</b> có cha là <b>tag01</b>.</td>
+        </tr>
+        <tr>
+          <td>.class</td>
+          <td>.header</td>
+          <td>Chọn tất cả các nội dung được đánh dấu bởi thành phần tên <b>class</b>.</td>
+        </tr>
+        <tr>
+          <td>#id</td>
+          <td>#content</td>
+          <td>Chọn tất cả các nội dung được đánh dấu bởi thành phần tên <b>id</b>.</td>
+        </tr>
+        <tr>
+          <td>:active</td>
+          <td>a:active</td>
+          <td>Chọn các liên kết được kích hoạt.</td>
+        </tr>
+        <tr>
+          <td>::after</td>
+          <td>p::after</td>
+          <td>Thêm nội dung ngay phía sau thành phần (ví dụ p).</td>
+        </tr>
+        <tr>
+          <td>::before</td>
+          <td>p::before</td>
+          <td>Thêm nội dung ngay phía trước thành phần (ví dụ p).</td>
+        </tr>
+        <tr>
+          <td>:first-child</td>
+          <td>p:first-child</td>
+          <td>Chọn thành phần đầu tiên của thành phần cha chứa nó.</td>
+        </tr>
+        <tr>
+          <td>::first-letter</td>
+          <td>p::first-letter</td>
+          <td>Chọn ký tự đầu tiên của một thành phần (ví dụ p).</td>
+        </tr>
+        <tr>
+          <td>::first-line</td>
+          <td>p::first-line</td>
+          <td>Chọn dòng đầu tiên của một thành phần (ví dụ p).</td>
+        </tr>
+        <tr>
+          <td>:focus</td>
+          <td>input:focus</td>
+          <td>Thành phần sẽ focus khi được chọn.</td>
+        </tr>
+        <tr>
+          <td>:hover</td>
+          <td>a:hover</td>
+          <td>Chọn các liên kết được hover (di chuyển chuột lên thành phần).</td>
+        </tr>
+        <tr>
+          <td>lang(mã ngôn ngữ)</td>
+          <td>p:lang(vi)</td>
+          <td>Chọn thành phần (p) với thuộc tính ngôn ngữ (lang) có giá trị bắt đầu với "mã ngôn ngữ" (vi).</td>
+        </tr>
+        <tr>
+          <td>:link</td>
+          <td>a:link</td>
+          <td>Định dạng cho tất cả liên kết khi chưa được click.</td>
+        </tr>
+        <tr>
+          <td>:visit</td>
+          <td>a:visit</td>
+          <td>Định dạng cho các thành phần đã được click.</td>
+        </tr>
+        <tr>
+          <td>[Thuộc tính]</td>
+          <td>[target]</td>
+          <td>Chọn tất cả các thành phần có cùng thuộc tính (attribute).</td>
+        </tr>
+        <tr>
+          <td>[Thuộc tính|=ngôn ngữ]</td>
+          <td>[lang|=vi]</td>
+          <td>Được sử dụng để chọn tất cả các thành phần với thuộc tính (lang) có giá trị = "ngôn ngữ" (vi).</td>
+        </tr>
+        <tr>
+          <td>[Thuộc tính~=giá trị]</td>
+          <td>[title~=myWeb]</td>
+          <td>Chọn tất cả các thành phần với thuộc tính chứa một giá trị.</td>
+        </tr>
+        <tr>
+          <td>[Thuộc tính=giá trị]</td>
+          <td>[target=_blank]</td>
+          <td>Chọn tất cả các thành phần với thuộc tính bằng giá trị.</td>
+        </tr>
+      </table>
+      <p>Sử dụng các bộ chọn sẽ được đề cập trong phần sau của bài này.</p>
+      <h5 id="muc1_3"><b>1.3. Cú pháp trình bày CSS</b></h5>
+      <img src="img/css.png" class="center">
+      <p>Về cơ bản cú pháp của CSS bao gồm 2 phần chính: <b>bộ chọn (selector)</b> và <b>khai báo (declaration)</b>. Bộ
+        chọn dùng để
+        xác
+        định đối tượng nào sẽ chịu ảnh hưởng và khai báo sẽ quyết định đối tượng đó bị ảnh hưởng như thế nào. Ở hình
+        trên,
+        thẻ <b>h1</b> là bộ chọn và phần
+        <b>{color: blue; font-size:12px;}</b> là khai báo.
+      </p>
+      <p>Trong khai báo cũng có 2 phần là: <b>thuộc tính (property)</b> và <b>giá trị (value)</b>. Thuộc tính quyết định
+        cái gì sẽ
+        chịu
+        ảnh hưởng và giá trị quyết định nó sẽ bị ảnh hưởng như thế nào. Ở hình trên <b>color</b> và <b>font-size</b> là
+        các thuộc tính
+        và chúng quyết định sẽ tác động đến màu chữ và kích cỡ chữ của h3; <b>blue</b> và <b>12px</b> là các giá trị và
+        chúng quyết
+        định
+        màu chữ sẽ là màu xanh và kích cỡ chữ là 12 pixels.</p>
+
+      <h5 id="muc1_4"><b>1.4. Các hình thức kết hợp CSS vào trang HTML</b></h5>
+      <p><b>Sử dụng thuộc tính style</b></p>
+      <p>Ví dụ:</p>
+      <div class="w3-code notranslate htmlHigh">
+        &lt;h1 style="color:blue;margin-left:30px;"&gt;
+      </div>
+      <p>&#9755; Có thể xem kết quả khi mở trang web bằng cách nhấn nút <b>Chạy thử</b> </p>
+      <form>
+        <textarea name="sourceCode" id="sourceCode1">
+  <!DOCTYPE html>
+  <html>
+         <head>
+              <style>
+  
+              </style>
+         </head>
+         <body>
+          <h1 style="color:blue;margin-left:30px;">Thiết  kế  website  </h1>
+          <p>  Đây  là  trang  web  đầu  tiên  của  tôi.</p>          
+         </body>
+  </html>
+    </textarea>
+        <input id="btn1" onclick="runCode1();" type="button" value="Chạy thử">
+
+      </form>
+      <iframe name="targetCode" id="iframe1"></iframe>
+      <div class="w3-code notranslate htmlHigh">
+        <h5><b>&#9755; Bài tập:</b></h5>
+        <h5><b>color</b> và <b>margin-left</b> là các thuộc tính CSS. Thay đổi giá trị các thuộc tính color là yellow và
+          margin-left là 50px. Nhấn nút <b>Chạy
+            thử</b> để xem kết quả.</b></h5>
+      </div>
+
+      <p><b>Sử dụng thẻ &lt;style &gt;</b></p>
+      <p>Ví dụ:</p>
+      <div class="w3-code notranslate htmlHigh">
+        &lt;head&gt;<br>
+        &nbsp;&nbsp;&lt;style&gt;<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;h1 {<br>
+        &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;color:blue;<br>
+        &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;margin-left:30px;<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;}<br>
+        &nbsp;&nbsp;&lt;/style&gt;<br>
+        &lt;/head&gt;<br>
+      </div>
+      <p>&#9755; Có thể xem kết quả khi mở trang web bằng cách nhấn nút <b>Chạy thử</b> </p>
+      <form>
+        <textarea name="sourceCode" id="sourceCode2">
+  <!DOCTYPE html>
+  <html>
+         <head>
+              <style>
+                  h1{
+                      color:blue;
+                      margin-left:30px;
+                    }
+              </style>
+         </head>
+         <body>
+          <h1>Thiết  kế  website  </h1>
+          <p>  Đây  là  trang  web  đầu  tiên  của  tôi.</p>          
+         </body>
+  </html>
+    </textarea>
+        <input id="btn2" onclick="runCode2();" type="button" value="Chạy thử">
+
+      </form>
+      <iframe name="targetCode" id="iframe2"></iframe>
+      <div class="w3-code notranslate htmlHigh">
+        <h5><b>&#9755; Bài tập:</b></h5>
+        <h5>Thay đổi bộ chọn <b>h1</b> thành <b>p</b>. Nhấn nút <b>Chạy
+            thử</b> để xem kết quả.</b></h5>
+      </div>
+
+      <p><b>Liên kết tập tin</b></p>
+      <ul>
+        <li>Tạo tập tin riêng để viết CSS và tập tin này có phần mở rộng là css (ví dụ style.css).</li>
+        <li>Dùng thẻ <b>&lt;link&gt;</b> đặt trong cặp thẻ <b>&lt;head&gt;</b> để liên kết đến tập tin css.</li>
+      </ul>
+      <p>Ví dụ tập tin CSS tên <b>style.css</b> có nội dung sau:</p>
+      <div class="w3-code notranslate htmlHigh">
+        &nbsp;&nbsp;h1 {<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;color:blue;<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;margin-left:30px;<br>
+        &nbsp;&nbsp;}<br>
+      </div>
+      <p>Liên kết đến tập tin CSS tên <b>style.css</b> dùng thẻ <b>&lt;link&gt;</b> đặt trong cặp thẻ
+        <b>&lt;head&gt;</b>
+      </p>
+      <p>Chú ý: Hai tập tin *.css và *.html trong trường hợp này đặt trong cùng một thư mục. Nếu các tập tin đặt khác
+        thư mục hay ổ đĩa thì cần chỉ rõ đường dẫn đến tập tin CSS.</p>
+      <div class="w3-code notranslate htmlHigh">
+        &lt;head&gt;<br>
+        &nbsp;&nbsp;&lt;link rel="stylesheet" type="text/css" href="style.css"&gt;<br>
+        &lt;/head&gt;<br>
+      </div>
+      <p>&#9755; Có thể xem kết quả khi mở trang web bằng cách nhấn nút <b>Chạy thử</b> </p>
+      <form>
+        <textarea name="sourceCode" id="sourceCode3">
+  <!DOCTYPE html>
+  <html>
+         <head>
+          <link  rel="stylesheet"  type="text/css"  href="style.css">
+         </head>
+         <body>
+          <h1>Thiết  kế  website  </h1>
+          <p>  Đây  là  trang  web  đầu  tiên  của  tôi.</p>          
+         </body>
+  </html>
+    </textarea>
+        <input id="btn3" onclick="runCode3();" type="button" value="Chạy thử">
+
+      </form>
+      <iframe name="targetCode" id="iframe3"></iframe>
+
+      <h4 id="muc2"><b>2. Thiết kế giao diện với HTML và CSS</b></h4>
+      <h4><b>Tham khảo: Bài giảng Nhập môn CSS (Phần 2)</b></h4>
+      <div class="container">
+        <iframe class="responsive-iframe" width="560" height="315" src="https://www.youtube.com/embed/zj5vQufeIaA"
+          title="YouTube video player" frameborder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allowfullscreen></iframe>
+      </div>
+      <h5 id="muc3"><b>2.1. CSS cơ bản</b></h5>
+      <p>Trong mục này chúng ta sẽ cùng tìm hiểu các thuộc tính CSS cơ bản và cách sử dụng chúng để định dạng các thành
+        phần trên một trang web như văn bản, danh sách, bảng biểu,...</p>
+      <h5><b>Chữ, kiểu chữ (text)</b></h5>
+      <table id="tab">
+        <tr>
+          <th>Thuộc tính</th>
+          <th>Mô tả</th>
+        </tr>
+        <tr>
+          <td>text-align </td>
+          <td>Căn lề chữ gồm center, left, right, justify. Tham khảo thêm <a
+              href="https://www.w3schools.com/cssref/pr_text_text-align.asp">tại đây</a>.</td>
+        </tr>
+        <tr>
+          <td>font-family </td>
+          <td>Định dạng kiểu chữ như Arial, Helvetica, sans-serif,... Tham khảo thêm <a
+              href="https://www.w3schools.com/cssref/pr_font_font-family.asp">tại đây</a>.</td>
+        </tr>
+        <tr>
+          <td>font-size</td>
+          <td>Định dạng cỡ chữ như 100%, 2.5em, 30px,...Tham khảo thêm <a
+              href="https://www.w3schools.com/cssref/pr_font_font-size.asp">tại đây</a>.</td>
+        </tr>
+        <tr>
+          <td>font-weight</td>
+          <td>Định dạng độ in đậm của chữ gồm các giá trị hay dùng là bold hay normal. Tham khảo thêm <a
+              href="https://www.w3schools.com/cssref/pr_font_weight.asp">tại đây</a>.</td>
+        </tr>
+        <tr>
+          <td>font-style</td>
+          <td>Định dạng độ in nghiêng của chữ gồm các giá trị hay dùng là italic hay normal. Tham khảo thêm <a
+              href="https://www.w3schools.com/cssref/pr_font_font-style.asp">tại đây</a>.</td>
+        </tr>
+        <tr>
+          <td>letter-spacing</td>
+          <td>Định dạng khoảng cách giữa các kí tự như 2px, -1px,...Tham khảo thêm <a
+              href="https://www.w3schools.com/cssref/pr_text_letter-spacing.asp">tại đây</a>.</td>
+        </tr>
+        <tr>
+          <td>text-decoration</td>
+          <td>Xác định chữ có gạch dưới hay không. Một số giá trị hay dùng gồm overline, line-through, underline,...Tham
+            khảo thêm <a href="https://www.w3schools.com/cssref/pr_text_text-decoration.asp">tại đây</a>.
+          </td>
+        </tr>
+        <tr>
+          <td>line-height</td>
+          <td>Định dạng khoảng cách giữa dòng như normal, 80%, 1.5cm, 10px,...Tham khảo thêm <a
+              href="https://www.w3schools.com/cssref/pr_dim_line-height.asp">tại đây</a>.</td>
+        </tr>
+        <tr>
+          <td>word-spacing</td>
+          <td>Định dạng khoảng cách giữa các từ như normal, 20px,...Tham khảo thêm <a
+              href="https://www.w3schools.com/cssref/pr_text_word-spacing.asp">tại đây</a>.</td>
+        </tr>
+      </table>
+      <p>&#9755; Ví dụ về cách sử dụng các thuộc tính kiểu chữ. Có thể xem kết quả khi mở trang web bằng cách nhấn nút
+        <b>Chạy thử</b>
+      </p>
+      <form>
+        <textarea name="sourceCode" id="sourceCode4">
+  <!DOCTYPE html>
+  <html>
+         <head>
+              <style>
+                  h1, p{
+                    font-family:  "Times  New  Roman",  Times,  serif;
+                    }
+                    p{
+                      font-weight: bold;
+                      font-size: medium;
+                    }
+              </style>
+         </head>
+         <body>
+          <h1>Thiết  kế  website  </h1>
+          <p>  Đây  là  trang  web  đầu  tiên  của  tôi.</p>          
+         </body>
+  </html>
+    </textarea>
+        <input id="btn4" onclick="runCode4();" type="button" value="Chạy thử">
+
+      </form>
+      <iframe name="targetCode" id="iframe4"></iframe>
+      <div class="w3-code notranslate htmlHigh">
+        <h5><b>&#9755; Bài tập:</b></h5>
+        <h5>Thêm các thuộc tính font-style, text-decoration đến <b>h1</b>. Nhấn nút <b>Chạy
+            thử</b> để xem kết quả.</b></h5>
+      </div>
+      <p><b>Màu sắc (color)</b></p>
+      <table id="tab">
+        <tr>
+          <th>Thuộc tính</th>
+          <th>Mô tả</th>
+        </tr>
+        <tr>
+          <td>color </td>
+          <td>Định dạng màu chữ. Tham khảo thêm <a href="https://www.w3schools.com/css/css_text.asp">tại đây</a>.</td>
+        </tr>
+        <tr>
+          <td>background-color</td>
+          <td>Định dạng màu nền. Tham khảo thêm <a href="https://www.w3schools.com/cssref/pr_background-color.asp">tại
+              đây</a>.</td>
+        </tr>
+
+      </table>
+
+      <p>Giá trị màu có thể là tên màu (tiếng Anh) như red, yellow,…; có thể là các giá trị theo cách kết hợp màu RGB
+        như rgb(255,0,0); có thể là giá trị thập lục phân (có dấu # đi kèm) như #ff0000.
+        Chi tiết tên màu và mã màu <a href="http://www.w3schools.com/colors/default.asp">tại đây</a>.</p>
+
+      <p>&#9755; Ví dụ về cách sử dụng các thuộc tính màu chữ và màu nền. Có thể xem kết quả khi mở trang web bằng cách
+        nhấn nút
+        <b>Chạy thử</b>
+      </p>
+      <form>
+        <textarea name="sourceCode" id="sourceCode5">
+  <!DOCTYPE html>
+  <html>
+         <head>
+              <style>
+                  body{
+                    background-color: red;
+                  }
+                  h1{
+                    color: white;
+                  }
+                  p{
+                    color: yellow;
+                  }
+              </style>
+         </head>
+         <body>
+          <h1>Thiết  kế  website  </h1>
+          <p>  Đây  là  trang  web  đầu  tiên  của  tôi.</p>          
+         </body>
+  </html>
+    </textarea>
+        <input id="btn5" onclick="runCode5();" type="button" value="Chạy thử">
+
+      </form>
+      <iframe name="targetCode" id="iframe5"></iframe>
+
+      <div class="w3-code notranslate htmlHigh">
+        <h5><b>&#9755; Bài tập:</b></h5>
+        <h5>Thay đổi các giá trị màu hay thêm các thuộc tính color và background-color đến h1 và p tùy ý. Nhấn nút
+          <b>Chạy
+            thử</b> để xem kết quả.</b>
+        </h5>
+      </div>
+      <h5><b>Liên kết (link)</b></h5>
+      <p>Liên kết có thể được định dạng bởi các thuộc tính như color, background,...
+        Liên kết có 4 trạng thái như sau:</p>
+      <table id="tab">
+        <tr>
+          <th>Trạng thái</th>
+          <th>Mô tả</th>
+        </tr>
+        <tr>
+          <td>a:link </td>
+          <td>Trạng thái khi liên kết chưa được nhấp chuột (unvisited link).</td>
+        </tr>
+        <tr>
+          <td>a:visited</td>
+          <td>Trạng thái khi iên kết đã được nhấp chuột (visited link).</td>
+        </tr>
+        <tr>
+          <td>a:hover</td>
+          <td>Trạng thái khi di chuyển chuột qua liên kết (mouse over link).</td>
+        </tr>
+        <tr>
+          <td>a:active</td>
+          <td>Trạng thái khi liên kết được nhấp chuột (selected link).</td>
+        </tr>
+      </table>
+      <p id="lk">&#9755; Ví dụ về cách khai báo các trạng thái của liên kết. Chú ý khai báo đúng thứ tự các trạng thái
+        lần lượt
+        là :link, :visited, :hovever và :active. Có
+        thể xem kết quả khi mở trang web bằng cách
+        nhấn nút
+        <b>Chạy thử</b>
+      </p>
+      <form>
+        <textarea name="sourceCode" id="sourceCode6">
+  <!DOCTYPE html>
+  <html>
+         <head>
+              <style>
+                  /*  unvisited  link  */ 
+                  a:link  {
+                      color:  red;
+                  }
+                  /*  visited  link  */ 
+                  a:visited  {
+                    color:  green;
+                  }
+                  /*  mouse  over  link  */ 
+                  a:hover  {
+                    color:  hotpink;
+                  }
+                  /*  selected  link  */ 
+                  a:active  {
+                    color:  blue;
+                  }
+              </style>
+         </head>
+         <body>
+          <p>Chú ý khai báo đúng thứ tự các trạng thái lần lượt
+            là :link, :visited, :hovever và :active.</p>
+          <h1><a href="#">Đây là liên kết.</h1>          
+         </body>
+  </html>
+    </textarea>
+        <input id="btn6" onclick="runCode6();" type="button" value="Chạy thử">
+
+      </form>
+      <iframe name="targetCode" id="iframe6"></iframe>
+      <div class="w3-code notranslate htmlHigh">
+        <h5><b>&#9755; Bài tập:</b></h5>
+        <h5>Thay đổi các giá trị màu thuộc tính color của các trạng thái. Nhấn nút
+          <b>Chạy
+            thử</b> để xem kết quả.</b>
+        </h5>
+      </div>
+      <h5><b>Danh sách (List)</b></h5>
+      <p>Sử dụng các thuộc tính <b>list-style-type</b> có thể đánh dấu các kiểu khác nhau cho danh sách thứ tự và không
+        thứ tự.</p>
+
+      <p>&#9755; Ví dụ về cách khai báo CSS với danh sách ul và ol. Có
+        thể xem kết quả khi mở trang web bằng cách
+        nhấn nút
+        <b>Chạy thử</b>
+      </p>
+      <form>
+        <textarea name="sourceCode" id="sourceCode7">
+  <!DOCTYPE html>
+  <html>
+         <head>
+              <style>
+                  ul.a  {
+                    list-style-type:  circle;
+                  }
+                  ul.b  {
+                    list-style-type:  square;
+                  }
+                  ol.c  {
+                    list-style-type:  upper-roman;
+                  }
+                  ol.d  {
+                    list-style-type:  lower-alpha;
+                  }
+              </style>
+         </head>
+         <body>
+          <p>Danh sách không thứ tự:</p>
+          <ul class="a">
+            <li>Coffee</li>
+            <li>Tea</li>
+            <li>Coca Cola</li>
+          </ul>
+          <ul class="b">
+            <li>Coffee</li>
+            <li>Tea</li>
+            <li>Coca Cola</li>
+          </ul>
+          <p>Danh sách có thứ tự:</p>
+          <ol class="c">
+            <li>Coffee</li>
+            <li>Tea</li>
+            <li>Coca Cola</li>
+          </ol>
+          <ol class="d">
+            <li>Coffee</li>
+            <li>Tea</li>
+            <li>Coca Cola</li>
+          </ol>       
+         </body>
+  </html>
+    </textarea>
+        <input id="btn7" onclick="runCode7();" type="button" value="Chạy thử">
+
+      </form>
+      <iframe name="targetCode" id="iframe7"></iframe>
+      <div class="w3-code notranslate htmlHigh">
+        <h5><b>&#9755; Bài tập:</b></h5>
+        <h5>Trong các thẻ ol và ul có chứa thuộc tính class. Thử bỏ thuộc tính này và nhấn nút
+          <b>Chạy
+            thử</b> để xem kết quả.</b>
+        </h5>
+      </div>
+
+      <h5><b>Bảng biểu (table)</b></h5>
+      <p>Sử dụng các thuộc tính CSS sau đây để định dạng viền, chiều rộng và chiều cao của bảng biểu.</p>
+      <table id="tab">
+        <tr>
+          <th>Thuộc tính</th>
+          <th>Mô tả</th>
+        </tr>
+        <tr>
+          <td>border </td>
+          <td>Định dạng viền cho bảng biểu. Mặc định là viền kép.</td>
+        </tr>
+        <tr>
+          <td>border-collapse</td>
+          <td>Định dạng viền viền kép sang viền đơn.</td>
+        </tr>
+        <tr>
+          <td>width</td>
+          <td>Định dạng chiều rộng bảng biểu.</td>
+        </tr>
+        <tr>
+          <td>height</td>
+          <td>Định dạng chiều cao bảng biểu.</td>
+        </tr>
+      </table>
+      <p>&#9755; Ví dụ khai báo CSS định dạng bảng biểu. Có
+        thể xem kết quả khi mở trang web bằng cách
+        nhấn nút
+        <b>Chạy thử</b>
+      </p>
+      <form>
+        <textarea name="sourceCode" id="sourceCode8">
+  <!DOCTYPE html>
+  <html>
+         <head>
+              <style>
+                  table,  th,  td  {
+                    border:  1px  solid  black;
+                  }
+                  table  {
+                    border-collapse:  collapse;
+                    width:  100%;
+                  }
+                  th{
+                    height:  50px;
+                  }
+              </style>
+         </head>
+         <body>
+          <h2>Bảng biểu:</h2>
+          <table>
+            <tr>
+              <th>Firstname</th>
+              <th>Lastname</th>
+            </tr>
+            <tr>
+              <td>Peter</td>
+              <td>Griffin</td>
+            </tr>
+            <tr>
+              <td>Lois</td>
+              <td>Griffin</td>
+            </tr>
+          </table>
+  
+         </body>
+  </html>
+    </textarea>
+        <input id="btn8" onclick="runCode8();" type="button" value="Chạy thử">
+
+      </form>
+      <iframe name="targetCode" id="iframe8"></iframe>
+      <div class="w3-code notranslate htmlHigh">
+        <h5><b>&#9755; Bài tập:</b></h5>
+        <h5>Thay đổi các thuộc tính CSS và giá trị, ví dụ khai báo <b>border: 2px dotted blue</b> và bỏ thuộc tính
+          <b>border-collapse</b>. Nhấn nút
+          <b>Chạy
+            thử</b> để xem kết quả.</b>
+        </h5>
+      </div>
+      <h5><b>Box Model</b></h5>
+      <p>Mỗi phần tử HTML được xem như một chiếc hộp (box). Cách nhìn về thiết kế (design) và bố cục (layout) trong CSS,
+        xem mỗi phần tử HTML như một chiếc hộp, gọi là Box Model.</p>
+      <p>CSS Box Model là một chiếc hộp bao quanh mọi phần tử HTML. Chiếc hộp này gồm: margin, padding, boder và nội
+        dung của phần tử HTML. Xem hình sau:
+      </p>
+      <img src="img/box_01.png" class="center">
+      <p>Chi tiết hơn:</p>
+      <img src="img/box_02.png" class="center">
+      <h5><b>Kích thước</b></h5>
+      <p> Để có thể thiết lập kích thước (width, height) của một phần tử chính xác cho mọi trình duyệt, chúng ta cần
+        hiểu về
+        Box Model.</p>
+      <p>Khi chúng ta thiết lập kích thước của một phần tử, chúng ta chỉ thiết lập cho phần nội dung (content) của phần
+        tử
+        đó. Để tính kích thước đầy đủ của phần tử, chúng ta cần tính thêm border, margin và padding. Công thức cụ thể:
+      </p>
+      <p>
+        <b>Chiều rộng (width) = Chiều rộng nội dung+ left padding + right padding + left border + right border + left
+          margin
+          + right margin</b>
+      </p>
+      <p><b>Chiều cao (height) = Chiều cao nội dung + top padding + bottom padding + top border
+          + bottom border + top margin + bottom margin</b></p>
+      <p> Ví dụ khai báo CSS phần tử div như sau:</p>
+      <div class="w3-code notranslate htmlHigh">
+        div {<br>
+        &nbsp;&nbsp;width: 320px; padding: 10px;<br>
+        &nbsp;&nbsp;border: 5px solid gray; margin: 0;<br>
+        }
+      </div>
+      <p> Chiều rộng phần tử div = Chiều rộng nội dung (320px) + left padding (10px) + right padding (10px) + left
+        border (5px)+right border (5px) + left margin (0) + right margin (0) = 350px.</p>
+      <h5><b>Khung viền</b></h5>
+      <p>Bao quanh phần padding và nội dung của phần tử HTML. Khung viền của phần tử HTML gồm có các thuộc tính CSS và
+        giá
+        trị như sau:</p>
+      <table id="tab">
+        <tr>
+          <th>Thuộc tính</th>
+          <th>Mô tả</th>
+        </tr>
+        <tr>
+          <td>border-style </td>
+          <td>Xác định kiểu khung viền. Gồm các giá trị: dotted, dashed, solid, double, groove, ridge, inset, outset,
+            none, hidden.</td>
+        </tr>
+        <tr>
+          <td>border-width</td>
+          <td>Xác định độ dày của khung viền.</td>
+        </tr>
+        <tr>
+          <td>border-color</td>
+          <td>Xác định màu sắc khung viền.</td>
+        </tr>
+
+      </table>
+      <p> Ví dụ khai báo khung viền cho phần tử p với 4 cạnh là kiểu solid, màu đỏ và độ dày 5px như sau:</p>
+      <div class="w3-code notranslate htmlHigh">
+        p {<br>
+        &nbsp;&nbsp;border: 5px solid red;<br>
+        }
+      </div>
+      <p>Cũng với phần tử p trên nhưng mỗi cạnh của border sẽ có một kiểu khác nhau (có thể màu sắc khác nhau hay độ dày
+        khác nhau), xét các khai báo sau (tương tự với màu sắc và độ dày):</p>
+      <div class="w3-code notranslate htmlHigh">
+        p {<br>
+        &nbsp;&nbsp;border-top-style: solid; <br>
+        &nbsp;&nbsp;border-right-style: dotted; <br>
+        &nbsp;&nbsp;border-bottom-style: dashed; <br>
+        &nbsp;&nbsp;border-left-style: groove;<br>
+        }
+      </div>
+      <p>Tương đương khai báo:</p>
+      <div class="w3-code notranslate htmlHigh">
+        p {<br>
+        &nbsp;&nbsp;border-style: solid dotted dashed groove;<br>
+        }
+      </div>
+      <p>Khai báo:</p>
+      <div class="w3-code notranslate htmlHigh">
+        p {<br>
+        &nbsp;&nbsp;border-top-style: solid; <br>
+        &nbsp;&nbsp;border-right-style: dotted; <br>
+        &nbsp;&nbsp;border-bottom-style: dashed; <br>
+        &nbsp;&nbsp;border-left-style: dashed;<br>
+        }
+      </div>
+      <p>Tương đương khai báo:</p>
+      <div class="w3-code notranslate htmlHigh">
+        p {<br>
+        &nbsp;&nbsp;border-style: solid dotted dashed;<br>
+        }
+      </div>
+      <p>&#9755; Ví dụ khai báo kiểu viền dùng border-style. Có
+        thể xem kết quả khi mở trang web bằng cách
+        nhấn nút
+        <b>Chạy thử</b>
+      </p>
+      <form>
+        <textarea name="sourceCode" id="sourceCode8">
+  <!DOCTYPE html>
+  <html>
+         <head>
+              <style>
+                  p {
+                      border-style:  solid  dotted  dashed;
+                  }
+              </style>
+         </head>
+         <body>
+         <h1>Nhập môn thiết kế web.</h1>
+         <p>Đây là nội dung website.</p>
+         </body>
+  </html>
+    </textarea>
+        <input id="btn9" onclick="runCode9();" type="button" value="Chạy thử">
+
+      </form>
+      <iframe name="targetCode" id="iframe9"></iframe>
+      <div class="w3-code notranslate htmlHigh">
+        <h5><b>&#9755; Bài tập:</b></h5>
+        <h5>Thay đổi các thuộc tính CSS và giá trị, ví dụ khai báo <b>border: 2px dotted blue</b> và bỏ thuộc tính
+          <b>border-collapse</b>. Nhấn nút
+          <b>Chạy
+            thử</b> để xem kết quả.</b>
+        </h5>
+      </div>
+      <h5><b>Margin</b></h5>
+      <p> Là vùng không gian bao quanh khung viền (border). Ví dụ khai báo độ dày của 4 cạnh margin của phần tử p như
+        sau:</p>
+      <div class="w3-code notranslate htmlHigh">
+        p {<br>
+        &nbsp;&nbsp;margin-top: 100px; <br>
+        &nbsp;&nbsp;margin-right: 150px; <br>
+        &nbsp;&nbsp;margin-bottom: 100px; <br>
+        &nbsp;&nbsp;margin-left: 80px;<br>
+        }
+      </div>
+      <p>Tương đương khai báo:</p>
+      <div class="w3-code notranslate htmlHigh">
+        p {<br>
+        &nbsp;&nbsp;margin: 100px 150px 100px 80px;<br>
+        }
+      </div>
+      <p>Khai báo:</p>
+      <div class="w3-code notranslate htmlHigh">
+        p {<br>
+        &nbsp;&nbsp;margin: 25px 50px 75px;<br>
+        }
+      </div>
+      <p>Tương đương khai báo:</p>
+      <div class="w3-code notranslate htmlHigh">
+        p {<br>
+        &nbsp;&nbsp;margin-top: 25px; <br>
+        &nbsp;&nbsp;margin-right: 50px; <br>
+        &nbsp;&nbsp;margin-bottom: 75px; <br>
+        &nbsp;&nbsp;margin-left: 50px;<br>
+        }
+      </div>
+      <p>Khai báo:</p>
+      <div class="w3-code notranslate htmlHigh">
+        p {<br>
+        &nbsp;&nbsp;margin: 25px 50px;<br>
+        }
+      </div>
+      <p>Tương đương khai báo:</p>
+      <div class="w3-code notranslate htmlHigh">
+        p {<br>
+        &nbsp;&nbsp;margin-top: 25px; <br>
+        &nbsp;&nbsp;margin-right: 50px; <br>
+        &nbsp;&nbsp;margin-bottom: 25px; <br>
+        &nbsp;&nbsp;margin-left: 50px;<br>
+        }
+      </div>
+      <p>Khai báo:</p>
+      <div class="w3-code notranslate htmlHigh">
+        p {<br>
+        &nbsp;&nbsp;margin: 25px;<br>
+        }
+      </div>
+      <p>Tương đương khai báo:</p>
+      <div class="w3-code notranslate htmlHigh">
+        p {<br>
+        &nbsp;&nbsp;margin-top: 25px; <br>
+        &nbsp;&nbsp;margin-right: 25px; <br>
+        &nbsp;&nbsp;margin-bottom: 25px; <br>
+        &nbsp;&nbsp;margin-left: 25px;<br>
+        }
+      </div>
+      <h5><b>Padding</b></h5>
+      <p>Là không gian giữa nội dung phần tử HTML và border của nó. Các hình thức khai báo và khai báo tương đương độ
+        rộng
+        4 cạnh của padding giống với khai báo margin.</p>
+      <p>&#9755; Ví dụ khai báo kiểu viền, margin và padding. Có
+        thể xem kết quả khi mở trang web bằng cách
+        nhấn nút
+        <b>Chạy thử</b>
+      </p>
+      <form>
+        <textarea name="sourceCode" id="sourceCode10">
+  <!DOCTYPE html>
+  <html>
+         <head>
+              <style>
+                  p {
+                      border-style:  solid  dotted  dashed;
+                      padding: 75px;
+                      margin: 30px;
+                  }
+              </style>
+         </head>
+         <body>
+         <h1>Nhập môn thiết kế web.</h1>
+         <p>Đây là nội dung website.</p>
+         </body>
+  </html>
+    </textarea>
+        <input id="btn10" onclick="runCode10();" type="button" value="Chạy thử">
+
+      </form>
+      <iframe name="targetCode" id="iframe10"></iframe>
+
+      <div class="w3-code notranslate htmlHigh">
+        <h5><b>&#9755; Bài tập:</b></h5>
+        <h5>Thay đổi giá trị các thuộc tính <b>border-style</b>, <b>margin</b> và <b>padding</b> và nhấn nút
+          <b>Chạy
+            thử</b> để xem kết quả.</b>
+        </h5>
+      </div>
+      <h4><b>Tham khảo: Bài giảng Nhập môn CSS (Phần 3) - Ôn tập Box Model</b></h4>
+      <div class="container">
+        <iframe class="responsive-iframe" width="560" height="315" src="https://www.youtube.com/embed/OiONqDrmvaE"
+          title="YouTube video player" frameborder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allowfullscreen></iframe>
+      </div>
+      <h4 id="muc4"><b> 2.2. CSS nâng cao</b></h4>
+      <h5><b>2.2.1. Gom nhóm, lồng ghép, lựa chọn riêng</b></h5>
+      <h5><b>Gom nhóm (Grouping)</b></h5>
+      <p>Chúng ta có thể gộp các bộ chọn (selectors) bằng dấu phẩy "," nếu các bộ chọn này có cùng khai báo CSS.
+        Cú pháp:</p>
+      <div class="w3-code notranslate htmlHigh">
+        Selector1, selector2,... {<br>
+        &nbsp;&nbsp;// Khai báo css <br>
+        }
+      </div>
+      <p>Ví dụ khai báo CSS:</p>
+      <div class="w3-code notranslate htmlHigh">
+        p {<br>
+        &nbsp;&nbsp;color:red; <br>
+        &nbsp;&nbsp;background:blue; <br>
+        }
+        h1 {<br>
+        &nbsp;&nbsp;color:red; <br>
+        &nbsp;&nbsp;background:blue; <br>
+        }
+      </div>
+      <p>Tương đương khai báo:</p>
+      <div class="w3-code notranslate htmlHigh">
+        p, h1 {<br>
+        &nbsp;&nbsp;color:red; <br>
+        &nbsp;&nbsp;background:blue; <br>
+        }
+      </div>
+      <p>&#9755; Ví dụ p và h1 có cùng khai báo CSS. Có
+        thể xem kết quả khi mở trang web bằng cách
+        nhấn nút
+        <b>Chạy thử</b>
+      </p>
+      <form>
+        <textarea name="sourceCode" id="sourceCode11">
+  <!DOCTYPE html>
+  <html>
+         <head>
+              <style>
+                  p {
+                      color: red;
+                      background-color: blue;
+                  }
+                  h1 {
+                      color: red;
+                      background-color: blue;
+                  }
+              </style>
+         </head>
+         <body>
+         <h1>Nhập môn thiết kế web.</h1>
+         <p>Đây là nội dung website.</p>
+         </body>
+  </html>
+    </textarea>
+        <input id="btn11" onclick="runCode11();" type="button" value="Chạy thử">
+
+      </form>
+      <iframe name="targetCode" id="iframe11"></iframe>
+
+      <div class="w3-code notranslate htmlHigh">
+        <h5><b>&#9755; Bài tập:</b></h5>
+        <h5>Khai báo kiểu gộp cho p và h1. Nhấn nút
+          <b>Chạy
+            thử</b> để xem kết quả.</b>
+        </h5>
+      </div>
+      <h5><b>Lồng ghép (Nesting)</b></h5>
+      <h5><b>Tham khảo: Bài giảng Quan hệ giữa các bộ chọn (selectors) trong CSS</b></h5>
+      <div class="container">
+        <iframe class="responsive-iframe" width="560" height="315" src="https://www.youtube.com/embed/rr-iCyp0h8E"
+          title="YouTube video player" frameborder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allowfullscreen></iframe>
+      </div>
+      <p>Các selectors có thể được khai báo lồng nhau thông qua các mối quan hệ giữa các selectors. Có 4 kiểu quan hệ
+        phổ
+        biến:</p>
+      <ul>
+        <li>Con cháu (descendant selector): các selectors cách nhau khoảng trắng</li>
+        <li>Con trực tiếp (child selector): selector cha và selector con cách nhau dấu ></li>
+        <li>Anh em kề nhau (Adjacent sibling selector): các selectors cách nhau dấu +</li>
+        <li>Anh em chung (general sibling selector): các selectors cách nhau dấu ~</li>
+      </ul>
+      <p>Ví dụ về descendant selector: 3 phần tử <b>p</b> đầu tiên là con cháu (hai <b>p</b> đầu là con trực tiếp và
+        <b>p</b> nằm trong
+        <b>span</b> là cháu) của <b>div</b> (hay nằm trong <b>div</b>). Nhấn nút
+        <b>Chạy thử</b> để xem kết quả.
+      </p>
+      <form>
+        <textarea name="sourceCode" id="sourceCode12">
+  <!DOCTYPE html>
+  <html>
+         <head>
+              <style>
+                  div  p  {
+                    background-color:  yellow;
+                  }
+
+              </style>
+         </head>
+         <body>
+            <div>
+                <p>Con của div.</p>
+                <p>Con của  div.</p>
+                <span><p>Cháu của div.</p></span>
+            </div>
+            <p>Anh em với  div.</p>
+            <p>Anh em với  div.</p>            
+         </body>
+  </html>
+    </textarea>
+        <input id="btn12" onclick="runCode12();" type="button" value="Chạy thử">
+
+      </form>
+      <iframe name="targetCode" id="iframe12"></iframe>
+      <div class="w3-code notranslate htmlHigh">
+        <h5><b>&#9755; Bài tập: </b>Khai báo CSS <b>div p</b> áp dụng cho các p là con cháu div. Thực hiện các khai báo
+          sau:
+        </h5>
+        <h5>
+          <ul>
+            <li>Khai báo CSS <b>div > p</b> áp dụng cho các p là con trực tiếp của div.</li>
+            <li>Khai báo CSS <b>div + p</b> áp dụng cho p là anh em liền kề div.</li>
+            <li>Khai báo CSS <b>div ~ p</b> áp dụng cho tất cả p là anh em liền kề div.</li>
+          </ul>
+          Sau mỗi khai báo nhấn nút
+          <b>Chạy
+            thử</b> để xem kết quả.</b>
+        </h5>
+      </div>
+      <h5><b>Lựa chọn riêng với bộ chọn ảo (pseudo)</b></h5>
+      <p>Là các bộ chọn đặc biệt sử dụng kèm theo các bộ chọn, gồm thành phần ảo (pseudo-element) và lớp ảo
+        (pseudo-class).</p>
+      <h5><b>Thành phần ảo (Pseudo-element)</b></h5>
+      <h5><b>Tham khảo: Bài giảng CSS Pseudo-elements</b></h5>
+      <div class="container">
+        <iframe class="responsive-iframe" width="560" height="315" src="https://www.youtube.com/embed/IWXGPeQVulg"
+          title="YouTube video player" frameborder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allowfullscreen></iframe>
+      </div>
+      <p>Được thêm vào các selectors nhằm định dạng cho các thành phần cụ thể nào đó cùa các selectors. Ví dụ định
+        dạng cho kí tự đầu tiên, hàng đầu tiên của đoạn văn bản hay thêm nội dung vào trước hay sau một đoạn văn bản.
+        Cú pháp:</p>
+      <div class="w3-code notranslate htmlHigh">
+        Selector::pseudo-element { <br>
+        &nbsp;&nbsp;// Khai báo CSS<br>
+        }
+      </div>
+      <p>Chú ý trước các pseudo-element có dấu ::. Một số pseudo-element thường gặp:</p>
+      <table id="tab">
+        <tr>
+          <th>Bộ chọn</th>
+          <th>Ví dụ</th>
+          <th>Mô tả ví dụ</th>
+        </tr>
+
+        <td>::after</td>
+        <td>p::after</td>
+        <td>Thêm nội dung ngay phía sau phần tử p.</td>
+        </tr>
+        <tr>
+          <td>::before</td>
+          <td>p::before</td>
+          <td>Thêm nội dung ngay phía trước phần tử p.</td>
+        </tr>
+        <tr>
+          <td>::marker</td>
+          <td>p::marker</td>
+          <td>Chọn điểm đánh dấu của các mục danh sách.</td>
+        </tr>
+        <tr>
+          <td>::first-letter</td>
+          <td>p::first-letter</td>
+          <td>Chọn ký tự đầu tiên của một thành phần (ví dụ p).</td>
+        </tr>
+        <tr>
+          <td>::first-line</td>
+          <td>p:first-line</td>
+          <td>Chọn dòng đầu tiên của phần tử p.</td>
+        </tr>
+        <tr>
+          <td>::selection</td>
+          <td>p::selection</td>
+          <td>Chọn phần của phần tử do người dùng chọn.</td>
+        </tr>
+
+      </table>
+      <p>Ví dụ sử dụng ::after với p. Nhấn nút
+        <b>Chạy thử</b> để xem kết quả.
+      </p>
+      <form>
+        <textarea name="sourceCode" id="sourceCode13">
+  <!DOCTYPE html>
+  <html>
+         <head>
+              <style>
+                    p::after  {
+                      content: " - Ghi nhớ nhé";
+                  }
+
+              </style>
+         </head>
+         <body>
+            <p>Tên tôi là Trần Ngọc Minh</p>   
+         </body>
+  </html>
+    </textarea>
+        <input id="btn13" onclick="runCode13();" type="button" value="Chạy thử">
+
+      </form>
+      <iframe name="targetCode" id="iframe13"></iframe>
+      <div class="w3-code notranslate htmlHigh">
+        <h5><b>&#9755; Bài tập:</b>
+        </h5>
+        <h5>
+          <ul>
+            <li><b>::after</b> sử dụng thuộc tính <b>content</b> chứa nội dung cần thêm đến phần tử <b>p</b>. Thay đổi
+              nội dung từ ví dụ
+              trên.</li>
+            <li>Thay <b>::after</b> bằng <b>::before</b> với nội dung <b>content</b> phù hợp.</li>
+            <li>Tham khảo ví dụ sử dụng <b>::selection</b> <a
+                href="https://www.w3schools.com/cssref/tryit.asp?filename=trycss3_selection">tại đây</a>. Vận dụng với
+              phần tử p từ ví dụ trên.</li>
+            <li>Tham khảo ví dụ sử dụng <b>::first-letter</b> <a
+                href="https://www.w3schools.com/cssref/tryit.asp?filename=trycss_sel_firstletter">tại đây</a>. Vận dụng
+              với
+              phần tử p từ ví dụ trên.</li>
+            <li>Tham khảo ví dụ sử dụng <b>::first-line</b> <a
+                href="https://www.w3schools.com/cssref/tryit.asp?filename=trycss_sel_firstline">tại đây</a>. Vận dụng
+              với
+              phần tử p từ ví dụ trên.</li>
+            <li>Tham khảo ví dụ sử dụng <b>::marker</b> <a
+                href="https://www.w3schools.com/cssref/tryit.asp?filename=trycss_sel_marker">tại đây</a>. Vận dụng bằng
+              cách thay đổi nội dung và khai báo CSS phù hợp từ ví dụ trên.</li>
+          </ul>
+          Sau khi thực hiện mỗi yêu cầu, nhấn nút
+          <b>Chạy
+            thử</b> để xem kết quả.</b>
+        </h5>
+      </div>
+      <h5><b>Lớp ảo (Pseudo-class)</b></h5>
+      <h5><b>Tham khảo: Bài giảng CSS Pseudo-classes</b></h5>
+      <div class="container">
+        <iframe class="responsive-iframe" width="560" height="315" src="https://www.youtube.com/embed/cPxEYxjXIDY"
+          title="YouTube video player" frameborder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allowfullscreen></iframe>
+      </div>
+      <p>Được thêm vào các selector để xác định một trạng thái đặc biệt nào đó của selector được chọn.
+        Cú pháp:</p>
+      <div class="w3-code notranslate htmlHigh">
+        Selector:pseudo-class { <br>
+        &nbsp;&nbsp;// Khai báo CSS<br>
+        }
+      </div>
+      <p>Chú ý rằng trước các pseudo-class là dấu : (phân biệt với pseudo-element là ::).</p>
+      <p>Một vài pseudo-class chúng ta đã gặp là :link, :active, :visited, :hover chúng ta đã gặp trong phần <a
+          href="#lk">liên kết</a> ở
+        trên. Có thể tham khảo thêm các pseudo-class khác và các ví dụ <a
+          href="https://www.w3schools.com/css/css_pseudo_classes.asp">tại đây</a>.</p>
+      <h4><b> 2.2.2. Kích thước</b></h4>
+      <p>Các thuộc tính css dùng để định dạng kích thước cho phần tử HTML được thể hiện qua bảng sau:</p>
+      <table id="tab">
+        <tr>
+          <th>Thuộc tính</th>
+          <th>Mô tả</th>
+        </tr>
+        <tr>
+          <td>height </td>
+          <td>Xác định chiều cao của một phần tử.</td>
+        </tr>
+        <tr>
+          <td>max-height</td>
+          <td>Xác định chiều cao lớn nhất của một phần tử.</td>
+        </tr>
+        <tr>
+          <td>min-height</td>
+          <td>Xác định chiều cao nhỏ nhất của một phần tử.</td>
+        </tr>
+        <tr>
+          <td>width</td>
+          <td>Xác định chiều rộng của một phần tử.</td>
+        </tr>
+        <tr>
+          <td>max-width</td>
+          <td>Xác định chiều rộng lớn nhất của một phần tử.</td>
+        </tr>
+        <tr>
+          <td>min-width</td>
+          <td>Xác định chiều rộng nhỏ nhất của một phần tử.</td>
+        </tr>
+      </table>
+      <p>Ví dụ sử dụng thuộc tính width và height với p. Nhấn nút
+        <b>Chạy thử</b> để xem kết quả.
+      </p>
+      <form>
+        <textarea name="sourceCode" id="sourceCode14">
+  <!DOCTYPE html>
+  <html>
+         <head>
+              <style>
+                  p {
+                      border: 1px solid blue;
+                      width: 200px;
+                      height: 100px;
+                  }
+
+              </style>
+         </head>
+         <body>
+            <p>Tên tôi là Trần Ngọc Minh</p>   
+         </body>
+  </html>
+    </textarea>
+        <input id="btn14" onclick="runCode14();" type="button" value="Chạy thử">
+
+      </form>
+      <iframe name="targetCode" id="iframe14"></iframe>
+      <div class="w3-code notranslate htmlHigh">
+        <h5><b>&#9755; Bài tập: </b>
+        </h5>
+        <h5>Thay đổi giá trị các thuộc tính width, height và
+          nhấn nút
+          <b>Chạy
+            thử</b> để xem kết quả.</b>
+        </h5>
+      </div>
+      <h4><b> 2.2.3. Vị trí (position)</b></h4>
+      <h4><b>Tham khảo: Bài giảng Thuộc tính CSS position</b></h4>
+      <div class="container">
+        <iframe class="responsive-iframe" width="560" height="315" src="https://www.youtube.com/embed/09gI4kfhUTk"
+          title="YouTube video player" frameborder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allowfullscreen></iframe>
+      </div>
+      <h5><b>Toạ độ tuyệt đối, tương đối</b></h5>
+      <p>Thuộc tính position xác định kiểu của phương thức định vị cho một phần tử.
+        Cú pháp:</p>
+      <div class="w3-code notranslate htmlHigh">
+        Selector { <br>
+        &nbsp;&nbsp;position: value;<br>
+        }
+      </div>
+      <p> Giá trị (value) của <b>position</b> được mô tả như bảng sau:</p>
+
+      <table id="tab">
+        <tr>
+          <th>Giá trị thuộc tính position</th>
+          <th>Mô tả</th>
+        </tr>
+        <tr>
+          <td>static </td>
+          <td>Thành phần sẽ nằm theo thứ tự trong văn bản, đây là dạng mặc định.</td>
+        </tr>
+        <tr>
+          <td>absolute</td>
+          <td>Định vị trí tuyệt đối cho thành phần theo thành phần bao ngoài (thành phần định vị trí tương đối position:
+            relative;) hoặc theo cửa sổ trình duyệt.</td>
+        </tr>
+        <tr>
+          <td>relative</td>
+          <td>Định vị trí tương đối cho thành phần.</td>
+        </tr>
+        <tr>
+          <td>fixed</td>
+          <td>Định vị trí tương đối cho thành phần theo cửa sổ trình duyệt.</td>
+        </tr>
+        <tr>
+          <td>inherit</td>
+          <td>Xác định thừa hưởng thuộc tính từ thành phần cha (thành phần bao ngoài).</td>
+        </tr>
+      </table>
+      <p>Ví dụ nội dung khi chưa áp dụng <b>position: relative</b>. Nhấn nút
+        <b>Chạy thử</b> để xem kết quả.
+      </p>
+      <form>
+        <textarea name="sourceCode" id="sourceCode15">
+  <!DOCTYPE html>
+  <html>
+         <head>
+              <style>
+                 .relative {
+                  border:  3px  solid  #73AD21;
+                 }
+
+              </style>
+         </head>
+         <body>
+          <h2>position:  relative;</h2>
+          <p>Một phần tử khi được áp dụng position:relative sẽ thay đổ vị trí tương đối so với vị trí mặc định của nó.</p>
+          <div class="relative">
+          Phần tử này sẽ được áp dụng position: relative.
+          </div>
+          
+         </body>
+  </html>
+    </textarea>
+        <input id="btn15" onclick="runCode15();" type="button" value="Chạy thử">
+
+      </form>
+      <iframe name="targetCode" id="iframe15"></iframe>
+      <p>Nội dung khi áp dụng <b>position: relative</b>. Nhấn nút
+        <b>Chạy thử</b> để xem kết quả.
+      </p>
+      <form>
+        <textarea name="sourceCode" id="sourceCode16">
+  <!DOCTYPE html>
+  <html>
+         <head>
+              <style>
+                 .relative {
+                  position:  relative; 
+                  left:  30px;
+                  border:  3px  solid  #73AD21;
+                 }
+
+              </style>
+         </head>
+         <body>
+          <h2>position:  relative;</h2>
+          <p>Một phần tử khi được áp dụng position:relative sẽ thay đổ vị trí tương đối so với vị trí mặc định của nó.</p>
+          <div class="relative">
+          Phần tử này sẽ được áp dụng position: relative.
+          </div>
+          
+         </body>
+  </html>
+    </textarea>
+        <input id="btn16" onclick="runCode16();" type="button" value="Chạy thử">
+
+      </form>
+      <iframe name="targetCode" id="iframe16"></iframe>
+      <p>Ví dụ về định vị tương đối (relative) và tuyệt đối (absolute). Nhấn nút
+        <b>Chạy thử</b> để xem kết quả.
+      </p>
+      <form>
+        <textarea name="sourceCode" id="sourceCode17">
+  <!DOCTYPE html>
+  <html>
+         <head>
+              <style>
+                 .relative {
+                  position: relative;
+                  width: 400px;
+                  height: 200px;
+                  border: 3px solid #73AD21;
+                 }
+                 .absolute  { 
+                   position:  absolute; 
+                   top:  80px;
+                   right:  0; 
+                   width:  200px; 
+                   height:  100px;
+                   border:  3px  solid  #73AD21;
+                  }
+
+              </style>
+         </head>
+         <body>
+              <h2>position:  relative và position: absolute</h2>
+              <p>Một phần tử khi được áp dụng position:relative sẽ thay đổ vị trí tương đối so với vị trí mặc định của nó.</p>
+              <p>Một phần tử có position: absolute được định vị tương đối  so với tổ tiên (ancestor) được định vị gần nhất (thay vì được định vị so với khung nhìn (viewport)).</p>
+              <div class="relative">
+                  Phần tử này sẽ được áp dụng position: relative.
+                  <div class="absolute">
+                    Phần tử này sẽ được áp dụng position: absolute.
+                  </div>
+              </div>
+         </body>
+  </html>
+    </textarea>
+        <input id="btn17" onclick="runCode17();" type="button" value="Chạy thử">
+
+      </form>
+      <iframe name="targetCode" id="iframe17"></iframe>
+      <h5><b>Chiều sâu</b></h5>
+      <p>Khi các phần tử được định vị, có thể xảy ra hiện tượng chồng lắp giữa các phần tử. Có thể dùng thuộc tính
+        z-index để xác định phần tử nào nằm trên, phần tử nào nằm dưới.
+        Cú pháp:</p>
+      <div class="w3-code notranslate htmlHigh">
+        Selector { <br>
+        &nbsp;&nbsp;z-index: auto|number|initial|inherit;<br>
+        }
+      </div>
+      <p> Giá trị (value) của <b>z-index</b> được mô tả như bảng sau:</p>
+
+      <table id="tab">
+        <tr>
+          <th>Giá trị thuộc tính z-index</th>
+          <th>Mô tả</th>
+        </tr>
+        <tr>
+          <td>auto </td>
+          <td>Tự động sắp xếp thứ tự chồng nhau cho thành phần, đây là dạng mặc định.</td>
+        </tr>
+        <tr>
+          <td>number</td>
+          <td>Sắp xếp thứ tự chồng nhau cho thành phần theo giá trị.</td>
+        </tr>
+        <tr>
+          <td>initial</td>
+          <td>Thiết lập giá trị mặc định cho thuộc tính.</td>
+        </tr>
+        <tr>
+          <td>inherit</td>
+          <td>Xác định thừa hưởng thuộc tính từ thành phần cha (thành phần bao ngoài).</td>
+        </tr>
+      </table>
+      <p>Ví dụ giá trị z-index > 0 thì hình ảnh sẽ chồng lên văn bản. Nhấn nút
+        <b>Chạy thử</b> để xem kết quả.
+      </p>
+      <form>
+        <textarea name="sourceCode" id="sourceCode21">
+  <!DOCTYPE html>
+  <html>
+         <head>
+              <style>
+                  img {
+                        position: absolute; 
+                        left: 0px;
+                        top: 0px;
+                        z-index: 1; /*z-index > 0*/
+                      }
+
+              </style>
+         </head>
+         <body>
+              <img src="cat.png">
+              <h3>Đây là ảnh một chú mèo.</h3>
+         </body>
+  </html>
+    </textarea>
+        <input id="btn21" onclick="runCode21();" type="button" value="Chạy thử">
+
+      </form>
+      <iframe name="targetCode" id="iframe21"></iframe>
+      <div class="w3-code notranslate htmlHigh">
+        <h5><b>&#9755; Bài tập:</b></h5>
+        <h5>Thay đổi thuộc tính <b>z-index</b> với các giá trị bằng 0, bé hơn 0. Nhấn nút
+          <b>Chạy
+            thử</b> để xem kết quả.</b>
+        </h5>
+      </div>
+      <h5><b>Thuộc tính float</b></h5>
+      <h5><b>Tham khảo: Bài giảng Thuộc tính CSS float</b></h5>
+      <div class="container">
+        <iframe class="responsive-iframe" width="560" height="315" src="https://www.youtube.com/embed/fww0dApCbM4"
+          title="YouTube video player" frameborder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allowfullscreen></iframe>
+      </div>
+      <p>Thuộc tính float xác định có hay không một thành phần được float (thả nổi).
+        Cú pháp:</p>
+      <div class="w3-code notranslate htmlHigh">
+        Selector { <br>
+        &nbsp;&nbsp;float: value;<br>
+        }
+      </div>
+      <p> Giá trị (value) của <b>float</b> được mô tả như bảng sau:</p>
+
+      <table id="tab">
+        <tr>
+          <th>Giá trị thuộc tính float</th>
+          <th>Mô tả</th>
+        </tr>
+        <tr>
+          <td>left </td>
+          <td>Thành phần được thả nổi (float) qua bên trái.</td>
+
+        </tr>
+        <tr>
+          <td>right</td>
+          <td>Thành phần được thả nổi (float) qua bên phải.</td>
+
+        </tr>
+        <tr>
+          <td>none</td>
+          <td>Thành phần không được thả nổi (float) qua bên phải hay trái, đây là dạng mặc định.</td>
+
+        </tr>
+        <tr>
+          <td>inherit</td>
+          <td>Xác định thừa hưởng thuộc tính từ thành phần cha (thành phần bao ngoài).</td>
+
+        </tr>
+      </table>
+      <p>Ví dụ nội dung khi áp dụng <b>float: right</b>. Nhấn nút
+        <b>Chạy thử</b> để xem kết quả.
+      </p>
+      <form>
+        <textarea name="sourceCode" id="sourceCode22">
+  <!DOCTYPE html>
+  <html>
+         <head>
+              <style>
+                  img {
+                        float: right;
+                        margin: 0 0 10px 10px;
+                      }
+
+              </style>
+         </head>
+         <body>
+              <h3>Đây là ảnh một chú mèo con.</h3>
+              <p><img src="cat.png" width="100" height="140">
+                Mèo con là một con mèo ở trong giai đoạn tuổi vị thành niên. 
+                Sau khi được sinh ra, mèo con hoàn toàn phụ thuộc vào mẹ của chúng để tồn tại và chúng thường không mở mắt cho đến 7 đến 10 ngày sau khi sinh. 
+                Sau khoảng hai tuần, mèo con nhanh chóng phát triển và bắt đầu khám phá thế giới bên ngoài. 
+                Sau ba đến bốn tuần nữa, chúng bắt đầu ăn thức ăn đặc và mọc răng trưởng thành. 
+                Mèo nhà con là những động vật có tính chất xã hội cao và thường tỏ ra thích thú với mối quan hệ "bằng hữu" với con người.
+              </p>
+              
+         </body>
+  </html>
+    </textarea>
+        <input id="btn22" onclick="runCode22();" type="button" value="Chạy thử">
+
+      </form>
+      <iframe name="targetCode" id="iframe22"></iframe>
+      <div class="w3-code notranslate htmlHigh">
+        <h5><b>&#9755; Bài tập:</b></h5>
+        <h5>Thay đổi thuộc tính <b>float</b> với các giá trị left, none, inherit. Nhấn nút
+          <b>Chạy
+            thử</b> để xem kết quả.</b>
+        </h5>
+      </div>
+      <p>Chúng ta có thể xoá ảnh hưởng của thuộc tính <b>float</b> có thể dùng thuộc tính <b>clear</b>.</p>
+
+      <p>Ví dụ nội dung khi áp dụng <b>float: right</b>. Nhấn nút
+        <b>Chạy thử</b> để xem kết quả.
+      </p>
+      <form>
+        <textarea name="sourceCode" id="sourceCode23">
+  <!DOCTYPE html>
+  <html>
+         <head>
+              <style>
+                  .div1 {
+                        float: left; 
+                        width: 100px; 
+                        height: 50px; 
+                        margin: 10px;
+                        border: 3px solid #73AD21;
+                  }
+                .div2 {
+                        border: 1px solid red;
+                }
+                .div3 {
+                        float: left; 
+                        width: 100px; 
+                        height: 50px; 
+                        margin: 10px;
+                        border: 3px solid #73AD21;
+                }
+                .div4 {
+                        border: 1px solid red; 
+                        clear: left;
+                }
+
+              </style>
+         </head>
+         <body>
+          <h2>Không dùng clear</h2>
+          <div class="div1">div1</div>
+          <div class="div2">div2 sau div1 nhưng div1 được định vị float:left.</div>
+          <h2>Dùng clear </h2>
+          <div class="div3">div3</div>
+          <div class="div4">div4  dùng clear xóa ảnh hưởng float từ div3.</div>
+          
+              
+         </body>
+  </html>
+    </textarea>
+        <input id="btn23" onclick="runCode23();" type="button" value="Chạy thử">
+
+      </form>
+      <iframe name="targetCode" id="iframe23"></iframe>
+
+
+
+
+
+
+
+
+
+
+
+
+
+      <div class="w3-center">
+        <div class="pagination">
+          <a href="Bai02.html">Bài trước</a>
+          <a href="Bai04.html">Bài tiếp theo</a>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- End page content -->
+  </div>
+
+  <script>
+    // Script to open and close sidebar
+    function w3_open() {
+      document.getElementById("mySidebar").style.display = "block";
+      document.getElementById("myOverlay").style.display = "block";
+    }
+
+    function w3_close() {
+      document.getElementById("mySidebar").style.display = "none";
+      document.getElementById("myOverlay").style.display = "none";
+    }
+
+    //Run code 1
+    const code1 = document.getElementById('sourceCode1');
+    const btn1 = document.getElementById('btn1');
+    function runCode1() {
+      var content = document.getElementById('sourceCode1').value;
+      var iframe = document.getElementById('iframe1');
+      iframe = (iframe.contentWindow) ? iframe.contentWindow : (iframe.contentDocument.document) ? iframe.contentDocument.document : iframe.contentDocument;
+      iframe.document.open();
+      iframe.document.write(content);
+      iframe.document.close();
+      return false;
+    }
+
+    //Run code 2
+    const code2 = document.getElementById('sourceCode2');
+    const btn2 = document.getElementById('btn2');
+    function runCode2() {
+      var content = document.getElementById('sourceCode2').value;
+      var iframe = document.getElementById('iframe2');
+      iframe = (iframe.contentWindow) ? iframe.contentWindow : (iframe.contentDocument.document) ? iframe.contentDocument.document : iframe.contentDocument;
+      iframe.document.open();
+      iframe.document.write(content);
+      iframe.document.close();
+      return false;
+    }
+
+    //Run code 3
+    const code3 = document.getElementById('sourceCode3');
+    const btn3 = document.getElementById('btn3');
+    function runCode3() {
+      var content = document.getElementById('sourceCode3').value;
+      var iframe = document.getElementById('iframe3');
+      iframe = (iframe.contentWindow) ? iframe.contentWindow : (iframe.contentDocument.document) ? iframe.contentDocument.document : iframe.contentDocument;
+      iframe.document.open();
+      iframe.document.write(content);
+      iframe.document.close();
+      return false;
+    }
+
+    //Run code 4
+    const code4 = document.getElementById('sourceCode4');
+    const btn4 = document.getElementById('btn4');
+    function runCode4() {
+      var content = document.getElementById('sourceCode4').value;
+      var iframe = document.getElementById('iframe4');
+      iframe = (iframe.contentWindow) ? iframe.contentWindow : (iframe.contentDocument.document) ? iframe.contentDocument.document : iframe.contentDocument;
+      iframe.document.open();
+      iframe.document.write(content);
+      iframe.document.close();
+      return false;
+    }
+    //Run code 5
+    const code5 = document.getElementById('sourceCode5');
+    const btn5 = document.getElementById('btn5');
+    function runCode5() {
+      var content = document.getElementById('sourceCode5').value;
+      var iframe = document.getElementById('iframe5');
+      iframe = (iframe.contentWindow) ? iframe.contentWindow : (iframe.contentDocument.document) ? iframe.contentDocument.document : iframe.contentDocument;
+      iframe.document.open();
+      iframe.document.write(content);
+      iframe.document.close();
+      return false;
+    }
+    //Run code 6
+    const code6 = document.getElementById('sourceCode6');
+    const btn6 = document.getElementById('btn6');
+    function runCode6() {
+      var content = document.getElementById('sourceCode6').value;
+      var iframe = document.getElementById('iframe6');
+      iframe = (iframe.contentWindow) ? iframe.contentWindow : (iframe.contentDocument.document) ? iframe.contentDocument.document : iframe.contentDocument;
+      iframe.document.open();
+      iframe.document.write(content);
+      iframe.document.close();
+      return false;
+    }
+
+    //Run code 7
+    const code7 = document.getElementById('sourceCode7');
+    const btn7 = document.getElementById('btn7');
+    function runCode7() {
+      var content = document.getElementById('sourceCode7').value;
+      var iframe = document.getElementById('iframe7');
+      iframe = (iframe.contentWindow) ? iframe.contentWindow : (iframe.contentDocument.document) ? iframe.contentDocument.document : iframe.contentDocument;
+      iframe.document.open();
+      iframe.document.write(content);
+      iframe.document.close();
+      return false;
+    }
+    //Run code 8
+    const code8 = document.getElementById('sourceCode8');
+    const btn8 = document.getElementById('btn8');
+    function runCode8() {
+      var content = document.getElementById('sourceCode8').value;
+      var iframe = document.getElementById('iframe8');
+      iframe = (iframe.contentWindow) ? iframe.contentWindow : (iframe.contentDocument.document) ? iframe.contentDocument.document : iframe.contentDocument;
+      iframe.document.open();
+      iframe.document.write(content);
+      iframe.document.close();
+      return false;
+    }
+    //Run code 9
+    const code9 = document.getElementById('sourceCode9');
+    const btn9 = document.getElementById('btn9');
+    function runCode9() {
+      var content = document.getElementById('sourceCode9').value;
+      var iframe = document.getElementById('iframe9');
+      iframe = (iframe.contentWindow) ? iframe.contentWindow : (iframe.contentDocument.document) ? iframe.contentDocument.document : iframe.contentDocument;
+      iframe.document.open();
+      iframe.document.write(content);
+      iframe.document.close();
+      return false;
+    }
+    //Run code 10
+    const code10 = document.getElementById('sourceCode10');
+    const btn10 = document.getElementById('btn10');
+    function runCode10() {
+      var content = document.getElementById('sourceCode10').value;
+      var iframe = document.getElementById('iframe10');
+      iframe = (iframe.contentWindow) ? iframe.contentWindow : (iframe.contentDocument.document) ? iframe.contentDocument.document : iframe.contentDocument;
+      iframe.document.open();
+      iframe.document.write(content);
+      iframe.document.close();
+      return false;
+    }
+    //Run code 11
+    const code11 = document.getElementById('sourceCode11');
+    const btn11 = document.getElementById('btn11');
+    function runCode11() {
+      var content = document.getElementById('sourceCode11').value;
+      var iframe = document.getElementById('iframe11');
+      iframe = (iframe.contentWindow) ? iframe.contentWindow : (iframe.contentDocument.document) ? iframe.contentDocument.document : iframe.contentDocument;
+      iframe.document.open();
+      iframe.document.write(content);
+      iframe.document.close();
+      return false;
+    }
+    //Run code 12
+    const code12 = document.getElementById('sourceCode12');
+    const btn12 = document.getElementById('btn12');
+    function runCode12() {
+      var content = document.getElementById('sourceCode12').value;
+      var iframe = document.getElementById('iframe12');
+      iframe = (iframe.contentWindow) ? iframe.contentWindow : (iframe.contentDocument.document) ? iframe.contentDocument.document : iframe.contentDocument;
+      iframe.document.open();
+      iframe.document.write(content);
+      iframe.document.close();
+      return false;
+    }
+    //Run code 13
+    const code13 = document.getElementById('sourceCode13');
+    const btn13 = document.getElementById('btn13');
+    function runCode13() {
+      var content = document.getElementById('sourceCode13').value;
+      var iframe = document.getElementById('iframe13');
+      iframe = (iframe.contentWindow) ? iframe.contentWindow : (iframe.contentDocument.document) ? iframe.contentDocument.document : iframe.contentDocument;
+      iframe.document.open();
+      iframe.document.write(content);
+      iframe.document.close();
+      return false;
+    }
+    //Run code 14
+    const code14 = document.getElementById('sourceCode14');
+    const btn14 = document.getElementById('btn14');
+    function runCode14() {
+      var content = document.getElementById('sourceCode14').value;
+      var iframe = document.getElementById('iframe14');
+      iframe = (iframe.contentWindow) ? iframe.contentWindow : (iframe.contentDocument.document) ? iframe.contentDocument.document : iframe.contentDocument;
+      iframe.document.open();
+      iframe.document.write(content);
+      iframe.document.close();
+      return false;
+    }
+    //Run code 15
+    const code15 = document.getElementById('sourceCode15');
+    const btn15 = document.getElementById('btn15');
+    function runCode15() {
+      var content = document.getElementById('sourceCode15').value;
+      var iframe = document.getElementById('iframe15');
+      iframe = (iframe.contentWindow) ? iframe.contentWindow : (iframe.contentDocument.document) ? iframe.contentDocument.document : iframe.contentDocument;
+      iframe.document.open();
+      iframe.document.write(content);
+      iframe.document.close();
+      return false;
+    }
+    //Run code 16
+    const code16 = document.getElementById('sourceCode16');
+    const btn16 = document.getElementById('btn16');
+    function runCode16() {
+      var content = document.getElementById('sourceCode16').value;
+      var iframe = document.getElementById('iframe16');
+      iframe = (iframe.contentWindow) ? iframe.contentWindow : (iframe.contentDocument.document) ? iframe.contentDocument.document : iframe.contentDocument;
+      iframe.document.open();
+      iframe.document.write(content);
+      iframe.document.close();
+      return false;
+    }
+
+    //Run code 17
+    const code17 = document.getElementById('sourceCode17');
+    const btn17 = document.getElementById('btn17');
+    function runCode17() {
+      var content = document.getElementById('sourceCode17').value;
+      var iframe = document.getElementById('iframe17');
+      iframe = (iframe.contentWindow) ? iframe.contentWindow : (iframe.contentDocument.document) ? iframe.contentDocument.document : iframe.contentDocument;
+      iframe.document.open();
+      iframe.document.write(content);
+      iframe.document.close();
+      return false;
+    }
+    //Run code 18
+    const code18 = document.getElementById('sourceCode18');
+    const btn18 = document.getElementById('btn18');
+    function runCode18() {
+      var content = document.getElementById('sourceCode18').value;
+      var iframe = document.getElementById('iframe18');
+      iframe = (iframe.contentWindow) ? iframe.contentWindow : (iframe.contentDocument.document) ? iframe.contentDocument.document : iframe.contentDocument;
+      iframe.document.open();
+      iframe.document.write(content);
+      iframe.document.close();
+      return false;
+    }
+    //Run code 19
+    const code19 = document.getElementById('sourceCode19');
+    const btn19 = document.getElementById('btn19');
+    function runCode19() {
+      var content = document.getElementById('sourceCode19').value;
+      var iframe = document.getElementById('iframe19');
+      iframe = (iframe.contentWindow) ? iframe.contentWindow : (iframe.contentDocument.document) ? iframe.contentDocument.document : iframe.contentDocument;
+      iframe.document.open();
+      iframe.document.write(content);
+      iframe.document.close();
+      return false;
+    }
+    //Run code 20
+    const code20 = document.getElementById('sourceCode20');
+    const btn20 = document.getElementById('btn20');
+    function runCode20() {
+      var content = document.getElementById('sourceCode20').value;
+      var iframe = document.getElementById('iframe20');
+      iframe = (iframe.contentWindow) ? iframe.contentWindow : (iframe.contentDocument.document) ? iframe.contentDocument.document : iframe.contentDocument;
+      iframe.document.open();
+      iframe.document.write(content);
+      iframe.document.close();
+      return false;
+    }
+    //Run code 21
+    const code21 = document.getElementById('sourceCode16');
+    const btn21 = document.getElementById('btn21');
+    function runCode21() {
+      var content = document.getElementById('sourceCode21').value;
+      var iframe = document.getElementById('iframe21');
+      iframe = (iframe.contentWindow) ? iframe.contentWindow : (iframe.contentDocument.document) ? iframe.contentDocument.document : iframe.contentDocument;
+      iframe.document.open();
+      iframe.document.write(content);
+      iframe.document.close();
+      return false;
+    }
+
+    //Run code 22
+    const code22 = document.getElementById('sourceCode22');
+    const btn22 = document.getElementById('btn22');
+    function runCode22() {
+      var content = document.getElementById('sourceCode22').value;
+      var iframe = document.getElementById('iframe22');
+      iframe = (iframe.contentWindow) ? iframe.contentWindow : (iframe.contentDocument.document) ? iframe.contentDocument.document : iframe.contentDocument;
+      iframe.document.open();
+      iframe.document.write(content);
+      iframe.document.close();
+      return false;
+    }
+    //Run code 23
+    const code23 = document.getElementById('sourceCode23');
+    const btn23 = document.getElementById('btn23');
+    function runCode23() {
+      var content = document.getElementById('sourceCode23').value;
+      var iframe = document.getElementById('iframe23');
+      iframe = (iframe.contentWindow) ? iframe.contentWindow : (iframe.contentDocument.document) ? iframe.contentDocument.document : iframe.contentDocument;
+      iframe.document.open();
+      iframe.document.write(content);
+      iframe.document.close();
+      return false;
+    }
+    //Run code 24
+    const code24 = document.getElementById('sourceCode24');
+    const btn24 = document.getElementById('btn24');
+    function runCode24() {
+      var content = document.getElementById('sourceCode24').value;
+      var iframe = document.getElementById('iframe24');
+      iframe = (iframe.contentWindow) ? iframe.contentWindow : (iframe.contentDocument.document) ? iframe.contentDocument.document : iframe.contentDocument;
+      iframe.document.open();
+      iframe.document.write(content);
+      iframe.document.close();
+      return false;
+    }
+    //Run code 25
+    const code25 = document.getElementById('sourceCode25');
+    const btn25 = document.getElementById('btn25');
+    function runCode25() {
+      var content = document.getElementById('sourceCode25').value;
+      var iframe = document.getElementById('iframe25');
+      iframe = (iframe.contentWindow) ? iframe.contentWindow : (iframe.contentDocument.document) ? iframe.contentDocument.document : iframe.contentDocument;
+      iframe.document.open();
+      iframe.document.write(content);
+      iframe.document.close();
+      return false;
+    }
+
+
+
+
+
+
+    // Phần button top
+    var mybutton = document.getElementById("myBtn");
+
+
+    window.onscroll = function () { scrollFunction() };
+
+    function scrollFunction() {
+      if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+        mybutton.style.display = "block";
+      } else {
+        mybutton.style.display = "none";
+      }
+    }
+
+
+    function topFunction() {
+      document.body.scrollTop = 0;
+      document.documentElement.scrollTop = 0;
+    }
+  </script>
+
+</body>
+
+</html>

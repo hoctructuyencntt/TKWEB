@@ -1,0 +1,94 @@
+
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>Bài thực hành số 1</title>
+		
+		<style>
+			
+			#sourceCode1, iframe {			
+    			height: 300px;
+    				  			
+			}
+			#sourceCode1, iframe, #btn1, #btn2 {						
+    			  width: 100%; 			
+			}
+			
+			#btn1, #btn2{
+			   height:30px;
+			}
+			
+		</style>
+
+			
+	</head>
+    <body>
+
+<form>
+<textarea name="sourceCode" id="sourceCode1">
+<!DOCTYPE html>
+<html>
+       <head>
+            <style>
+
+            </style>
+       </head>
+       <body>
+           <h1>Bài tập CSS</h1>
+            <p>Đoạn văn bản thứ nhất.</p>
+            <p>Đoạn văn bản thứ hai.</p>
+       </body>
+</html>
+  </textarea>
+ <input id="btn1" onclick="runCode1();" type="button" value="Chạy thử">
+</form>
+<iframe name="targetCode" id="targetCode"></iframe>
+ 
+<form>
+<textarea name="sourceCode" id="sourceCode1">
+<!DOCTYPE html>
+<html>
+       <head>
+            <style>
+
+            </style>
+       </head>
+       <body>
+           <h1>Bài tập CSS</h1>
+            <p>Đoạn văn bản thứ nhất.</p>
+            <p>Đoạn văn bản thứ hai.</p>
+       </body>
+</html>
+  </textarea>
+ <input id="btn2" onclick="runCode1();" type="button" value="Chạy thử">
+</form>
+<iframe name="targetCode" id="targetCode"></iframe>
+        
+
+
+
+
+
+
+
+
+
+<script type="text/javascript">
+	 const code1 = document.getElementById('sourceCode1');
+	 const btn1 = document.getElementById('btn1');
+            function runCode1()
+            {	
+	var content = document.getElementById('sourceCode1').value;
+                var iframe = document.getElementById('targetCode');
+                iframe = (iframe.contentWindow) ? iframe.contentWindow : (iframe.contentDocument.document) ? iframe.contentDocument.document : iframe.contentDocument;
+                iframe.document.open();
+                iframe.document.write(content);
+                iframe.document.close();
+                return false;
+            }
+         
+        </script>
+    </body>
+</html>

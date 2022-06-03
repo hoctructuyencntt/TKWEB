@@ -1,0 +1,2359 @@
+<!DOCTYPE html>
+<html>
+<title>Bài 3: Lập trình Javascript</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="w3.css">
+<link rel="stylesheet" href="font.css">
+<link rel="stylesheet" href="font-awesome.min.css">
+<style>
+  #myBtn {
+    display: none;
+    position: fixed;
+    bottom: 20px;
+    right: 30px;
+    z-index: 99;
+    font-size: 18px;
+    border: none;
+    outline: none;
+    background-color: pink;
+    color: black;
+    cursor: pointer;
+    padding: 15px;
+    border-radius: 4px;
+  }
+
+  #myBtn:hover {
+    background-color: #555;
+  }
+
+  .w3-main a {
+    background-color: #04AA6D;
+  }
+
+  .pagination {
+    display: inline-block;
+  }
+
+  .pagination a {
+    color: white;
+    float: left;
+    padding: 8px 16px;
+    text-decoration: none;
+    transition: background-color .3s;
+    border: 1px solid #ddd;
+    background-color: gray;
+  }
+
+  .pagination a.active {
+    background-color: gray;
+    color: white;
+    border: 1px solid #4CAF50;
+  }
+
+  .pagination a:hover:not(.active) {
+    background-color: #ddd;
+  }
+
+  body,
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-family: "Raleway", sans-serif
+  }
+
+  #sourceCode1,
+  #sourceCode2,
+  #sourceCode3,
+  #sourceCode4,
+  #sourceCode5,
+  #sourceCode6,
+  #sourceCode7,
+  #sourceCode8,
+  #sourceCode9,
+  #sourceCode10,
+  #sourceCode11,
+  #sourceCode12,
+  #sourceCode13,
+  #sourceCode14,
+  #sourceCode15,
+  #sourceCode16,
+  #sourceCode17,
+  #sourceCode18,
+  #sourceCode19,
+  #sourceCode20,
+  #sourceCode21,
+  #sourceCode22,
+  #sourceCode23,
+  #sourceCode24,
+  #sourceCode25,
+  #sourceCode26,
+  #iframe1,
+  #iframe2,
+  #iframe3,
+  #iframe4,
+  #iframe5,
+  #iframe6,
+  #iframe7,
+  #iframe8,
+  #iframe9,
+  #iframe10,
+  #iframe11,
+  #iframe12,
+  #iframe13,
+  #iframe14,
+  #iframe15,
+  #iframe16,
+  #iframe17,
+  #iframe18,
+  #iframe19,
+  #iframe20,
+  #iframe21,
+  #iframe22,
+  #iframe23,
+  #iframe24,
+  #iframe25,
+  #iframe26 {
+    height: 300px;
+  }
+
+  #sourceCode1,
+  #sourceCode2,
+  #sourceCode3,
+  #sourceCode4,
+  #sourceCode5,
+  #sourceCode6,
+  #sourceCode7,
+  #sourceCode8,
+  #sourceCode9,
+  #sourceCode10,
+  #sourceCode11,
+  #sourceCode12,
+  #sourceCode13,
+  #sourceCode14,
+  #sourceCode15,
+  #sourceCode16,
+  #sourceCode17,
+  #sourceCode18,
+  #sourceCode19,
+  #sourceCode20,
+  #sourceCode21,
+  #sourceCode22,
+  #sourceCode23,
+  #sourceCode24,
+  #sourceCode25,
+  #sourceCode26,
+  #iframe1,
+  #iframe2,
+  #iframe3,
+  #iframe4,
+  #iframe5,
+  #iframe6,
+  #iframe7,
+  #iframe8,
+  #iframe9,
+  #iframe10,
+  #iframe11,
+  #iframe12,
+  #iframe13,
+  #iframe14,
+  #iframe15,
+  #iframe16,
+  #iframe17,
+  #iframe18,
+  #iframe19,
+  #iframe20,
+  #iframe21,
+  #iframe22,
+  #iframe23,
+  #iframe24,
+  #iframe25,
+  #iframe26,
+  #btn1,
+  #btn2,
+  #btn3,
+  #btn4,
+  #btn5,
+  #btn6,
+  #btn7,
+  #btn8,
+  #btn9,
+  #btn10,
+  #btn11,
+  #btn12,
+  #btn13,
+  #btn14,
+  #btn15,
+  #btn16,
+  #btn17,
+  #btn18,
+  #btn19,
+  #btn20,
+  #btn21,
+  #btn22,
+  #btn23,
+  #btn24,
+  #btn25,
+  #btn26 {
+    width: 100%;
+  }
+
+  #btn1,
+  #btn2,
+  #btn3,
+  #btn4,
+  #btn5,
+  #btn6,
+  #btn7,
+  #btn8,
+  #btn9,
+  #btn10,
+  #btn11,
+  #btn12,
+  #btn13,
+  #btn14,
+  #btn15,
+  #btn16,
+  #btn17,
+  #btn18,
+  #btn19,
+  #btn20,
+  #btn21,
+  #btn22,
+  #btn23,
+  #btn24,
+  #btn25,
+  #btn26 {
+    height: 30px;
+    background-color: aqua;
+    color: black;
+  }
+
+  #iframe1,
+  #iframe2,
+  #iframe3,
+  #iframe4,
+  #iframe5,
+  #iframe6,
+  #iframe7,
+  #iframe8,
+  #iframe9,
+  #iframe10,
+  #iframe11,
+  #iframe12,
+  #iframe13,
+  #iframe14,
+  #iframe15,
+  #iframe16,
+  #iframe17,
+  #iframe18,
+  #iframe19,
+  #iframe20,
+  #iframe21,
+  #iframe22,
+  #iframe23,
+  #iframe24,
+  #iframe25,
+  #iframe26 {
+    background-color: white;
+  }
+
+  #tab {
+    font-family: Arial, Helvetica, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+  }
+
+  #tab td,
+  #tab th {
+    border: 1px solid #ddd;
+    padding: 8px;
+  }
+
+  /*
+  #tab tr:nth-child(even) {
+    background-color: #f2f2f2;
+  }
+*/
+  #tab tr:hover {
+    background-color: #ddd;
+  }
+
+  #tab th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: left;
+    background-color: #04AA6D;
+    color: white;
+  }
+
+  .center {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
+  }
+
+  .w3-code a {
+    background-color: transparent;
+    text-decoration: none;
+    color: blue;
+  }
+</style>
+
+<body class="w3-black w3-content" style="max-width:1600px">
+
+  <!-- Sidebar/menu -->
+  <nav class="w3-sidebar w3-collapse w3-white w3-animate-left" style="z-index:3;width:300px;" id="mySidebar"><br>
+    <div class="w3-container">
+      <a href="#" style="text-decoration: none;" onclick="w3_close()"
+        class="w3-hide-large w3-right w3-jumbo w3-padding w3-hover-grey" title="close menu"> X </a>
+      <!--<h4><b>Giáo trình</b></h4>-->
+    </div>
+    <div class="w3-bar-block">
+      <a href="Bai01.html" onclick="w3_close()" class="w3-bar-item w3-button w3-padding ">Bài mở đầu: Tổng
+        quan về World Wide Web </a>
+      <a href="Bai02.html" onclick="w3_close()" class="w3-bar-item w3-button w3-padding">Bài 1: Tạo các
+        trang HTML
+        tĩnh</a>
+      <a href="Bai03.html" onclick="w3_close()" class="w3-bar-item w3-button w3-padding">Bài 2: Thiết kế giao diện với
+        HTML và CSS</a>
+      <a href="Bai04.html" onclick="w3_close()" class="w3-bar-item w3-button w3-padding w3-text-teal">Bài 3: Lập trình
+        Javascript</a>
+      <a href="Bai05.html" onclick="w3_close()" class="w3-bar-item w3-button w3-padding">Bài 4: Thiết kế và quản trị
+        website với công cụ (WordPress, Blogger, Wix) </a>
+      <a href="Thamkhao.html" onclick="w3_close()" class="w3-bar-item w3-button w3-padding">Nguồn tham khảo</a>
+    </div>
+  </nav>
+
+  <!-- Overlay effect when opening sidebar on small screens -->
+  <div class="w3-overlay w3-hide-large w3-animate-opacity" onclick="w3_close()" style="cursor:pointer"
+    title="close side menu" id="myOverlay">=</div>
+
+  <!-- !PAGE CONTENT! -->
+  <div class="w3-main" style="margin-left:300px">
+    <button onclick="topFunction()" id="myBtn" title="Go to top">Lên đầu trang</button>
+    <!-- Header -->
+    <header id="portfolio">
+      <!--<a href="#"><img src="/w3images/avatar_g2.jpg" style="width:65px;"
+          class="w3-circle w3-right w3-margin w3-hide-large w3-hover-opacity"></a>-->
+      <span class="w3-button w3-hide-large w3-xxlarge w3-hover-text-grey" onclick="w3_open()">=</span>
+      <div class="w3-container">
+        <h1><b>Bài 3: Lập trình Javascript</b></h1>
+      </div>
+    </header>
+    <div class="w3-container w3-padding-large" style="margin-bottom:32px">
+      <div class="w3-center">
+        <div class="pagination">
+          <a href="Bai03.html">Bài trước</a>
+          <a href="Bai05.html">Bài tiếp theo</a>
+        </div>
+      </div>
+      <div class="w3-code notranslate htmlHigh">
+        <h4>Nội dung bài học</h4>
+        <ol>
+          <li><a href="#muc1">Tổng quan về Javascript</a>
+            <ul>
+              <li><a href="#muc1_1">Giới thiệu chung</a></li>
+              <li><a href="#muc1_2">Vị trí đặt mã Javascript trong trang web HTML</a></li>
+              <li><a href="#muc1_3">Liên kết đến tập tin JavaScript</a></li>
+              <li><a href="#muc1_4">HTML DOM</a></li>
+            </ul>
+          </li>
+          <li><a href="#muc2">Javascript cơ bản</a>
+            <ul>
+              <li><a href="#muc2_1">Câu lệnh, khối lệnh, ghi chú, định danh</a></li>
+              <li><a href="#muc2_2">Kiểu dữ liệu (Data Types)</a></li>
+              <li><a href="#muc2_3">Các toán tử (Operators)</a></li>
+              <li><a href="#muc2_4">Biến (Variable)</a></li>
+              <li><a href="#muc2_5">Cấu trúc điều khiển</a></li>
+            </ul>
+          </li>
+          <li><a href="#muc3">Hàm Javascript</a>
+            <ul>
+              <li><a href="#muc3_1">Giới thiệu chung</a></li>
+              <li><a href="#muc3_2">Định nghĩa hàm Javascript</a></li>
+              <li><a href="#muc3_3">Gọi hàm Javascript</a></li>
+            </ul>
+          </li>
+
+        </ol>
+      </div>
+      <div class="w3-center">
+        <div class="pagination">
+          <a href="https://www.youtube.com/watch?v=HLVUc6pZF28&list=PLIRmmxjSpDGND8zduuhaUNZ34liKPaNrp">Video Bài giảng
+            Nhập môn JavaScript</a>
+        </div>
+      </div>
+      <h4 id="muc1"><b>1. Tổng quan về Javascript</b></h4>
+      <h5 id="muc1_1"><b>1.1. Giới thiệu chung</b></h5>
+      <p><b>Ngôn ngữ JavaScript</b></p>
+      <ul>
+        <li>Là một trong những ngôn ngữ lập trình được sử dụng phổ biến nhất hiện nay.</li>
+        <li>Sử dụng tạo các ứng dụng web, di động, game,...</li>
+      </ul>
+      <p><b>Phân biệt JavaScript và ECMAScript</b></p>
+      <ul>
+        <li>ECMAScript là đặc tả, phiên bản thịnh hành là ECMAScript 2015 còn gọi là ES6. Kể từ năm 2016, ECMAScript gắn
+          liền
+          với năm và không còn được gọi là ES7, ES8,...Tham khảo về ECMAScript <a
+            href="https://en.wikipedia.org/wiki/ECMAScript">tại đây</a>.</li>
+        <li>JavaScript là ngôn ngữ lập trình.</li>
+      </ul>
+      <p><b>Thực thi JavaScript</b></p>
+      <ul>
+        <li>Thực thi trực tiếp trên trình duyệt web nhờ các JavaScript Engine. Ví dụ Chrome có V8, Firefox có
+          SpiderMonkey, JavaScriptCore dùng cho Safari hay Chakra cho Edge
+        </li>
+        <li>Thực thi với Node.</li>
+      </ul>
+      <h5 id="muc1_2"><b>1.2. Vị trí đặt mã Javascript trong trang web HTML</b></h5>
+      <p> Các đoạn mã JavaScript được đặt trong cặp thẻ
+        &lt;script&gt;&lt;/script&gt;. Cặp thẻ này có thể được đặt trong cặp &lt;head&gt;&lt;/head&gt; hay
+        &lt;body&gt;&lt;/body&gt;.</p>
+      <p>Trong cặp &lt;head&gt;&lt;/head&gt; chúng ta có thể xem ví dụ và nhấn nút <b>Chạy thử</b> để xem kết quả:</p>
+      <form>
+        <textarea name="sourceCode" id="sourceCode1">
+    <!DOCTYPE html>
+    <html>
+           <head>
+            <script>
+              function myFunction() {
+                document.getElementById("demo").innerHTML = "Nội dung thay đổi.";
+              }
+            </script>              
+           </head>
+           <body>
+            <h1>Đoạn mã JavaScript được đặt trong head</h1>
+            <p id="demo">Nội dung web.</p>
+            <button type="button" onclick="myFunction()">Thử nhấn chuột</button>            
+           </body>
+    </html>
+      </textarea>
+        <input id="btn1" onclick="runCode1();" type="button" value="Chạy thử">
+
+      </form>
+      <iframe name="targetCode" id="iframe1"></iframe>
+      <p>Trong cặp &lt;body&gt;&lt;/body&gt; chúng ta có thể xem ví dụ và nhấn nút <b>Chạy thử</b> để xem kết quả:</p>
+      <form>
+        <textarea name="sourceCode" id="sourceCode2">
+    <!DOCTYPE html>
+    <html>
+           <head>
+                         
+           </head>
+           <body>
+                <h1>Đoạn mã JavaScript được đặt trong head</h1>
+                <p id="demo">Nội dung web.</p>
+                <button type="button" onclick="myFunction()">Thử nhấn chuột</button>
+                <script>
+                  function myFunction() {
+                    document.getElementById("demo").innerHTML = "Nội dung thay đổi.";
+                  }
+                </script>             
+           </body>
+    </html>
+      </textarea>
+        <input id="btn2" onclick="runCode2();" type="button" value="Chạy thử">
+
+      </form>
+      <iframe name="targetCode" id="iframe2"></iframe>
+      <div class="w3-code notranslate htmlHigh">
+        <h5><b>&#9755; Chú ý:</b></h5>
+        <h5> Nếu đặt mã JavaScript trong phần head, khi tải trang web, các đoạn mã này sẽ được thực thi trước khi các
+          nội dung HTML kết xuất đến trình duyệt. Điều này sẽ ảnh hưởng đến tốc độ tải nội dung trang web nếu mã
+          JavaScript lớn.
+          Do đó, giải pháp được khuyên dùng là đặt đoạn mã JavaScript tại cuối phần body như ví dụ thứ 2 ở trên.
+        </h5>
+      </div>
+      <h5 id="muc1_3"><b>1.3. Liên kết đến tập tin JavaScript</b></h5>
+      <p>Tương tự CSS, các đoạn mã JavaScript có thể được đặt trong một tập tin riêng có phần mở rộng là <b>js</b>. Ví
+        dụ chúng ta tạo tập tin tên myScript.js có nội dung sau:
+      </p>
+      <div class="w3-code notranslate htmlHigh">
+        function myFunction() {<br>
+        &nbsp;&nbsp;document.getElementById("demo").innerHTML = "Nội dung thay đổi.";<br>
+        }
+      </div>
+      <p>Chú ý chúng ta không dùng cặp thẻ &lt;script&gt;&lt;/script&gt; trong tập tin myScript. Muốn thực thi đoạn mã
+        JavaScript từ tập tin chúng ta dùng thuộc tính <b>src</b> của thẻ script:</p>
+      <div class="w3-code notranslate htmlHigh">
+        &lt;body&gt;<br>
+        ...<br>
+        &nbsp;&nbsp;&lt;script src="myScript.js"&gt;&lt;/script&gt;<br>
+        &lt;/body&gt;<br>
+      </div>
+      <p>Ưu điểm của việc tạo tập tin JavaScript riêng:</p>
+      <ul>
+        <li>Tách biệt mã HTML và mã JavaScript nên việc quản lí dễ dàng hơn.</li>
+        <li>Dễ đọc và dễ bảo trì nội dung.</li>
+        <li>Tăng tốc độ tải trang web.</li>
+      </ul>
+      <h5 id="muc1_4"><b>1.4. HTML DOM</b></h5>
+      <h5><b>Khái niệm về HTML DOM</b></h5>
+      <p>DOM là viết tắt của chữ Document Object Model, dịch tạm ra là mô hình các đối tượng trong tài liệu HTML.</p>
+      <p> DOM thể
+        hiện các đối tượng trong tài liệu HTML dưới dạng cấu trúc cây.
+        Ví dụ chúng ta có nội dung HTML như sau:</p>
+      <div class="w3-code notranslate htmlHigh">
+        &lt;!doctype html&gt;<br>
+
+        &lt;html&gt;<br>
+
+        &nbsp;&nbsp;&lt;head&gt;<br>
+
+        &nbsp;&nbsp;&nbsp;&nbsp;&lt;title&gt;Hello World &lt;/title&gt;<br>
+
+        &nbsp;&nbsp;&lt;/head&gt;<br>
+
+        &nbsp;&nbsp;&lt;body&gt;<br>
+
+        &nbsp;&nbsp;&nbsp;&nbsp;&lt;p&gt;Here's some text.&lt;/p&gt;<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&lt;p&gt;Here's some text.&lt;/p&gt;<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&lt;p&gt;Link to the &lt;a href="http://www.w3.org">W3&lt;/a&gt;.&lt;/p&gt;<br>
+
+        &nbsp;&nbsp;&lt;/body&gt;<br>
+
+        &lt;/html&gt;
+      </div>
+      <p>HTML DOM của tài liệu HTML trên là:</p>
+      <img src="img/dom.png" class="center">
+      <p>
+        Các phần tử như html, head, body, v.v. cũng được gọi là các node (số nhiều là nodes). Các node mức thấp hơn một
+        node đã cho gọi là các hậu duệ (descendant), các node mức kề dưới và có quan hệ với một node gọi là các node con
+        và node đó được gọi là node cha (parent). Các node có cùng cha và cùng mức gọi là anh em (sibling).</p>
+      <p>
+        Ví dụ từ cây DOM trên: các node head, body là con của html; head và body là anh em; title, p, v.v. là hậu duệ
+        của
+        html hay cũng có thể nói html là tổ tiên (ancestor).</p>
+      <p>
+        Để thao tác với các phần tử hay các node trên DOM, chúng ta dùng các phương thức JavaScript (hay jQuery).</p>
+      <h5><b>Vai trò của HTML DOM trong lập trình Javascript</b></h5>
+      <p>HTML DOM định nghĩa:</p>
+      <ul>
+        <li>Các phần tử HTML như các đối tượng.</li>
+        <li>Các thuộc tính (properties) của tất cả phần tử HTML.</li>
+        <li>Các phương thức (methods) để truy cập các phần tử HTML.</li>
+        <li>Các sự kiện (events) cho tất cả các phần tử HTML.</li>
+      </ul>
+      <p>
+        Nói cách khác HTML DOM là một tiêu chuẩn cho cách lấy, thay đổi, thêm, hay xoá các phần tử HTML.</p>
+
+      <h4 id="muc2"><b>2. Javascript cơ bản</b></h4>
+      <h5 id="muc2_1"><b>2.1. Câu lệnh, khối lệnh, ghi chú, định danh</b></h5>
+      <p><b>Lệnh (statement)</b> là các chỉ thị yêu cầu thực hiện một nhiệm vụ nào đó. Kết thúc câu lệnh trong
+        Javascript bằng
+        dấu chấm phẩy (;). Ví dụ lệnh yêu cầu trình duyệt viết dòng "Hello World!" trong phần tử có id = "demo":</p>
+      <div class="w3-code notranslate htmlHigh">
+        document.getElementById("demo").innerHTML = "Hello World!";
+      </div>
+      <p><b>Khối lệnh (code blocks)</b>: chứa nhiều lệnh và được đặt trong dấu {}. Ví dụ các khối lệnh trong cấu trúc
+        điều
+        kiện, cấu trúc lặp hay hàm.
+        Ví dụ về khối lệnh trong hàm myFunction: </p>
+      <div class="w3-code notranslate htmlHigh">
+        function myFunction() { <br>
+        &nbsp;&nbsp;document.getElementById("demo").innerHTML = "Hello Dolly.";<br>
+        &nbsp;&nbsp;document.getElementById("myDIV").innerHTML = "How are you?";<br>
+        }<br>
+
+      </div>
+      <p>
+        <b>Chú thích (comments)</b>: dùng để giảng giải code JavaScript, làm cho nó dễ đọc hơn. Ngoài ra, có thể dùng
+        chú
+        thích
+        trong quá trình sửa lỗi chương trình. Các dòng chú thích không được thực thi.
+      </p>
+      <p> Chú thích một dòng (single line comment) kí hiệu bằng dấu //, ví dụ:</p>
+      <div class="w3-code notranslate htmlHigh">
+        // thay đổi tiêu đề: <br>
+        document.getElementById("myH").innerHTML = "My First Page";<br>
+        // thay đổi đoạn văn bản: <br>
+        document.getElementById("myP").innerHTML = "My first paragraph."; <br>
+
+      </div>
+      <p>Chú thích nhiều dòng (multi-line comment) kí hiệu bằng dấu /*...*/, ví dụ:</p>
+      <div class="w3-code notranslate htmlHigh">
+        /* Đoạn code bên dưới thay đổi tiêu đề trong myH<br>
+        và đoạn văn bản trong myP<br>
+        */ <br>
+        document.getElementById("myH").innerHTML = "My First Page";<br>
+        document.getElementById("myP").innerHTML = "My first paragraph."; <br>
+
+      </div>
+      <p> Dùng chú thích để che đi dòng lệnh mà ta nghi ngờ bị lỗi để từ đó có cách sửa lỗi phù hợp. Ví dụ nếu hai dòng
+        mã
+        dưới đây không thực thi và ta nghi ngờ dòng đầu bị lỗi thì có thể che dòng này để kiểm tra, sẽ như dưới đây:</p>
+      <div class="w3-code notranslate htmlHigh">
+        // document.getElementById("myH").innerHTML = "My First Page";<br>
+        document.getElementById("myP").innerHTML = "My first paragraph."; <br>
+
+      </div>
+      <p><b>Định danh (Identifier)</b></p>
+      <p>
+        Định danh là các định danh như tên biến, tên hằng, tên hàm,…Các định danh bắt đầu bằng một kí tự hay dấu _ hay
+        dấu $. Các định danh không được trùng tên các từ khoá (key words) sau:</p>
+      <div class="w3-code notranslate htmlHigh">
+        abstract boolean break byte case catch char class const continue debugger default delete do double else enum
+        export extends false final finally float for function goto if implements import in instanceof int interface
+        long native new null package private protected public return short static super switch synchronized this
+        throw throws transient true try typeof var volatile void while with undefined NaN Infinity
+      </div>
+      <h5 id="muc2_2"><b>2.2. Kiểu dữ liệu</b></h5>
+      <p><b>2.2.1. Kiểu dữ liệu sơ cấp</b></p>
+      <p>Dữ liệu luôn luôn thuộc một kiểu nào đó. Biến có kiểu dữ liệu phụ thuộc vào dữ liệu mà nó lưu trũ, kiểu dữ liệu
+        của biến sẽ bị thay đổi khi giá trị của nó thay đổi.
+        JavaScript có một số kiểu dữ liệu sơ cấp như sau:</p>
+      <table id="tab">
+        <tr>
+          <th>Kiểu dữ liệu</th>
+          <th>Mô tả</th>
+        </tr>
+        <tr>
+          <td>Số (Number) </td>
+          <td>Các số nguyên hoặc số thực. Ví dụ: 487 hoặc 25.95</td>
+        </tr>
+        <tr>
+          <td>Luận lý (Boolean) </td>
+          <td>Giá trị <b>true</b> hoặc <b>false</b></td>
+        </tr>
+        <tr>
+          <td>Kí tự (Character)</td>
+          <td>Ví dụ 'c', '9'</td>
+        </tr>
+      </table>
+      <p> Một vài ví dụ:</p>
+      <div class="w3-code notranslate htmlHigh">
+        let x1 = 34.5; // khai báo kiểu số thực <br>
+        let x2 = 34; // khai báo kiểu số nguyên<br>
+        let x3 = true; // khai báo kiểu luận lý<br>
+        let x4 = 'c';//khai báo kiểu kí tự<br>
+      </div>
+
+      <p>Thực thi ví dụ trên bằng cách nhấn nút <b>Chạy thử</b> để xem kết quả.</p>
+      <form>
+        <textarea name="sourceCode" id="sourceCode3">
+    <!DOCTYPE html>
+    <html>
+           <head>
+                         
+           </head>
+           <body>
+                <h1>Nhấn nút Kiểu dữ liệu để xem kết quả</h1>
+                <p id="demo"></p>
+                <button type="button" onclick="myFunction()">Kiểu dữ liệu</button>
+                <script>
+                  function myFunction() {
+                    let x1 = 34.5; //  khai  báo  kiểu  số  thực
+                    let x2 = 34; //  khai  báo  kiểu  số  nguyên 
+                    let x3 = true;  //  khai  báo  kiểu  luận  lý 
+                    let x4 = 'c';//khai  báo  kiểu  kí  tự
+                    document.getElementById("demo").innerHTML =
+                      x1 + "<br>" + x2 + "<br>" + x3 + "<br>" + x4;
+                  }
+                </script>             
+           </body>
+    </html>
+      </textarea>
+        <input id="btn3" onclick="runCode3();" type="button" value="Chạy thử">
+
+      </form>
+      <iframe name="targetCode" id="iframe3"></iframe>
+      <div class="w3-code notranslate htmlHigh">
+        <h5><b>&#9755; Chú ý:</b></h5>
+        <h5> Trong ví dụ trên có sử dụng khai báo các <b>biến</b> x1, x2, x3, x4 vì kiểu dữ liệu và biến luôn gắn liền
+          nhau. Khái niệm biến và
+          khai báo biến chúng ta sẽ tìm hiểu rõ hơn ở phần sau.
+        </h5>
+      </div>
+      <p><b>2.2.2. Kiểu dữ liệu Undefined và null</b></p>
+      <p> <b>null</b> ngụ ý là không có dữ liệu. Nó thực hiện chức năng là giữ chỗ trong một biến với ngụ ý là ở đó
+        không có hữu dụng gì.
+        Số không hay một xâu rỗng và null là các giá trị khác nhau.
+        JavaScript luôn phân biệt các chữ hoa và chữ thường nên null không giống như Null
+        hoặc NULL</p>
+      <p>Một biến chưa được gán giá trị có giá trị <b>undefined</b>.</p>
+
+      <p>Ví dụ về kiểu dữ liệu null và undefined trong JavaScript. Nhấn nút <b>Chạy thử</b> để xem kết quả.</p>
+      <form>
+        <textarea name="sourceCode" id="sourceCode4">
+    <!DOCTYPE html>
+    <html>
+           <head>
+                         
+           </head>
+           <body>
+                <h1>Nhấn nút Kiểu dữ liệu để xem kết quả</h1>
+                <p id="demo"></p>
+                <button type="button" onclick="myFunction()">Kiểu dữ liệu</button>
+                <script>
+                  function myFunction() {
+                    let x = null;
+                    let y;  //undefined
+                    document.getElementById("demo").innerHTML =
+                      x + "<br>" + y;
+                  }
+                </script>             
+           </body>
+    </html>
+      </textarea>
+        <input id="btn4" onclick="runCode4();" type="button" value="Chạy thử">
+
+      </form>
+      <iframe name="targetCode" id="iframe4"></iframe>
+      <p><b> 2.2.3. Kiểu dữ liệu đối tượng (Object)</b></p>
+      <ul>
+        <li>Các đối tượng (objects) được viết chung với dấu {}</li>
+        <li>Thuộc tính (property) của các đối tượng được khai báo như các cặp <b>tên thuộc tính : giá trị (name :
+            value)</b> và các cặp cách
+          nhau
+          bởi dấu
+          phẩy.</li>
+      </ul>
+      <p> Ví dụ:</p>
+      <div class="w3-code notranslate htmlHigh">
+        const person = {firstName:"John", lastName:"Doe", age:50, eyeColor:"blue"};
+      </div>
+      <p>Đối tượng person có các thuộc tính là <b>firstName</b>, <b>lastName</b>, <b>age</b> và <b>eyeColor</b>.</p>
+      <div class="w3-code notranslate htmlHigh">
+        <h5><b>&#9755;</b> Tham khảo thêm về kiểu đối tượng <a href="https://www.w3schools.com/js/js_objects.asp">tại
+            đây</a>.
+        </h5>
+      </div>
+      <p><b> 2.2.4. Kiểu chuỗi (String)</b></p>
+      <ul>
+        <li>Là một dãy các kí tự như "John Doe" hay "Hello".</li>
+        <li>Trong JavaScript, dữ liệu kiểu chuỗi được viết trong dấu nháy đôi hay nháy đơn. </li>
+      </ul>
+      <p> Ví dụ về khai
+        báo kiểu chuỗi:</p>
+      <div class="w3-code notranslate htmlHigh">
+        let carName = "Volvo XC60"; // dùng nháy kép <br>
+        let carName = 'Volvo XC60'; // dùng nháy đơn
+      </div>
+      <div class="w3-code notranslate htmlHigh">
+        <h5><b>&#9755;</b> Tham khảo thêm về cách sử dụng chuỗi <a
+            href="https://www.w3schools.com/js/js_strings.asp">tại đây</a>.
+        </h5>
+      </div>
+      <p><b> 2.2.5. Kiểu mảng (Array)</b></p>
+      <ul>
+        <li>Mảng trong JavaScript được viết với dấu [ ]</li>
+        <li>Mảng có thể chứa nhiều phần tử bên trong và các phần tử cách nhau bởi dấu phẩy; Các phần tử trong mảng được
+          đánh
+          chỉ số thứ tự bắt đầu từ 0, 1, 2,...</li>
+        <li>Truy cập phần tử của mảng theo cú pháp: tên mảng [chỉ số phần tử]. </li>
+      </ul>
+      <p>Ví dụ: khai báo mảng tên cars và các phần tử bên
+        trong</p>
+      <div class="w3-code notranslate htmlHigh">
+        let cars = ["Saab", "Volvo", "BMW"];
+      </div>
+      <p>Ví dụ khai báo mảng cars và hiển thị các phần tử trong mảng cars. Nhấn nút <b>Chạy thử</b> để xem kết quả.</p>
+      <form>
+        <textarea name="sourceCode" id="sourceCode5">
+    <!DOCTYPE html>
+    <html>
+           <head>
+                         
+           </head>
+           <body>
+                <h1>Nhấn nút Kiểu dữ liệu để xem kết quả</h1>
+                <p id="demo"></p>
+                <button type="button" onclick="myFunction()">Kiểu dữ liệu</button>
+                <script>
+                  function myFunction() {
+                    const cars = ["Saab", "Volvo", "BMW"];
+                    document.getElementById("demo").innerHTML = cars;
+                  }
+                </script>             
+           </body>
+    </html>
+      </textarea>
+        <input id="btn5" onclick="runCode5();" type="button" value="Chạy thử">
+      </form>
+      <iframe name="targetCode" id="iframe5"></iframe>
+      <div class="w3-code notranslate htmlHigh">
+        <h5><b>&#9755; Bài tập:</b>
+          Hiển thị giá trị "Saab" từ mảng cars.
+        </h5>
+      </div>
+      <div class="w3-code notranslate htmlHigh">
+        <h5><b>&#9755;</b> Tham khảo thêm về cách sử dụng mảng <a href="https://www.w3schools.com/js/js_arrays.asp">tại
+            đây</a>.
+        </h5>
+      </div>
+      <p><b> 2.2.6. Kiểu Date </b></p>
+      <ul>
+        <li>Đối tượng Date cho phép chúng ta làm việc với các thành phần thời gian như giờ (hour), phút (minute), giây
+          (second), ngày (day), tháng (month), năm (year).</li>
+        <li>Định dạng kiểu Date có thể hiển thị theo dạng chuỗi như Tue May 24 2016 10:11:01 GMT+0700 (SE Asia Standard
+          Time)
+          hay dạng số như 1464059461396 (số mili giây từ January 1, 1970, 00:00:00).</li>
+        <li>Hiển thị giá trị kiểu Date dùng phương thức Date() và tạo đối tượng Date dùng từ khóa new.</li>
+      </ul>
+
+      <p>Ví dụ dùng phương thức Date() để hiển thị. Nhấn nút <b>Chạy thử</b> để xem kết quả.</p>
+      <form>
+        <textarea name="sourceCode" id="sourceCode6">
+    <!DOCTYPE html>
+    <html>
+           <head>
+                         
+           </head>
+           <body>
+                <h1>Nhấn nút Kiểu dữ liệu để xem kết quả</h1>
+                <p id="demo"></p>
+                <button type="button" onclick="myFunction()">Kiểu dữ liệu</button>
+                <script>
+                  function myFunction() {
+                    document.getElementById("demo").innerHTML = Date();
+                  }
+                </script>             
+           </body>
+    </html>
+      </textarea>
+        <input id="btn6" onclick="runCode6();" type="button" value="Chạy thử">
+      </form>
+      <iframe name="targetCode" id="iframe6"></iframe>
+      <div class="w3-code notranslate htmlHigh">
+        <h5><b>&#9755;</b> Tham khảo thêm về cách hiển thị và tạo đối tượng Date <a
+            href="https://www.w3schools.com/js/js_dates.asp">tại đây</a>.
+        </h5>
+      </div>
+      <h5 id="muc2_3"><b>2.3. Các toán tử (Operators)</b></h5>
+      <h5><b>Toán tử gán (Assignment operator)</b></h5>
+      <p>Được dùng để gán các giá trị cho các biến. Một số các toán tử cơ bản:</p>
+      <table id="tab">
+        <tr>
+          <th>Toán tử</th>
+          <th>Ví dụ</th>
+          <th>Mô tả</th>
+        </tr>
+        <tr>
+          <td>=</td>
+          <td>x = 3</td>
+          <td>Gán giá trị 3 cho x.</td>
+        </tr>
+        <tr>
+          <td>+=</td>
+          <td>x += 3</td>
+          <td>Tương đương x = x + 3; lấy giá trị của x cộng 3 và gán cho x giá trị mới này.</td>
+        </tr>
+        <tr>
+          <td>-=</td>
+          <td>x -= 3</td>
+          <td>Tương đương x = x - 3; lấy giá trị của x trừ 3 và gán cho x giá trị mới này.</td>
+        </tr>
+        <tr>
+          <td>*=</td>
+          <td>x *= 3</td>
+          <td>Tương đương x = x * 3; lấy giá trị của x nhân 3 và gán cho x giá trị mới này.</td>
+        </tr>
+        <tr>
+          <td>/=</td>
+          <td>x /= 3</td>
+          <td>Tương đương x = x / 3; lấy giá trị của x chia 3 và gán cho x giá trị mới này.</td>
+        </tr>
+        <tr>
+          <td>%=</td>
+          <td>x %= 3</td>
+          <td>Tương đương x = x % 3; lấy phần dư của phép chia x cho 3 và gán cho x giá trị mới này.</td>
+        </tr>
+      </table>
+      <p>Ví dụ về toán tử gán +=. Nhấn nút <b>Chạy thử</b> để xem kết quả.</p>
+      <form>
+        <textarea name="sourceCode" id="sourceCode7">
+    <!DOCTYPE html>
+    <html>
+           <head>
+                         
+           </head>
+           <body>
+                <h1>Nhấn nút Toán tử Gán để xem kết quả</h1>
+                <p id="demo"></p>
+                <button type="button" onclick="myFunction()">Toán tử Gán</button>
+                <script>
+                  function myFunction() {
+                    let x = 10;
+                    x += 5;
+                    document.getElementById("demo").innerHTML = x;
+                  }
+                </script>             
+           </body>
+    </html>
+      </textarea>
+        <input id="btn7" onclick="runCode7();" type="button" value="Chạy thử">
+      </form>
+      <iframe name="targetCode" id="iframe7"></iframe>
+      <div class="w3-code notranslate htmlHigh">
+        <h5><b>&#9755; Bài tập:</b>
+          Kiểm tra kết quả các toán tử Gán còn lại.
+        </h5>
+      </div>
+      <h5><b>Toán tử số học (Arithmetic Operator)</b></h5>
+      <p>Các toán tử số học sử dụng các giá trị số (literals hay các biến) làm toán hạng của chúng và trả về một giá trị
+        số. Các toán tử số học cơ bản là:</p>
+      <table id="tab">
+        <tr>
+          <th>Toán tử</th>
+          <th>Ví dụ</th>
+          <th>Mô tả</th>
+        </tr>
+        <tr>
+          <td>+</td>
+          <td>x = 3 + 2 = 5</td>
+          <td>Phép cộng</td>
+        </tr>
+        <tr>
+          <td>-</td>
+          <td>x = 3 - 1 = 2</td>
+          <td>Phép trừ</td>
+        </tr>
+        <tr>
+          <td>*</td>
+          <td>x = 3 * 2 = 6</td>
+          <td>Phép nhân</td>
+        </tr>
+        <tr>
+          <td>/</td>
+          <td>x = 3 / 2 = 1.5</td>
+          <td>Phép chia</td>
+        </tr>
+        <tr>
+          <td>%</td>
+          <td>x = 3 / 2 = 1</td>
+          <td>Phép chia lấy số dư</td>
+        </tr>
+        <tr>
+          <td>**</td>
+          <td>x = 3 ** 2 = 9</td>
+          <td>Phép lũy thừa. Toán tử này xuất hiện kể từ ES2016.</td>
+        </tr>
+        <tr>
+          <td>++</td>
+          <td>++x sẽ trả về giá trị của x sau khi tăng.x++ sẽ trả về giá trị của x trước khi tăng.</td>
+          <td>Tăng lên một đơn vị. Toán tử này nhận một toán hạng. Giá trị của toán hạng sẽ tăng lên 1 đơn vị. Giá trị
+            được trả về sẽ tuỳ thuộc vào toán tử ++ nằm sau hay nằm trước toán hạng.</td>
+        </tr>
+        <tr>
+          <td>--</td>
+          <td>x %= 3</td>
+          <td>--x sẽ trả về giá trị của x sau khi giảm. x-- sẽ trả về giá trị của x trước khi giảm.</td>
+        </tr>
+      </table>
+      <p>Ví dụ về toán tử **. Nhấn nút <b>Chạy thử</b> để xem kết quả.</p>
+      <form>
+        <textarea name="sourceCode" id="sourceCode8">
+    <!DOCTYPE html>
+    <html>
+           <head>
+                         
+           </head>
+           <body>
+                <h1>Nhấn nút Toán tử Số học để xem kết quả</h1>
+                <p id="demo"></p>
+                <button type="button" onclick="myFunction()">Toán tử Số học</button>
+                <script>
+                  function myFunction() {
+                    let x;
+                    x = 3 ** 2; // 9
+                    document.getElementById("demo").innerHTML = x;
+                  }
+                </script>             
+           </body>
+    </html>
+      </textarea>
+        <input id="btn8" onclick="runCode8();" type="button" value="Chạy thử">
+      </form>
+      <iframe name="targetCode" id="iframe8"></iframe>
+      <div class="w3-code notranslate htmlHigh">
+        <h5><b>&#9755; Bài tập:</b>
+          Kiểm tra kết quả các toán tử Số học còn lại.
+        </h5>
+      </div>
+      <h5><b>Toán tử so sánh (Comparison Operator)</b></h5>
+      <p>Toán tử so sánh thường so sánh các toán hạng của nó và trả về một giá trị logic dựa trên phép so sánh đó đúng
+        hay không. Các toán hạng có thể là các giá trị số hoặc chuỗi. Khi so sánh chuỗi, nó sẽ dựa trên thứ tự các kí tự
+        trong bảng chữ cái.</p>
+      <table id="tab">
+        <tr>
+          <th>Toán tử</th>
+
+          <th>Mô tả</th>
+        </tr>
+        <tr>
+          <td>==</td>
+
+          <td>Bằng. Trả về giá trị true nếu các toán hạng bằng nhau.</td>
+        </tr>
+        <tr>
+          <td>!=</td>
+
+          <td>Không bằng. Trả về giá trị true nếu các toán hạng không bằng nhau.</td>
+        </tr>
+        <tr>
+          <td>></td>
+
+          <td>Lớn hơn. Trả về giá trị true nếu toán hạng trái lớn hơn toán hạng phải.</td>
+        </tr>
+        <tr>
+          <td>>=</td>
+
+          <td>Lớn hơn hoặc bằng. Trả về giá trị true nếu toán hạng trái lớn hơn hoặc bằng toán hạng phải.</td>
+        </tr>
+        <tr>
+          <td>&lt;</td>
+
+          <td>Nhở hơn. Trả về giá trị true nếu toán hạng trái nhỏ hơn toán hoạng phải.</td>
+        </tr>
+        <tr>
+          <td>&lt;=</td>
+
+          <td>Nhỏ hơn hoặc bằng. Trả vè giá trị true nếu toán hạng trái nhỏ hơn hoặc bằng toán hạng phải.</td>
+        </tr>
+
+      </table>
+      <p>Ví dụ về toán tử so sánh ==. Nhấn nút <b>Chạy thử</b> để xem kết quả.</p>
+      <form>
+        <textarea name="sourceCode" id="sourceCode9">
+    <!DOCTYPE html>
+    <html>
+           <head>
+                         
+           </head>
+           <body>
+                
+                <h1>Nhấn nút Toán tử Số học để xem kết quả</h1>
+                <p>Gán 5 đến x và trả về giá trị của lệnh (x == 8):</p>
+                <p id="demo"></p>
+                <button type="button" onclick="myFunction()">Toán tử So sánh</button>
+                <script>
+                  function myFunction() {
+                    let x = 5;
+                    document.getElementById("demo").innerHTML = (x == 8);
+                  }
+                </script>             
+           </body>
+    </html>
+      </textarea>
+        <input id="btn9" onclick="runCode9();" type="button" value="Chạy thử">
+      </form>
+      <iframe name="targetCode" id="iframe9"></iframe>
+      <div class="w3-code notranslate htmlHigh">
+        <h5><b>&#9755; Bài tập:</b>
+          <ul>
+            <li>Thử thay đổi x = 5 thành x = 8 và kiểm tra kết quả.</li>
+            <li>Kiểm tra kết quả các toán tử So sánh còn lại.</li>
+          </ul>
+        </h5>
+      </div>
+      <h5><b>Toán tử luận lý (Logical Operator)</b></h5>
+      <p>Toán tử luận lý hay logic được dùng để kết hợp nhiều toán tử so sánh thành một biểu thức điều kiện. Một toán tử
+        logic
+        thường có hai toán hạng, mỗi một toán hạng đó đều có giá trị true hoặc false và trả về kết quả true hoặc false.
+      </p>
+      <table id="tab">
+        <tr>
+          <th>Toán tử</th>
+          <th>Giá trị</th>
+          <th>Mô tả</th>
+        </tr>
+        <tr>
+          <td>&&</td>
+          <td>expr1 && expr2/td>
+          <td>Trả về giá trị của expr1 nếu nó là false. Nếu không thì nó trả về giá trị của expr2.</td>
+        </tr>
+        <tr>
+          <td>||</td>
+          <td>expr1 || expr2</td>
+          <td>Trả về giá trị của expr1 nếu nó là true. Nếu không thì nó sẽ trả về giá trị của expr2.</td>
+        </tr>
+        <tr>
+          <td>!</td>
+          <td>!expr</td>
+          <td>Trả về giá trị false nếu biểu thức đúng và trả về giá trị true nếu biểu thức sai.</td>
+        </tr>
+
+      </table>
+      <p>Ví dụ về toán tử luận lý &&. Nhấn nút <b>Chạy thử</b> để xem kết quả.</p>
+      <form>
+        <textarea name="sourceCode" id="sourceCode10">
+    <!DOCTYPE html>
+    <html>
+           <head>
+                         
+           </head>
+           <body>
+                
+                <h1>Nhấn nút Toán tử Luận lý để xem kết quả</h1>
+                <p>Gán 5 đến x, 3 đến y và trả về giá trị của lệnh (x == 8) && (y == 3):</p>
+                <p id="demo"></p>
+                <button type="button" onclick="myFunction()">Toán tử Luận lý</button>
+                <script>
+                  function myFunction() {
+                    let x = 5;
+                    let y = 3;
+                    document.getElementById("demo").innerHTML = (x == 8) && (y == 3); // false && true = false
+                  }
+                </script>             
+           </body>
+    </html>
+      </textarea>
+        <input id="btn10" onclick="runCode10();" type="button" value="Chạy thử">
+      </form>
+      <iframe name="targetCode" id="iframe10"></iframe>
+      <div class="w3-code notranslate htmlHigh">
+        <h5><b>&#9755; Bài tập: </b>Kiểm tra kết quả các toán tử Luận lý còn lại.
+        </h5>
+      </div>
+      <h5 id="muc2_4"><b>2.4. Biến (Variable)</b></h5>
+      <h5><b>2.4.1. Định nghĩa biến </b></h5>
+      <p>Biến là một tham chiếu đến một vị trí trong bộ nhớ. Nó dùng để chứa các giá trị có thể thay đổi khi script đang
+        được thực thi. Chúng ta phải đặt tên cho biến, chẳng hạn ta có thể tạo một biến có tên x. Tại mỗi thời điểm
+        thực hiện, biến có thể chứa một giá trị mới.</p>
+      <p>Khi chúng ta muốn xem giá trị của biến hoặc thay đổi giá trị của nó, ta chỉ cần dùng tên của biến.</p>
+      <p>Các biến thường có các quy ước đặt tên như sau:</p>
+      <ul>
+        <li>Tên biến phải bắt đầu bằng một chữ cái hoặc ký tự gạch dưới ("_")</li>
+        <li>Tên biến có thể chứa chữ số</li>
+        <li>JavaScript phân biệt rõ chữ hoa và chữ thường, vì vậy tên biến bao gồm các ký tự từ "A" đến "Z" (chữ hoa) và
+          các
+          ký tự từ "a" đến "z" (chữ thường)</li>
+      </ul>
+      <h5><b>2.4.2. Khai báo biến - Phạm vi biến </b></h5>
+      <p> Trước ES6 (ES2015), khai báo biến trong JavaScript sử dụng từ khóa <b>var</b> hoặc không cần dùng như ví dụ
+        khai báo
+        biến
+        x và y:</p>
+      <div class="w3-code notranslate htmlHigh">
+        var x = 10;<br>
+        y = "Hello";
+      </div>
+      <p>JavaScript là ngôn ngữ có kiểu động (dynamic types), nghĩa là kiểu dữ liệu của biến phụ thuộc vào giá trị được
+        gán đến nó. Ví dụ trên biến x có kiểu Number và y kiểu String.</p>
+      <p>Vì có kiểu động nên một biến trong JavaScript có thể nhận các giá trị khác nhau. Ví dụ biến x:</p>
+      <div class="w3-code notranslate htmlHigh">
+        var x = 10;<br>
+        x = "Hello";
+      </div>
+      <p>Từ ES6 bổ sung thêm hai từ khóa là <b>let</b> và <b>const</b>. Một biến được khai báo với <b>const</b> sẽ nhận
+        giá trị
+        không đổi hay không thể được gán lại như ví dụ:</p>
+      <div class="w3-code notranslate htmlHigh">
+        const count = 2;<br>
+        count = count + 1; // không hợp lệ
+      </div>
+      <p>Từ ES5 trở về trước trong JavaScript chỉ có hai phạm vi khai báo biến là phạm vi toàn cục (hay biến toàn cục -
+        global variables) bên ngoài các hàm và có thể được truy cập từ bất kỳ vị trí nào trong chương trình như ví dụ:
+      </p>
+      <div class="w3-code notranslate htmlHigh">
+        var carName = "Volvo";// biến toàn cục<br>
+        // có thể dùng carName ở đây <br>
+        function myFunction() {<br>
+        &nbsp;&nbsp;// có thể dùng carName ở đây<br>
+        }
+      </div>
+      <p>
+        Và phạm vi hàm (biến cục bộ - local variables) là các biến chỉ có thể được truy cập trong các hàm đã khai báo
+        chúng như ví dụ:</p>
+      <div class="w3-code notranslate htmlHigh">
+        // carName không thể dùng tại đây<br>
+        function myFunction() {<br>
+        &nbsp;&nbsp;var carName = "Volvo";<br>
+        &nbsp;&nbsp;// carName dùng tại đây<br>
+        }<br>
+        // carName không thể dùng tại đây
+      </div>
+      <p> Với từ khóa <b>let</b> trong ES6, biến trong JavaScript có thêm một phạm vi mới là phạm vi khối (block
+        variables)
+        tức là các biến chỉ được truy cập trong phạm vi giới hạn bởi cặp ngoặc {}. Xem ví dụ về cách dùng let và
+        var:</p>
+
+      <div class="w3-code notranslate htmlHigh">
+        var x = 10;// phạm vi toàn cục<br>
+        // Nếu x dùng ở đây, giá trị x = 10 <br>
+        {<br>
+        &nbsp;&nbsp;let x = 2;// phạm vi khối<br>
+        &nbsp;&nbsp;// Nếu x dùng ở đây, giá trị x = 2<br>
+        }<br>
+        // Nếu x dùng ở đây, giá trị x = 10
+      </div>
+      <h5 id="muc2_5"><b>2.5. Cấu trúc điều khiển</b></h5>
+      <h5><b>2.5.1 Cấu trúc rẽ nhánh (hay điều kiện)</b></h5>
+      <h5><b>&#9755; Lệnh if</b></h5>
+      <p> Khi viết mã trong JavaScript, chúng ta hay gặp những tình huống phải đưa ra những hành động khác nhau trong
+        những điều kiện khác
+        nhau. Để làm điều này, chúng ta sử dụng các lệnh điều kiện (conditional statements). Lệnh điều kiện trong
+        JavaScript gồm lệnh if và switch. Lệnh if có các phiên bản sau:</p>
+      <p><b>Lệnh if với cú pháp:</b></p>
+      <div class="w3-code notranslate htmlHigh">
+        if (điều kiện) {<br>
+        &nbsp;&nbsp;khốí lệnh sẽ thực thi nếu điều kiện là đúng (hay true)<br>
+        }
+      </div>
+
+      <p>Ví dụ về lệnh if. Nhấn nút <b>Chạy thử</b> để xem kết quả.</p>
+      <form>
+        <textarea name="sourceCode" id="sourceCode11">
+    <!DOCTYPE html>
+    <html>
+           <head>
+                         
+           </head>
+           <body>                
+                <p>Nhấn nút Kiểm tra bạn đủ tuổi truy cập website hay chưa? (Tuổi truy cập lớn hơn hay bằng 16.)</p>              
+                <p id="demo"></p>
+                <button type="button" onclick="myFunction()">Kiểm tra</button>
+                <script>
+                  function myFunction() {
+                    let tuoi = 17;
+                    if (tuoi >= 16)
+                      document.getElementById("demo").innerHTML = "Chúc mừng, bạn đã đủ tuổi!";
+                  }
+                </script>             
+           </body>
+    </html>
+      </textarea>
+        <input id="btn11" onclick="runCode11();" type="button" value="Chạy thử">
+      </form>
+      <iframe name="targetCode" id="iframe11"></iframe>
+      <p>Trong ví dụ trên, nếu giá trị biến <b>tuoi</b> lớn hơn hay bằng 16 thì một thông báo sẽ xuất hiện khi chúng ta
+        nhấn nút Kiểm tra nhưng nếu giá trị biến <b>tuoi</b> nhỏ hơn 16 sẽ không xuất hiện bất kỳ thông báo nào vì chúng
+        ta chưa viết lệnh trong trường hợp này. </p>
+      <div class="w3-code notranslate htmlHigh">
+        <h5>&#9755; Bạn có thể kiểm tra điều này bằng cách thay đổi giá trị biến <b>tuoi</b> trong hàm myFunction đến
+          giá trị nhỏ hơn 16 sau đó nhấn nút <b>Chạy thử</b> rồi nhấn nút <b>Kiểm tra</b>.</h5>
+      </div>
+
+      <p>Có nhiều cách xử lý nhưng một trong những cách hiệu quả là dùng phiên
+        bản khác của lệnh <b>if</b> ngay sau đây.</p>
+      <p><b>Lệnh if else với cú pháp:</b></p>
+      <div class="w3-code notranslate htmlHigh">
+        if (điều kiện) {<br>
+        &nbsp;&nbsp;khốí lệnh sẽ thực thi nếu điều kiện là đúng (hay true)<br>
+        } else {<br>
+        &nbsp;&nbsp;khốí lệnh sẽ thực thi nếu điều kiện là sai (hay false)<br>
+        }
+      </div>
+      <p>Ví dụ về lệnh if else. Nhấn nút <b>Chạy thử</b> để xem kết quả.</p>
+      <form>
+        <textarea name="sourceCode" id="sourceCode12">
+    <!DOCTYPE html>
+    <html>
+           <head>
+                         
+           </head>
+           <body>                
+                <p>Nhấn nút Kiểm tra bạn đủ tuổi truy cập website hay chưa? (Tuổi truy cập lớn hơn hay bằng 16.)</p>              
+                <p id="demo"></p>
+                <button type="button" onclick="myFunction()">Kiểm tra</button>
+                <script>
+                  function myFunction() {
+                    let tuoi = 17;
+                    if (tuoi >= 16)
+                      document.getElementById("demo").innerHTML = "Chúc mừng, bạn đã đủ tuổi!";
+                    else
+                      document.getElementById("demo").innerHTML = "Rất tiếc, bạn chưa đủ tuổi!";
+                  }
+                </script>             
+           </body>
+    </html>
+      </textarea>
+        <input id="btn12" onclick="runCode12();" type="button" value="Chạy thử">
+      </form>
+      <iframe name="targetCode" id="iframe12"></iframe>
+      <div class="w3-code notranslate htmlHigh">
+        <h5>&#9755; <b>Bài tập</b>: Thay đổi giá trị biến <b>tuoi</b> trong hàm myFunction đến
+          giá trị nhỏ hơn 16 sau đó nhấn nút <b>Chạy thử</b> rồi nhấn nút <b>Kiểm tra</b> để xem kết quả.</h5>
+      </div>
+      <p>Ở ví dụ trên chúng ta chỉ xét hai điều kiện: điều kiện tuổi lớn hơn hay bằng 16 và điều kiện nhỏ hơn 16. Tuy
+        nhiên,
+        những chương trình thực tế sẽ có nhiều hơn hai điều kiện như trên. Với số lượng điều kiện lớn hơn hai, sau lệnh
+        else chúng ta có thể dùng if else và lặp lại cho đến khi chỉ còn xét một điều kiện duy nhất sẽ kết thúc bằng
+        else. Để rõ hơn, giả sử chúng ta có 3 điều kiện (điều kiện 1, điều kiện 2 và một điều kiện cuối cùng), một phiên
+        bản khác của lệnh <b>if</b> sẽ như sau đây.</p>
+      <p><b>Lệnh if else if else với cú pháp:</b></p>
+      <div class="w3-code notranslate htmlHigh">
+        if (điều kiện 1) {<br>
+        &nbsp;&nbsp;khốí lệnh sẽ thực thi nếu điều kiện 1 là đúng (hay true)<br>
+        } else if (điều kiện 2) {<br>
+        &nbsp;&nbsp;khốí lệnh sẽ thực thi nếu điều kiện 1 là sai (hay false)và điều kiện 2 là đúng (hay true)<br>
+        }
+        else {<br>
+        &nbsp;&nbsp;khốí lệnh sẽ thực thi nếu điều kiện 1 là sai (hay false) và điều kiện 2 là sai (hay false)<br>
+        }
+      </div>
+      <p>Ví dụ về lệnh if else if else. Nhấn nút <b>Chạy thử</b> để xem kết quả.</p>
+      <form>
+        <textarea name="sourceCode" id="sourceCode13">
+    <!DOCTYPE html>
+    <html>
+           <head>
+                         
+           </head>
+           <body>                
+                <p>Nhấn nút Kiểm tra giá trị biến x bằng 0, lớn hơn 0 hay nhỏ hơn 0.</p>              
+                <p id="demo"></p>
+                <button type="button" onclick="myFunction()">Kiểm tra</button>
+                <script>
+                  function myFunction() {
+                    let x = 0;
+                    if (x > 0)
+                      document.getElementById("demo").innerHTML = "Lớn hơn 0";
+                    else if (x == 0)
+                      document.getElementById("demo").innerHTML = "Bằng 0";
+                    else
+                      document.getElementById("demo").innerHTML = "Nhỏ hơn 0";
+                  }
+                </script>             
+           </body>
+    </html>
+      </textarea>
+        <input id="btn13" onclick="runCode13();" type="button" value="Chạy thử">
+      </form>
+      <iframe name="targetCode" id="iframe13"></iframe>
+      <div class="w3-code notranslate htmlHigh">
+        <h5>&#9755; <b>Bài tập</b>: Thay đổi giá trị biến <b>x</b> trong hàm myFunction đến
+          giá trị nhỏ hơn 0, lớn hơn 0 sau đó nhấn nút <b>Chạy thử</b> rồi nhấn nút <b>Kiểm tra</b> để xem kết quả.</h5>
+      </div>
+      <h5><b>&#9755; Lệnh switch</b></h5>
+      <p>Cũng là lệnh điều kiện giống if dùng để đưa ra những hành động khác nhau trong những điều kiện khác nhau.
+        Cú pháp:</p>
+      <div class="w3-code notranslate htmlHigh">
+        switch(bieu_thuc) {<br>
+        &nbsp;&nbsp;case n:<br>
+        &nbsp;&nbsp; &nbsp;&nbsp;khối lệnh<br>
+        &nbsp;&nbsp; &nbsp;&nbsp;break;<br>
+        &nbsp;&nbsp;case m:<br>
+        &nbsp;&nbsp; &nbsp;&nbsp;khối lệnh<br>
+        &nbsp;&nbsp; &nbsp;&nbsp;break;<br>
+        &nbsp;&nbsp;default:<br>
+        &nbsp;&nbsp; &nbsp;&nbsp;khối lệnh mặc định<br>
+        }
+      </div>
+
+      <p>Cách làm việc:</p>
+      <p>Giá trị của bieu_thuc sẽ được so sánh với từng trường hợp trong case. Nếu nó khớp với trường hợp (case) nào thì
+        sẽ
+        thực hiện khối lệnh tại case đó và thoát khỏi switch nhờ lệnh break mà không cần kiểm tra các case còn lại. Nếu
+        bieu_thuc không khớp với mọi case thì khối lệnh trong default sẽ thực thi.
+        Vi dụ: hàm getDay() sẽ trả về ngày thứ mấy trong tuần dưới dạng số từ 0..6 (Sunday=0, Monday = 1, Tuesday =
+        2,...).
+        Đoạn mã sau sẽ dựa vào số 0..6 để trả về tên ngày như Sunday, Monday,...Nhấn nút <b>Chạy thử</b> để xem kết quả.
+      </p>
+
+      <form>
+        <textarea name="sourceCode" id="sourceCode14">
+      <!DOCTYPE html>
+      <html>
+             <head>
+                           
+             </head>
+             <body>                
+                  <p>Nhấn nút Kiểm tra hôm nay là thứ mấy.</p>              
+                  <p id="demo"></p>
+                  <button type="button" onclick="myFunction()">Kiểm tra</button>
+                  <script>
+                    function myFunction() {
+                      let day;
+                      switch (new Date().getDay()) {
+                        case 0:
+                          day = "Chủ Nhật";
+                          break;
+                        case 1:
+                          day = "Thứ Hai";
+                          break;
+                        case 2:
+                          day = "Thứ Ba";
+                          break;
+                        case 3:
+                          day = "Thứ Tư";
+                          break;
+                        case 4:
+                          day = "Thứ Năm";
+                          break;
+                        case 5:
+                          day = "Thứ Sáu";
+                          break;
+                        case 6:
+                          day = "Thứ Bảy";
+                      }
+                      document.getElementById("demo").innerHTML = day;
+                    }
+                  </script>             
+             </body>
+      </html>
+        </textarea>
+        <input id="btn14" onclick="runCode14();" type="button" value="Chạy thử">
+      </form>
+      <iframe name="targetCode" id="iframe14"></iframe>
+      <p> Có một vài trường hợp chúng ta muốn nhiều case khác nhau thực hiện cùng một lệnh hay khối lệnh. Chúng ta làm
+        điều
+        này bằng cách đặt các khối lệnh chung và lệnh break phù hợp. Xét ví dụ sau và nhấn nút <b>Chạy thử</b> để xem
+        kết quả.</p>
+      <form>
+        <textarea name="sourceCode" id="sourceCode15">
+        <!DOCTYPE html>
+        <html>
+               <head>
+                             
+               </head>
+               <body>                
+                    <p>Nhấn nút Kiểm tra hôm nay là thứ mấy.</p>              
+                    <p id="demo"></p>
+                    <button type="button" onclick="myFunction()">Kiểm tra</button>
+                    <script>
+                      function myFunction() {
+                        let msg;
+                        switch (new Date().getDay()) {
+                          case 6:
+                            msg = "Hôm nay là Thứ Bảy";
+                            break;
+                          case 0:
+                            msg = "Hôm nay là Chủ Nhật";
+                            break;
+                          default:
+                            msg = "Hôm nay là ngày làm việc (2, 3, 4, 5, 6)";
+                        }
+                        document.getElementById("demo").innerHTML = msg;
+                      }
+                    </script>             
+               </body>
+        </html>
+          </textarea>
+        <input id="btn15" onclick="runCode15();" type="button" value="Chạy thử">
+      </form>
+      <iframe name="targetCode" id="iframe15"></iframe>
+      <h5><b>2.5.2. Cấu trúc lặp</b></h5>
+      <p>Trong lập trình, có những lệnh hay khối lệnh được lặp lại nhiều lần. Thay vì viết các lệnh hay khối lệnh này
+        nhiều lần, chúng ta có thể dùng các lệnh lặp.</p>
+      <p>
+        Một số lệnh lặp phổ biến trong JavaScript là <b>for</b>, <b>for/in</b>, <b>while</b> và <b>do/while</b>.</p>
+      <h5><b>&#9755; Lệnh for</b></h5>
+      <p>Dùng để lặp theo một số lần xác định cho trước. Ví dụ thực hiện lệnh xuất dòng chữ Hello 5 lần. Cú pháp lệnh
+        for:
+      </p>
+      <div class="w3-code notranslate htmlHigh">
+        <b>for</b> (lenh_1; lenh_2; lenh_3 ) {<br>
+        &nbsp;&nbsp;Đoạn mã được lặp (1)<br>
+        }
+      </div>
+      <ul>
+        <li><b>lenh_1</b>: là lệnh được thực thi trước khi (1) được thực thi.</li>
+
+        <li><b>lenh_2</b>: điều kiện lặp</li>
+
+        <li><b>lenh_3</b>: là lệnh được thực thi mỗi lần sau khi (1) thực thi</li>
+      </ul>
+      <p>Ví dụ: lệnh hiển thị dòng Hello 5 hàng</p>
+      <div class="w3-code notranslate htmlHigh">
+        let text = "";<br>
+        for (let i = 0; i &lt; 5; i++ ) {<br>
+        &nbsp;&nbsp;text += "Hello" + "&lt;br&gt;";<br>
+        }
+      </div>
+      <p>Nhấn nút <b>Chạy thử</b> để xem
+        kết quả.</p>
+      <form>
+        <textarea name="sourceCode" id="sourceCode16">
+      <!DOCTYPE html>
+      <html>
+             <head>
+                           
+             </head>
+             <body>                
+                  <p>Nhấn nút Lặp for để hiển thị 5 dòng Hello.</p>              
+                  <p id="demo"></p>
+                  <button type="button" onclick="myFunction()">Lặp for</button>
+                  <script>
+                    function myFunction() {
+                      let text = "";
+                      for (let i = 0; i < 5; i++) {
+                        text += "Hello" + "<br>";
+                      }
+                      document.getElementById("demo").innerHTML = text;
+                    }
+                  </script>             
+             </body>
+      </html>
+        </textarea>
+        <input id="btn16" onclick="runCode16();" type="button" value="Chạy thử">
+      </form>
+      <iframe name="targetCode" id="iframe16"></iframe>
+      <div class="w3-code notranslate htmlHigh">
+        <h5>&#9755; <b>Bài tập</b>: Thay đổi nội dung trong <b>for</b> trong hàm <b>myFunction</b> thực hiện các chức
+          năng
+          sau:
+          <ul>
+            <li>Hiển thị các số từ 1 đến 5 trên một hàng.</li>
+            <li>Hiển thị các số chẵn từ 1 đến 5 trên một hàng.</li>
+          </ul>
+          Sau khi hoàn thành mỗi chức năng thì nhấn nút
+          <b>Chạy thử</b> rồi nhấn nút <b>Lặp for</b> để xem kết quả.
+        </h5>
+      </div>
+      <h5><b>&#9755; Lệnh for/in</b></h5>
+      <p>Dùng để lặp qua các thuộc tính của đối tượng (object). Cú pháp:</p>
+      <div class="w3-code notranslate htmlHigh">
+        <b>for</b> (bien_thuoc_tinh <b>in</b> doi_tuong) {<br>
+        &nbsp;&nbsp;// Mã thực thi<br>
+        }
+      </div>
+      <p>Để hiểu rõ hãy xét ví dụ sau:</p>
+      <div class="w3-code notranslate htmlHigh">
+        const person = {fname:"John", lname:"Doe", age:25};<br>
+        let text = "";<br>
+        for (let x in person) {<br>
+        &nbsp;&nbsp;text += person[x];<br>
+        }
+      </div>
+      <p>Đối tượng <b>person</b> có các thuộc tính là <b>fname</b>, <b>lname</b> và <b>age</b>. Mỗi thuộc tính sẽ có
+        những giá trị tương ứng là
+        <b>John</b>,
+        <b>Doe</b> và <b>25</b>. Biến <b>x</b> sẽ lưu từng thuộc tính của đối tượng <b>person</b>. Hiển thị giá trị
+        thuộc tính <b>x</b> dùng <b>person[x]</b>.
+      </p>
+      <p>Nhấn nút <b>Chạy thử</b> để xem
+        kết quả.</p>
+      <form>
+        <textarea name="sourceCode" id="sourceCode17">
+      <!DOCTYPE html>
+      <html>
+             <head>
+                           
+             </head>
+             <body>                
+                  <p>Nhấn nút Lặp for/in để hiển thị giá trị các thuộc tính person.</p>              
+                  <p id="demo"></p>
+                  <button type="button" onclick="myFunction()">Lặp for/in</button>
+                  <script>
+                    function myFunction() {
+                      const person = { fname: "John", lname: "Doe", age: 25 };
+                      let text = "";
+                      for (let x in person) {
+                        text += person[x] + " ";
+                      }
+                      document.getElementById("demo").innerHTML = text;
+                    }
+                  </script>             
+             </body>
+      </html>
+        </textarea>
+        <input id="btn17" onclick="runCode17();" type="button" value="Chạy thử">
+      </form>
+      <iframe name="targetCode" id="iframe17"></iframe>
+      <p>For/in cũng có thể được dùng để lặp qua các phần tử của một mảng (array). Cú pháp:</p>
+      <div class="w3-code notranslate htmlHigh">
+        <b>for</b> (bien_pt <b>in</b> mang) {<br>
+        &nbsp;&nbsp;// Mã thực thi<br>
+        }
+      </div>
+      <p>Để hiểu rõ hãy xét ví dụ sau:</p>
+      <div class="w3-code notranslate htmlHigh">
+        const numbers = [45, 4, 9, 16, 25];<br>
+        let text = "";<br>
+        for (let x in numbers) {<br>
+        &nbsp;&nbsp;text += numbers[x];<br>
+        }
+      </div>
+      <p>Nhấn nút <b>Chạy thử</b> để xem
+        kết quả.</p>
+      <form>
+        <textarea name="sourceCode" id="sourceCode18">
+      <!DOCTYPE html>
+      <html>
+             <head>
+                           
+             </head>
+             <body>                
+                  <p>Nhấn nút Lặp for/in để hiển thị các phần tử từ mảng numbers.</p>              
+                  <p id="demo"></p>
+                  <button type="button" onclick="myFunction()">Lặp for/in</button>
+                  <script>
+                    function myFunction() {
+                      const numbers = [45, 4, 9, 16, 25];
+                      let text = "";
+                      for (let x in numbers) {
+                        text += numbers[x] + " ";
+                      }
+                      document.getElementById("demo").innerHTML = text;
+                    }
+                  </script>             
+             </body>
+      </html>
+        </textarea>
+        <input id="btn18" onclick="runCode18();" type="button" value="Chạy thử">
+      </form>
+      <iframe name="targetCode" id="iframe18"></iframe>
+      <div class="w3-code notranslate htmlHigh">
+        <h5>&#9755; <b>Bài tập</b>: Trong ví dụ trên vì biến text được gán đến giá trị "" nên nó có kiểu string. Kiểu
+          string khi kết hợp vói kiểu số (Number) thông qua toán tử + sẽ cho ra kết quả là kiểu string.<br>Hãy thay đổi
+          nội
+          dung đoạn mã trong hàm myFunction ở ví dụ trên để kết quả hiển thị là tổng của các phần tử từ mảng numbers.
+          Sau khi hoàn thành thì nhấn nút
+          <b>Chạy thử</b> rồi nhấn nút <b>Lặp for/in</b> để xem kết quả.
+        </h5>
+      </div>
+      <h5><b>&#9755; Lệnh for/of</b></h5>
+      <p>Thêm vào JavaScript từ ES6, được dùng để lặp qua các các giá trị của các cấu trúc dữ liệu như đối tượng
+        (objects), mảng (arrays), chuỗi (strings),... Cú pháp:</p>
+      <div class="w3-code notranslate htmlHigh">
+        <b>for</b> (bien <b>of</b> cau_truc_du_lieu) {<br>
+        &nbsp;&nbsp;// Mã thực thi<br>
+        }
+      </div>
+      <p>Ví dụ hiển thị các phần tử mảng numbers dùng for/of như sau:</p>
+      <div class="w3-code notranslate htmlHigh">
+        const numbers = [45, 4, 9, 16, 25];<br>
+        let text = "";<br>
+        for (let x of numbers) {<br>
+        &nbsp;&nbsp;text += x;<br>
+        }
+      </div>
+      <h5><b>&#9755; Lệnh while</b></h5>
+      <p>Khác với for, lệnh while sẽ lặp theo một điều kiện nào đó. Chừng nào điều kiện còn đúng thì lệnh lặp sẽ vẫn
+        thực thi. Cú pháp:</p>
+      <div class="w3-code notranslate htmlHigh">
+        <b>while</b> (dieu_kien) {<br>
+        &nbsp;&nbsp;// Mã thực thi<br>
+        }
+      </div>
+      <p>Ví dụ: lệnh lặp sau sẽ còn thực thi chừng nào điều kiện i &lt; 10 còn đúng, biến i sẽ tăng 1 đơn vị sau mỗi lần
+        lặp:</p>
+      <div class="w3-code notranslate htmlHigh">
+        i = 0;<br>
+        while (i &lt; 10) { <br>
+        &nbsp;&nbsp;text += "The number is " + i; <br>
+        &nbsp;&nbsp;i++; <br>
+        }
+      </div>
+      <p>Nhấn nút <b>Chạy thử</b> để xem
+        kết quả.</p>
+      <form>
+        <textarea name="sourceCode" id="sourceCode19">
+      <!DOCTYPE html>
+      <html>
+             <head>
+                           
+             </head>
+             <body>                
+                  <p>Nhấn nút Lặp while để hiển thị các phần tử từ 0 đến 9.</p>              
+                  <p id="demo"></p>
+                  <button type="button" onclick="myFunction()">Lặp while</button>
+                  <script>
+                    function myFunction() {
+                      let i = 0;
+                      let text = "";
+                      while (i < 10) {
+                        text += "The number is " + i + "<br>";
+                        i++;
+                      }
+                      document.getElementById("demo").innerHTML = text;
+                    }
+                  </script>             
+             </body>
+      </html>
+        </textarea>
+        <input id="btn19" onclick="runCode19();" type="button" value="Chạy thử">
+      </form>
+      <iframe name="targetCode" id="iframe19"></iframe>
+      <h5><b>&#9755; Lệnh do/while</b></h5>
+      <p>Cũng giống lệnh while là lặp theo điều kiện, nhưng do/while thực thi lệnh ít nhất một lần trước khi kiểm tra
+        điều kiện. Cú pháp:</p>
+      <div class="w3-code notranslate htmlHigh">
+        <b>do</b>{<br>
+        &nbsp;&nbsp;// Mã thực thi<br>
+        }<b>while</b>(dieu_kien)<br>
+      </div>
+      <p>Xét ví dụ sau để phân biệt while và do/while. Nhấn nút <b>Chạy thử</b> để xem
+        kết quả.</p>
+      <form>
+        <textarea name="sourceCode" id="sourceCode20">
+      <!DOCTYPE html>
+      <html>
+             <head>
+                           
+             </head>
+             <body>                
+                  <p>Nhấn nút Lặp while và Lặp do/while để xem kết quả với i = 11.</p>              
+                  <p id="demo"></p>
+                  <button type="button" onclick="myWhile()">Lặp while</button>
+                  <button type="button" onclick="myDoWhile()">Lặp do/while</button>
+                  <script>
+                    function myWhile() {
+                      let i = 11;
+                      let text = "";
+                      while (i < 10) {
+                        text += "The number is " + i + "<br>";
+                        i++;
+                      }
+                      document.getElementById("demo").innerHTML = text;
+                    }
+                    function myDoWhile() {
+                      let i = 11;
+                      let text = "";
+                      do {
+                        text += "The number is " + i + "<br>";
+                        i++;
+                      } while (i < 10)
+                      document.getElementById("demo").innerHTML = text;
+                    }
+                  </script>             
+             </body>
+      </html>
+        </textarea>
+        <input id="btn20" onclick="runCode20();" type="button" value="Chạy thử">
+
+      </form>
+      <iframe name="targetCode" id="iframe20"></iframe>
+      <div class="w3-code notranslate htmlHigh">
+        <h5>&#9755; <b>Bài tập</b>: Thay đổi
+          nội
+          dung đoạn mã trong hàm myWhile và myDoWhile ở ví dụ trên để cho ra cùng kết quả hiển thị là tổng của các số
+          nguyên lẻ từ 1 đến 10.
+          Sau khi hoàn thành thì nhấn nút
+          <b>Chạy thử</b> rồi nhấn các nút <b>Lặp while</b> và <b>Lặp do/while</b> để xem kết quả.
+        </h5>
+      </div>
+      <h5><b>2.5.3. Lệnh break, continue</b></h5>
+      <h5><b>&#9755; Lệnh break</b></h5>
+      <p>Lệnh break được dùng để nhảy ra khỏi lệnh switch như chúng ta đã tìm hiểu ở mục Lệnh rẽ nhánh. Lệnh break cũng
+        có thể được dùng để thoát khỏi lệnh lặp for hay while.</p>
+      <p>Ví dụ sau minh họa chương trình sẽ dừng khi giá trị i = 5 bằng cách dùng break. Nhấn nút <b>Chạy thử</b> để xem
+        kết quả.</p>
+      <form>
+        <textarea name="sourceCode" id="sourceCode21">
+        <!DOCTYPE html>
+        <html>
+               <head>
+                             
+               </head>
+               <body>                
+                    <p>Dùng break để thoát khỏi vòng lặp while khi i = 5.</p>              
+                    <p id="demo"></p>
+                    <button type="button" onclick="myFunction()">Lặp while</button>
+                    <script>
+                      function myFunction() {
+                        let i = 0;
+                        let text = "";
+                        while (i < 10) {
+                          if (i == 5) break;
+                          text += "The number is " + i + "<br>";
+                          i++;
+                        }
+                        document.getElementById("demo").innerHTML = text;
+                      }
+                    </script>             
+               </body>
+        </html>
+          </textarea>
+        <input id="btn21" onclick="runCode21();" type="button" value="Chạy thử">
+      </form>
+      <iframe name="targetCode" id="iframe21"></iframe>
+      <h5><b>&#9755; Lệnh continue</b></h5>
+      <p>Lệnh continue cũng được sử dụng trong các vòng lặp, nhưng khác break, lệnh continue sẽ dừng một lần lặp nếu bắt
+        gặp một điều kiện nào đó (ví dụ i = 5) và sẽ tiếp tục với lần lặp tiếp theo (chứ không thoát khỏi vòng lặp như
+        break).</p>
+      <p>Ví dụ sau minh họa chương trình sẽ bỏ qua khi giá trị i = 5 bằng cách dùng continue. Nhấn nút <b>Chạy thử</b>
+        để xem
+        kết quả.</p>
+      <form>
+        <textarea name="sourceCode" id="sourceCode22">
+          <!DOCTYPE html>
+          <html>
+                 <head>
+                               
+                 </head>
+                 <body>                
+                      <p>Dùng continue để bỏ qua giá trị i = 5.</p>              
+                      <p id="demo"></p>
+                      <button type="button" onclick="myFunction()">Lặp for</button>
+                      <script>
+                        function myFunction() {
+                          let text = "";
+                          for (let i = 0; i < 10; i++) {
+                            if (i == 5) { continue; }
+                            text += "The number is " + i + "<br>";
+                          }
+                          document.getElementById("demo").innerHTML = text;
+                        }
+                      </script>             
+                 </body>
+          </html>
+            </textarea>
+        <input id="btn22" onclick="runCode22();" type="button" value="Chạy thử">
+      </form>
+      <iframe name="targetCode" id="iframe22"></iframe>
+      <h4 id="muc3"><b>3. Hàm Javascript</b></h4>
+      <h5 id="muc3_1"><b>3.1. Giới thiệu chung</b></h5>
+      <p>JavaScript cho phép sử dụng các hàm. Mặc dù không nhất thiết phải có, song các hàm có thể có một hay nhiều
+        tham số truyền vào và một giá trị trả về. Bởi vì JavaScript là ngôn ngữ kiểu động nên không cần
+        định
+        nghĩa kiểu tham số và giá trị trả về của hàm. Hàm có thể là thuộc tính của một đối tượng, trong trường hợp này
+        nó
+        được xem như là phương thức của đối tượng đó.</p>
+      <p>Hàm giúp chúng ta sử dụng lại các đoạn mã, tức định nghĩa một lần và sử dụng nhiều lần.</p>
+      <p>Có thể dùng hàm nhiều lần với các đối số khác nhau sẽ cho ra kết quả khác nhau.</p>
+      <h5 id="muc3_2"><b>3.2. Định nghĩa hàm Javascript</b></h5>
+      <p>Hàm trong JavaScript có thể được định nghĩa qua cú pháp sau:</p>
+      <div class="w3-code notranslate htmlHigh">
+
+        <b>function</b> <b>Tên hàm</b><b>(</b>[tham số 1],[tham số 2],...,[tham số N]<b>)</b><br>
+        {<br>
+        &nbsp;&nbsp;//các lệnh<br>
+        }
+      </div>
+      <p>Một vài lưu ý từ cú pháp trên:</p>
+      <ul>
+        <li>Từ khóa <b>function</b> được sử dụng để định nghĩa hàm trong JavaScript.</li>
+        <li><b>Tên hàm</b> được đặt tên với quy ước tương tự tên biến.</li>
+        <li>Theo sau tên hàm là cặp ngoặc tròn có thể chứa hoặc không chứa các tham số. </li>
+        <li>Các tham số [tham số 1], [tham
+          số 2],...là danh sách các tên biến được định nghĩa trong định nghĩa hàm. Kí hiệu ngoặc vuông của các tham số
+          có ý nghĩa là các tham số có thể có hoặc không.</li>
+        <li>Các tham số [tham số 1], [tham
+          số 2],...còn được gọi là tham số hình thức để phân biệt tham số thực (hay đối số) khi gọi hàm.</li>
+      </ul>
+      <p>Ví dụ hàm không có tham số:</p>
+      <div class="w3-code notranslate htmlHigh">
+
+        <b>function</b> <b>Display</b><b>(</b><b>)</b><br>
+        {<br>
+        &nbsp;&nbsp;document.getElementById("demo").innerHTML = "Hello World";<br>
+        }
+      </div>
+      <p>Ví dụ hàm có tham số:</p>
+      <div class="w3-code notranslate htmlHigh">
+
+        <b>function</b> <b>Add</b><b>(</b>a, b<b>)</b><br>
+        {<br>
+        &nbsp;&nbsp;return a + b;<br>
+        }
+      </div>
+      <p>Hàm có hai 2 dạng là hàm có kiểu dữ liệu trả về (ví dụ hàm Add) và hàm không có dữ liệu trả về (ví dụ hàm
+        Display). Hàm có kiểu dữ liệu trả về sử dụng từ khóa <b>return</b> đặt ở cuối hàm với mục đích trả kết
+        quả về để sử dụng tiếp ở những đoạn code bên ngoài.</p>
+      <h5 id="muc3_3"><b>3.3. Gọi hàm Javascript</b></h5>
+      <p>Khi gọi hàm trong JavaScript chúng ta cần chú ý:</p>
+      <ul>
+        <li>Gọi chính xác tên hàm vì JavaScript là ngôn ngữ phân biệt chữ hoa chữ thường, nghĩa là add khác Add.</li>
+        <li>Số các tham số thực phải tương ứng với số các tham số hình thức (nếu có).</li>
+        <li>Gọi và sử dụng hàm có và không có kiểu dữ liệu trả về là khác nhau.</li>
+      </ul>
+
+      <p>Ví dụ sau minh họa cách định nghĩa hàm Add và Display và cách gọi 2 hàm này từ các hàm khác. Nhấn nút <b>Chạy
+          thử</b>
+        để xem
+        kết quả.</p>
+      <form>
+        <textarea name="sourceCode" id="sourceCode23">
+          <!DOCTYPE html>
+          <html>
+                 <head>
+                               
+                 </head>
+                 <body>                
+                      <p>Nhấn nút Display để gọi hàm Display, nhấn nút Add để gọi hàm Add.</p>              
+                      <p id="demo"></p>
+                      <button type="button" onclick="callDisplay()">Display</button>
+                      <button type="button" onclick="callAdd()">Add</button>
+                      <script>
+                        function callDisplay() {
+                          Display();
+                        }
+                        function callAdd() {
+                          document.getElementById("demo").innerHTML = "Tổng 3 + 4 = " + Add(3, 4);
+                        }
+                        function Display() {
+                          document.getElementById("demo").innerHTML = "Hello World";
+                        }
+                        function Add(a, b) {
+                          return a + b;
+                        }
+                      </script>             
+                 </body>
+          </html>
+            </textarea>
+        <input id="btn23" onclick="runCode23();" type="button" value="Chạy thử">
+      </form>
+      <iframe name="targetCode" id="iframe23"></iframe>
+      <h5><b>3.4. Hàm định nghĩa sẵn của Javascript</b></h5>
+      <p>Bên cạnh các hàm do người dùng định nghĩa, JavaScript cung cấp một số lượng lớn các hàm được định nghĩa sẵn.
+        Các hàm này được phân loại dựa trên đối tượng mà nó xử lý. Bảng dưới đây liệt kê một vài đối tượng phổ biến mà
+        JavaScript cung cấp các hàm:</p>
+      <table id="tab">
+        <tr>
+          <th>Đối tượng</th>
+
+          <th>Mô tả</th>
+        </tr>
+        <tr>
+          <td>Các con số (Numbers)</td>
+
+          <td>toString(), toExponential(), toFixed(),... Tham khảo chi tiết <a
+              href="https://www.w3schools.com/js/js_number_methods.asp">tại đây</a>.</td>
+        </tr>
+        <tr>
+          <td>Chuỗi (String)</td>
+
+          <td>slice(), substring(),... Tham khảo chi tiết <a
+              href="https://www.w3schools.com/js/js_string_methods.asp">tại đây</a>.</td>
+        </tr>
+        <tr>
+          <td>Mảng (Array)</td>
+
+          <td>toString(), join(), pop(), push(),...Tham khảo chi tiết <a
+              href="https://www.w3schools.com/js/js_array_methods.asp">tại đây</a>.</td>
+        </tr>
+        <tr>
+          <td>Toán học (Math)</td>
+
+          <td>round(), ceil(), floor(),...Tham khảo chi tiết <a href="https://www.w3schools.com/js/js_math.asp">tại
+              đây</a>.</td>
+        </tr>
+        <tr>
+          <td>Thời gian (Date)</td>
+
+          <td>getDate(), getDay(), getFullYear(),...Tham khảo chi tiết <a
+              href="https://www.w3schools.com/jsref/jsref_obj_date.asp">tại
+              đây</a>.</td>
+        </tr>
+      </table>
+      <h5><b>3.5. Hàm mũi tên (Arrow function)</b></h5>
+      <p>ES6 giới thiệu cách viết ngắn gọn với hàm bằng cách dùng hàm mũi tên theo cú pháp cho trường hợp hàm không có
+        tham
+        số</p>
+      <div class="w3-code notranslate htmlHigh">
+        Biến_hàm = ( ) => {<br>
+        &nbsp;&nbsp;//lệnh thực thi của hàm<br>
+        }
+      </div>
+      <p>
+        Hay có tham số:</p>
+      <div class="w3-code notranslate htmlHigh">
+        Biến_hàm = (tham số 1, tham số 2,...) => {<br>
+        &nbsp;&nbsp;//lệnh thực thi của hàm<br>
+        }
+      </div>
+      <p>
+      <p>Ví dụ hàm Display (ví dụ trên) có thể được viết lại dùng hàm mũi tên:</p>
+      <div class="w3-code notranslate htmlHigh">
+        let Display = () => {<br>
+        &nbsp;&nbsp;document.getElementById("demo").innerHTML = "Hello World";<br>
+        }
+      </div>
+      <p>Ví dụ hàm Add (ví dụ trên) có thể được viết lại dùng hàm mũi tên:</p>
+      <div class="w3-code notranslate htmlHigh">
+        let Add = (a, b) => {<br>
+        &nbsp;&nbsp;return a + b;<br>
+        }
+      </div>
+      <p>Ví dụ sau minh họa cách định nghĩa hàm mũi tên Add và Display. Nhấn nút <b>Chạy
+          thử</b>
+        để xem
+        kết quả.</p>
+      <form>
+        <textarea name="sourceCode" id="sourceCode24">
+        <!DOCTYPE html>
+        <html>
+               <head>
+                             
+               </head>
+               <body>                
+                    <p>Nhấn nút Display để gọi hàm Display, nhấn nút Add để gọi hàm Add.</p>              
+                    <p id="demo"></p>
+                    <button type="button" onclick="callDisplay()">Display</button>
+                    <button type="button" onclick="callAdd()">Add</button>
+                    <script>
+                      function callDisplay() {
+                        Display();
+                      }
+                      function callAdd() {
+                        document.getElementById("demo").innerHTML = "Tổng 3 + 4 = " + Add(3, 4);
+                      }
+                      let Display = () => {
+                        document.getElementById("demo").innerHTML = "Hello World";
+                      }
+                      let Add = (a, b) => {
+                        return a + b;
+                      }
+                    </script>             
+               </body>
+        </html>
+          </textarea>
+        <input id="btn24" onclick="runCode24();" type="button" value="Chạy thử">
+      </form>
+      <iframe name="targetCode" id="iframe24"></iframe>
+      <p>Chi tiết về hàm mũi tên có thể tham khảo <a href="https://www.w3schools.com/js/js_arrow_function.asp">tại
+          đây</a>.</p>
+
+
+
+
+
+
+
+      <div class="w3-center">
+        <div class="pagination">
+          <a href="Bai02.html">Bài trước</a>
+          <a href="Bai04.html">Bài tiếp theo</a>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- End page content -->
+  </div>
+
+  <script>
+    // Script to open and close sidebar
+    function w3_open() {
+      document.getElementById("mySidebar").style.display = "block";
+      document.getElementById("myOverlay").style.display = "block";
+    }
+
+    function w3_close() {
+      document.getElementById("mySidebar").style.display = "none";
+      document.getElementById("myOverlay").style.display = "none";
+    }
+
+    //Run code 1
+    const code1 = document.getElementById('sourceCode1');
+    const btn1 = document.getElementById('btn1');
+    function runCode1() {
+      var content = document.getElementById('sourceCode1').value;
+      var iframe = document.getElementById('iframe1');
+      iframe = (iframe.contentWindow) ? iframe.contentWindow : (iframe.contentDocument.document) ? iframe.contentDocument.document : iframe.contentDocument;
+      iframe.document.open();
+      iframe.document.write(content);
+      iframe.document.close();
+      return false;
+    }
+
+    //Run code 2
+    const code2 = document.getElementById('sourceCode2');
+    const btn2 = document.getElementById('btn2');
+    function runCode2() {
+      var content = document.getElementById('sourceCode2').value;
+      var iframe = document.getElementById('iframe2');
+      iframe = (iframe.contentWindow) ? iframe.contentWindow : (iframe.contentDocument.document) ? iframe.contentDocument.document : iframe.contentDocument;
+      iframe.document.open();
+      iframe.document.write(content);
+      iframe.document.close();
+      return false;
+    }
+
+    //Run code 3
+    const code3 = document.getElementById('sourceCode3');
+    const btn3 = document.getElementById('btn3');
+    function runCode3() {
+      var content = document.getElementById('sourceCode3').value;
+      var iframe = document.getElementById('iframe3');
+      iframe = (iframe.contentWindow) ? iframe.contentWindow : (iframe.contentDocument.document) ? iframe.contentDocument.document : iframe.contentDocument;
+      iframe.document.open();
+      iframe.document.write(content);
+      iframe.document.close();
+      return false;
+    }
+
+    //Run code 4
+    const code4 = document.getElementById('sourceCode4');
+    const btn4 = document.getElementById('btn4');
+    function runCode4() {
+      var content = document.getElementById('sourceCode4').value;
+      var iframe = document.getElementById('iframe4');
+      iframe = (iframe.contentWindow) ? iframe.contentWindow : (iframe.contentDocument.document) ? iframe.contentDocument.document : iframe.contentDocument;
+      iframe.document.open();
+      iframe.document.write(content);
+      iframe.document.close();
+      return false;
+    }
+    //Run code 5
+    const code5 = document.getElementById('sourceCode5');
+    const btn5 = document.getElementById('btn5');
+    function runCode5() {
+      var content = document.getElementById('sourceCode5').value;
+      var iframe = document.getElementById('iframe5');
+      iframe = (iframe.contentWindow) ? iframe.contentWindow : (iframe.contentDocument.document) ? iframe.contentDocument.document : iframe.contentDocument;
+      iframe.document.open();
+      iframe.document.write(content);
+      iframe.document.close();
+      return false;
+    }
+    //Run code 6
+    const code6 = document.getElementById('sourceCode6');
+    const btn6 = document.getElementById('btn6');
+    function runCode6() {
+      var content = document.getElementById('sourceCode6').value;
+      var iframe = document.getElementById('iframe6');
+      iframe = (iframe.contentWindow) ? iframe.contentWindow : (iframe.contentDocument.document) ? iframe.contentDocument.document : iframe.contentDocument;
+      iframe.document.open();
+      iframe.document.write(content);
+      iframe.document.close();
+      return false;
+    }
+
+    //Run code 7
+    const code7 = document.getElementById('sourceCode7');
+    const btn7 = document.getElementById('btn7');
+    function runCode7() {
+      var content = document.getElementById('sourceCode7').value;
+      var iframe = document.getElementById('iframe7');
+      iframe = (iframe.contentWindow) ? iframe.contentWindow : (iframe.contentDocument.document) ? iframe.contentDocument.document : iframe.contentDocument;
+      iframe.document.open();
+      iframe.document.write(content);
+      iframe.document.close();
+      return false;
+    }
+    //Run code 8
+    const code8 = document.getElementById('sourceCode8');
+    const btn8 = document.getElementById('btn8');
+    function runCode8() {
+      var content = document.getElementById('sourceCode8').value;
+      var iframe = document.getElementById('iframe8');
+      iframe = (iframe.contentWindow) ? iframe.contentWindow : (iframe.contentDocument.document) ? iframe.contentDocument.document : iframe.contentDocument;
+      iframe.document.open();
+      iframe.document.write(content);
+      iframe.document.close();
+      return false;
+    }
+    //Run code 9
+    const code9 = document.getElementById('sourceCode9');
+    const btn9 = document.getElementById('btn9');
+    function runCode9() {
+      var content = document.getElementById('sourceCode9').value;
+      var iframe = document.getElementById('iframe9');
+      iframe = (iframe.contentWindow) ? iframe.contentWindow : (iframe.contentDocument.document) ? iframe.contentDocument.document : iframe.contentDocument;
+      iframe.document.open();
+      iframe.document.write(content);
+      iframe.document.close();
+      return false;
+    }
+    //Run code 10
+    const code10 = document.getElementById('sourceCode10');
+    const btn10 = document.getElementById('btn10');
+    function runCode10() {
+      var content = document.getElementById('sourceCode10').value;
+      var iframe = document.getElementById('iframe10');
+      iframe = (iframe.contentWindow) ? iframe.contentWindow : (iframe.contentDocument.document) ? iframe.contentDocument.document : iframe.contentDocument;
+      iframe.document.open();
+      iframe.document.write(content);
+      iframe.document.close();
+      return false;
+    }
+    //Run code 11
+    const code11 = document.getElementById('sourceCode11');
+    const btn11 = document.getElementById('btn11');
+    function runCode11() {
+      var content = document.getElementById('sourceCode11').value;
+      var iframe = document.getElementById('iframe11');
+      iframe = (iframe.contentWindow) ? iframe.contentWindow : (iframe.contentDocument.document) ? iframe.contentDocument.document : iframe.contentDocument;
+      iframe.document.open();
+      iframe.document.write(content);
+      iframe.document.close();
+      return false;
+    }
+    //Run code 12
+    const code12 = document.getElementById('sourceCode12');
+    const btn12 = document.getElementById('btn12');
+    function runCode12() {
+      var content = document.getElementById('sourceCode12').value;
+      var iframe = document.getElementById('iframe12');
+      iframe = (iframe.contentWindow) ? iframe.contentWindow : (iframe.contentDocument.document) ? iframe.contentDocument.document : iframe.contentDocument;
+      iframe.document.open();
+      iframe.document.write(content);
+      iframe.document.close();
+      return false;
+    }
+    //Run code 13
+    const code13 = document.getElementById('sourceCode13');
+    const btn13 = document.getElementById('btn13');
+    function runCode13() {
+      var content = document.getElementById('sourceCode13').value;
+      var iframe = document.getElementById('iframe13');
+      iframe = (iframe.contentWindow) ? iframe.contentWindow : (iframe.contentDocument.document) ? iframe.contentDocument.document : iframe.contentDocument;
+      iframe.document.open();
+      iframe.document.write(content);
+      iframe.document.close();
+      return false;
+    }
+    //Run code 14
+    const code14 = document.getElementById('sourceCode14');
+    const btn14 = document.getElementById('btn14');
+    function runCode14() {
+      var content = document.getElementById('sourceCode14').value;
+      var iframe = document.getElementById('iframe14');
+      iframe = (iframe.contentWindow) ? iframe.contentWindow : (iframe.contentDocument.document) ? iframe.contentDocument.document : iframe.contentDocument;
+      iframe.document.open();
+      iframe.document.write(content);
+      iframe.document.close();
+      return false;
+    }
+    //Run code 15
+    const code15 = document.getElementById('sourceCode15');
+    const btn15 = document.getElementById('btn15');
+    function runCode15() {
+      var content = document.getElementById('sourceCode15').value;
+      var iframe = document.getElementById('iframe15');
+      iframe = (iframe.contentWindow) ? iframe.contentWindow : (iframe.contentDocument.document) ? iframe.contentDocument.document : iframe.contentDocument;
+      iframe.document.open();
+      iframe.document.write(content);
+      iframe.document.close();
+      return false;
+    }
+    //Run code 16
+    const code16 = document.getElementById('sourceCode16');
+    const btn16 = document.getElementById('btn16');
+    function runCode16() {
+      var content = document.getElementById('sourceCode16').value;
+      var iframe = document.getElementById('iframe16');
+      iframe = (iframe.contentWindow) ? iframe.contentWindow : (iframe.contentDocument.document) ? iframe.contentDocument.document : iframe.contentDocument;
+      iframe.document.open();
+      iframe.document.write(content);
+      iframe.document.close();
+      return false;
+    }
+
+    //Run code 17
+    const code17 = document.getElementById('sourceCode17');
+    const btn17 = document.getElementById('btn17');
+    function runCode17() {
+      var content = document.getElementById('sourceCode17').value;
+      var iframe = document.getElementById('iframe17');
+      iframe = (iframe.contentWindow) ? iframe.contentWindow : (iframe.contentDocument.document) ? iframe.contentDocument.document : iframe.contentDocument;
+      iframe.document.open();
+      iframe.document.write(content);
+      iframe.document.close();
+      return false;
+    }
+    //Run code 18
+    const code18 = document.getElementById('sourceCode18');
+    const btn18 = document.getElementById('btn18');
+    function runCode18() {
+      var content = document.getElementById('sourceCode18').value;
+      var iframe = document.getElementById('iframe18');
+      iframe = (iframe.contentWindow) ? iframe.contentWindow : (iframe.contentDocument.document) ? iframe.contentDocument.document : iframe.contentDocument;
+      iframe.document.open();
+      iframe.document.write(content);
+      iframe.document.close();
+      return false;
+    }
+    //Run code 19
+    const code19 = document.getElementById('sourceCode19');
+    const btn19 = document.getElementById('btn19');
+    function runCode19() {
+      var content = document.getElementById('sourceCode19').value;
+      var iframe = document.getElementById('iframe19');
+      iframe = (iframe.contentWindow) ? iframe.contentWindow : (iframe.contentDocument.document) ? iframe.contentDocument.document : iframe.contentDocument;
+      iframe.document.open();
+      iframe.document.write(content);
+      iframe.document.close();
+      return false;
+    }
+    //Run code 20
+    const code20 = document.getElementById('sourceCode20');
+    const btn20 = document.getElementById('btn20');
+    function runCode20() {
+      var content = document.getElementById('sourceCode20').value;
+      var iframe = document.getElementById('iframe20');
+      iframe = (iframe.contentWindow) ? iframe.contentWindow : (iframe.contentDocument.document) ? iframe.contentDocument.document : iframe.contentDocument;
+      iframe.document.open();
+      iframe.document.write(content);
+      iframe.document.close();
+      return false;
+    }
+    //Run code 21
+    const code21 = document.getElementById('sourceCode16');
+    const btn21 = document.getElementById('btn21');
+    function runCode21() {
+      var content = document.getElementById('sourceCode21').value;
+      var iframe = document.getElementById('iframe21');
+      iframe = (iframe.contentWindow) ? iframe.contentWindow : (iframe.contentDocument.document) ? iframe.contentDocument.document : iframe.contentDocument;
+      iframe.document.open();
+      iframe.document.write(content);
+      iframe.document.close();
+      return false;
+    }
+
+    //Run code 22
+    const code22 = document.getElementById('sourceCode22');
+    const btn22 = document.getElementById('btn22');
+    function runCode22() {
+      var content = document.getElementById('sourceCode22').value;
+      var iframe = document.getElementById('iframe22');
+      iframe = (iframe.contentWindow) ? iframe.contentWindow : (iframe.contentDocument.document) ? iframe.contentDocument.document : iframe.contentDocument;
+      iframe.document.open();
+      iframe.document.write(content);
+      iframe.document.close();
+      return false;
+    }
+    //Run code 23
+    const code23 = document.getElementById('sourceCode23');
+    const btn23 = document.getElementById('btn23');
+    function runCode23() {
+      var content = document.getElementById('sourceCode23').value;
+      var iframe = document.getElementById('iframe23');
+      iframe = (iframe.contentWindow) ? iframe.contentWindow : (iframe.contentDocument.document) ? iframe.contentDocument.document : iframe.contentDocument;
+      iframe.document.open();
+      iframe.document.write(content);
+      iframe.document.close();
+      return false;
+    }
+    //Run code 24
+    const code24 = document.getElementById('sourceCode24');
+    const btn24 = document.getElementById('btn24');
+    function runCode24() {
+      var content = document.getElementById('sourceCode24').value;
+      var iframe = document.getElementById('iframe24');
+      iframe = (iframe.contentWindow) ? iframe.contentWindow : (iframe.contentDocument.document) ? iframe.contentDocument.document : iframe.contentDocument;
+      iframe.document.open();
+      iframe.document.write(content);
+      iframe.document.close();
+      return false;
+    }
+    //Run code 25
+    const code25 = document.getElementById('sourceCode25');
+    const btn25 = document.getElementById('btn25');
+    function runCode25() {
+      var content = document.getElementById('sourceCode25').value;
+      var iframe = document.getElementById('iframe25');
+      iframe = (iframe.contentWindow) ? iframe.contentWindow : (iframe.contentDocument.document) ? iframe.contentDocument.document : iframe.contentDocument;
+      iframe.document.open();
+      iframe.document.write(content);
+      iframe.document.close();
+      return false;
+    }
+
+
+
+
+
+
+    // Phần button top
+    var mybutton = document.getElementById("myBtn");
+
+
+    window.onscroll = function () { scrollFunction() };
+
+    function scrollFunction() {
+      if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+        mybutton.style.display = "block";
+      } else {
+        mybutton.style.display = "none";
+      }
+    }
+
+
+    function topFunction() {
+      document.body.scrollTop = 0;
+      document.documentElement.scrollTop = 0;
+    }
+  </script>
+
+</body>
+
+</html>

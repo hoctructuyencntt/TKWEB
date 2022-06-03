@@ -1,0 +1,1481 @@
+<!DOCTYPE html>
+<html>
+<title>Bài 1: Tạo các trang HTML tĩnh</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="w3.css">
+<link rel="stylesheet" href="font.css">
+<link rel="stylesheet" href="font-awesome.min.css">
+<style>
+  #myBtn {
+    display: none;
+    position: fixed;
+    bottom: 20px;
+    right: 30px;
+    z-index: 99;
+    font-size: 18px;
+    border: none;
+    outline: none;
+    background-color: pink;
+    color: black;
+    cursor: pointer;
+    padding: 15px;
+    border-radius: 4px;
+  }
+
+  #myBtn:hover {
+    background-color: #555;
+  }
+
+  .w3-main a {
+    background-color: #04AA6D;
+  }
+
+  .pagination {
+    display: inline-block;
+  }
+
+  .pagination a {
+    color: white;
+    float: left;
+    padding: 8px 16px;
+    text-decoration: none;
+    transition: background-color .3s;
+    border: 1px solid #ddd;
+    background-color: gray;
+  }
+
+  .pagination a.active {
+    background-color: gray;
+    color: white;
+    border: 1px solid #4CAF50;
+  }
+
+  .pagination a:hover:not(.active) {
+    background-color: #ddd;
+  }
+
+  .center {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
+  }
+
+  body,
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-family: "Raleway", sans-serif
+  }
+
+  #sourceCode1,
+  #sourceCode2,
+  #sourceCode3,
+  #sourceCode4,
+  #sourceCode5,
+  #sourceCode6,
+  #sourceCode7,
+  #sourceCode8,
+  #sourceCode9,
+  #sourceCode10,
+  #sourceCode11,
+  #sourceCode12,
+  #sourceCode13,
+  #sourceCode14,
+  #sourceCode15,
+  #sourceCode16,
+  #sourceCode17,
+  #sourceCode18,
+  #sourceCode19,
+  #sourceCode20,
+  #iframe1,
+  #iframe2,
+  #iframe3,
+  #iframe4,
+  #iframe5,
+  #iframe6,
+  #iframe7,
+  #iframe8,
+  #iframe9,
+  #iframe10,
+  #iframe11,
+  #iframe12,
+  #iframe13,
+  #iframe14,
+  #iframe15,
+  #iframe16,
+  #iframe17,
+  #iframe18,
+  #iframe19,
+  #iframe20 {
+    height: 300px;
+  }
+
+  #sourceCode1,
+  #sourceCode2,
+  #sourceCode3,
+  #sourceCode4,
+  #sourceCode5,
+  #sourceCode6,
+  #sourceCode7,
+  #sourceCode8,
+  #sourceCode9,
+  #sourceCode10,
+  #sourceCode11,
+  #sourceCode12,
+  #sourceCode13,
+  #sourceCode14,
+  #sourceCode15,
+  #sourceCode16,
+  #sourceCode17,
+  #sourceCode18,
+  #sourceCode19,
+  #sourceCode20,
+  #iframe1,
+  #iframe2,
+  #iframe3,
+  #iframe4,
+  #iframe5,
+  #iframe6,
+  #iframe7,
+  #iframe8,
+  #iframe9,
+  #iframe10,
+  #iframe11,
+  #iframe12,
+  #iframe13,
+  #iframe14,
+  #iframe15,
+  #iframe16,
+  #iframe17,
+  #iframe18,
+  #iframe19,
+  #iframe20,
+  #btn1,
+  #btn2,
+  #btn3,
+  #btn4,
+  #btn5,
+  #btn6,
+  #btn7,
+  #btn8,
+  #btn9,
+  #btn10,
+  #btn11,
+  #btn12,
+  #btn13,
+  #btn14,
+  #btn15,
+  #btn16,
+  #btn17,
+  #btn18,
+  #btn19,
+  #btn20 {
+    width: 100%;
+  }
+
+  #btn1,
+  #btn2,
+  #btn3,
+  #btn4,
+  #btn5,
+  #btn6,
+  #btn7,
+  #btn8,
+  #btn9,
+  #btn10,
+  #btn11,
+  #btn12,
+  #btn13,
+  #btn14,
+  #btn15,
+  #btn16,
+  #btn17,
+  #btn18,
+  #btn19,
+  #btn20 {
+    height: 30px;
+    background-color: aqua;
+    color: black;
+  }
+
+  #iframe1,
+  #iframe2,
+  #iframe3,
+  #iframe4,
+  #iframe5,
+  #iframe6,
+  #iframe7,
+  #iframe8,
+  #iframe9,
+  #iframe10,
+  #iframe11,
+  #iframe12,
+  #iframe13,
+  #iframe14,
+  #iframe15,
+  #iframe16,
+  #iframe17,
+  #iframe18,
+  #iframe19,
+  #iframe20 {
+    background-color: white;
+  }
+
+  #tab {
+    font-family: Arial, Helvetica, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+  }
+
+  #tab td,
+  #tab th {
+    border: 1px solid #ddd;
+    padding: 8px;
+  }
+
+  /*
+  #tab tr:nth-child(even) {
+    background-color: #f2f2f2;
+  }
+*/
+  #tab tr:hover {
+    background-color: #ddd;
+  }
+
+  #tab th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: left;
+    background-color: #04AA6D;
+    color: white;
+  }
+
+  .w3-code a {
+    background-color: transparent;
+    text-decoration: none;
+    color: blue;
+  }
+
+  .container {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+    padding-top: 56.25%;
+    /* 16:9 Aspect Ratio */
+  }
+
+  .responsive-iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+    border: none;
+  }
+</style>
+
+<body class="w3-black w3-content" style="max-width:1600px">
+
+  <!-- Sidebar/menu -->
+  <nav class="w3-sidebar w3-collapse w3-white w3-animate-left" style="z-index:3;width:300px;" id="mySidebar"><br>
+    <div class="w3-container">
+      <a href="#" style="text-decoration: none;" onclick="w3_close()"
+        class="w3-hide-large w3-right w3-jumbo w3-padding w3-hover-grey" title="close menu"> X </a>
+      <!--<h4><b>Giáo trình</b></h4>-->
+    </div>
+    <div class="w3-bar-block">
+      <a href="Bai01.html" onclick="w3_close()" class="w3-bar-item w3-button w3-padding ">Bài mở đầu: Tổng
+        quan về World Wide Web </a>
+      <a href="Bai02.html" onclick="w3_close()" class="w3-bar-item w3-button w3-padding w3-text-teal">Bài 1: Tạo các
+        trang HTML
+        tĩnh</a>
+      <a href="Bai03.html" onclick="w3_close()" class="w3-bar-item w3-button w3-padding">Bài 2: Thiết kế giao diện với
+        HTML và CSS</a>
+      <a href="Bai04.html" onclick="w3_close()" class="w3-bar-item w3-button w3-padding">Bài 3: Lập trình Javascript</a>
+      <a href="Bai05.html" onclick="w3_close()" class="w3-bar-item w3-button w3-padding">Bài 4: Thiết kế và quản trị
+        website với công cụ (WordPress, Blogger, Wix) </a>
+      <a href="Thamkhao.html" onclick="w3_close()" class="w3-bar-item w3-button w3-padding">Nguồn tham khảo</a>
+    </div>
+  </nav>
+
+  <!-- Overlay effect when opening sidebar on small screens -->
+  <div class="w3-overlay w3-hide-large w3-animate-opacity" onclick="w3_close()" style="cursor:pointer"
+    title="close side menu" id="myOverlay">=</div>
+
+  <!-- !PAGE CONTENT! -->
+  <div class="w3-main" style="margin-left:300px">
+    <button onclick="topFunction()" id="myBtn" title="Go to top">Lên đầu trang</button>
+    <!-- Header -->
+    <header id="portfolio">
+      <!--<a href="#"><img src="/w3images/avatar_g2.jpg" style="width:65px;"
+          class="w3-circle w3-right w3-margin w3-hide-large w3-hover-opacity"></a>-->
+      <span class="w3-button w3-hide-large w3-xxlarge w3-hover-text-grey" onclick="w3_open()">=</span>
+      <div class="w3-container">
+        <h1><b>Bài 1: Tạo các trang HTML tĩnh</b></h1>
+      </div>
+    </header>
+    <div class="w3-container w3-padding-large" style="margin-bottom:32px">
+      <div class="w3-center">
+        <div class="pagination">
+          <a href="Bai01.html">Bài trước</a>
+          <a href="Bai03.html">Bài tiếp theo</a>
+        </div>
+      </div>
+      <div class="w3-code notranslate htmlHigh">
+        <h4>Nội dung bài học</h4>
+        <ol>
+          <li><a href="#muc1">Tạo và thực thi trang web HTML tĩnh</a></li>
+          <li><a href="#muc2">Địa chỉ tương đối và tuyệt đối</a></li>
+          <li><a href="#muc3">Thẻ HTML</a></li>
+          <li><a href="#muc4">Cấu trúc trang web HTML tĩnh</a></li>
+          <li><a href="#muc5">Định dạng văn bản</a></li>
+          <li><a href="#muc6">Các thẻ định dạng tiêu đề (heading)</a></li>
+          <li><a href="#muc7">Liên kết</a></li>
+          <li><a href="#muc8">Thành phần đa phương tiện</a></li>
+          <li><a href="#muc9">Danh sách</a></li>
+          <li><a href="#muc10">Bảng biểu</a></li>
+          <li><a href="#muc11">Biểu mẫu</a></li>
+        </ol>
+      </div>
+      <h4><b>Tham khảo: Bài giảng Một nhập môn về ngôn ngữ HTML.</b></h4>
+      <div class="container">
+        <iframe class="responsive-iframe" width="560" height="315" src="https://www.youtube.com/embed/Klz2Xh29jL8"
+          title="YouTube video player" frameborder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allowfullscreen></iframe>
+      </div>
+      <h4 id="muc1"><b>1. Tạo và thực thi trang web HTML tĩnh</b></h4>
+      <h5><b>1.1. Một số quy ước đặt tên cho tập tin HTML</b></h5>
+      <ul>
+        <li>Các trang web được tạo từ ngôn ngữ HTML (viết tắt của Hyper Text Markup Language – Ngôn ngữ đánh dấu siêu
+          văn bản);</li>
+        <li>Nội dung HTML được soạn thảo và lưu lại thành một tập tin;</li>
+        <li>Đặt tên cho tập tin HTML tuân theo quy ước đặt tên cho tập tin nói chung;</li>
+        <li>Phần mở rộng cho một tập tin HTML là htm hay html.</li>
+      </ul>
+      <h5><b>1.2. Tạo và mở trang HTML</b></h5>
+      <p><b>Tạo trang HTML</b></p>
+      <p> Chúng ta có thể soạn thảo tài liệu HTML bằng các trình soạn thảo chuyên nghiệp như Visual Studio Code,
+        Microsoft WebMatrix hay
+        Sublime Text; tuy nhiên, trong quá trình học thiết kế trang web bằng ngôn ngữ HTML, chúng ta nên dùng những
+        trình soạn thảo văn bản đơn giản như Notepad hay Notepad++ (trong hệ điều hành Windows) hay TextEdit (trong hệ
+        điều hành Mac) vì tính đơn giản và đồng thời rèn luyện cho chúng ta tính cẩn thận, tỉ mỉ, kiên nhẫn – là những
+        thái độ quan trọng trong quá trình học thiết kế web. Các đoạn mã minh hoạ trong giáo trình này sẽ được soạn
+        thảo bằng Notepad++.</p>
+
+      <p> Để tạo một trang HTML, chúng ta tuân theo 3 bước sau:</p>
+      <ul>
+        <li>Bước 1: Mở Notepad++ (nếu chưa có phần mềm này trên máy tính, có thể download miễn phí tại
+          https://notepad-plus-plus.org/).</li>
+        <li>Bước 2: Viết mã HTML.</li>
+        <li>Bước 3: Lưu đoạn mã HTML vừa soạn thảo thành tập tin HTML (chú ý phần tên tập tin và phần mở rộng) bằng cách
+          vào mục <b> File > Save As</b> (hay chọn <b> Save</b> nếu chưa lưu trước đó). Trong hộp thoại <b>Save As</b>,
+          gõ tên tập tin (ví
+          dụ như myfirstpage) với phần mở rộng là html hay htm trong mục <b>File name</b>; chọn <b>All types (*.*)</b>
+          trong mục <b>Save
+            as type</b>; chọn vị trí lưu tập tin trong mục <b>Save in</b> và cuối cùng là nhấn nút <b>Save</b>.</li>
+      </ul>
+      <p><b>Mở trang HTML</b></p>
+      <p>Mở trang HTML đầu tiên bằng trình duyệt web (web browser) như Firefox, Chrome hay Edge như sau:</p>
+      <ul>
+        <li>Nhấp chuột phải vào tập tin HTML vừa tạo.</li>
+        <li>Chọn mục Open with và chọn trình duyệt web dùng để hiển thị trang HTML.</li>
+      </ul>
+      <p>&#9755; Có thể xem kết quả khi mở trang web bằng cách nhấn nút <b>Chạy thử</b> </p>
+      <form>
+        <textarea name="sourceCode" id="sourceCode1">
+  <!DOCTYPE html>
+  <html>
+         <head>
+              <style>
+  
+              </style>
+         </head>
+         <body>
+          <h1>Thiết  kế  website  </h1>
+          <p>  Đây  là  trang  web  đầu  tiên  của  tôi.</p>          
+         </body>
+  </html>
+    </textarea>
+        <input id="btn1" onclick="runCode1();" type="button" value="Chạy thử">
+
+      </form>
+      <iframe name="targetCode" id="iframe1"></iframe>
+      <div class="w3-code notranslate htmlHigh">
+        <h5><b>&#9755; Bài tập:</b></h5>
+        <h5>Thử thay đổi nội dung của các thẻ h1 và p từ khung chứa mã HTML ở trên. Nhấn nút <b>Chạy
+            thử</b> để xem kết quả.</b></h5>
+      </div>
+      <h4 id="muc2"><b> 2. Địa chỉ tương đối và tuyệt đối</b></h4>
+      <h5><b>2.1. Địa chỉ tuyệt đối</b></h5>
+      <p>Là địa chỉ được tạo ra với đầy đủ các yếu tố sau:</p>
+      <ul>
+        <li>Giao thức. Ví dụ: http://</li>
+        <li>Tên miền. Ví dụ: www.thuvien-it.org</li>
+        <li>Tên tập tin. Ví dụ: index.html</li>
+      </ul>
+      <p>Ví dụ địa chỉ tuyệt đối: http://thuvien-it.org/index.html</p>
+      <h5><b>2.2. Địa chỉ tương đối</b></h5>
+      <p>Là những địa chỉ có điểm xuất phát là thư mục hiện tại (current dircetory), là thư mục chứa tập tin html đang
+        thực thi (ví dụ tập tin myfirstpage.html ở trên chứa trong thư mục My website).</p>
+      <p> Một số kí hiệu dùng trong địa chỉ tương đối:</p>
+      <ul>
+        <li>../ sẽ di chuyển đến thư mục chứa thư mục hiện tại (thư mục cha).</li>
+        <li>./ là thư mục hiện tại (thư mục hiện tại).</li>
+      </ul>
+      <p>Ví dụ địa chỉ tương đối có thể như sau: ../index.html</p>
+      <h4 id="muc3"><b>3. Thẻ HTML</b></h4>
+      <h5><b>3.1. Khái niệm và cú pháp trình bày về thẻ HTML</b></h5>
+      <p><b>Thẻ HTML</b></p>
+
+      <p> Các thẻ (tags) dùng để báo cho trình duyệt cách thức trình bày văn bản trên màn hình hoặc dùng để chỉ một mối
+        liên
+        kết đến các trang khác, một đoạn chương trình khác...</p>
+      <p> Mỗi thẻ gồm một từ khoá hay tên thẻ (tag name) bao bọc bởi hai dấu bé hơn (&lt;) và lớn hơn (&gt;). Hầu hết
+        các
+        lệnh thể
+        hiện bằng một cặp hai thẻ: thẻ mở (&lt;TAGNAME&gt;) và thẻ đóng (&lt;/TAGNAME&gt;). Dấu gạch chéo ("/") kí hiệu
+        thẻ đóng.
+        Lệnh sẽ tác động vào nội dung (văn bản, hình ảnh, v.v.) nằm giữa hai thẻ. Cấu trúc đầy đủ gồm thẻ mở, nội dung
+        và thẻ đóng còn được gọi là phần tử HTML (element). Cú pháp phần tử HTML:</p>
+      <div class="w3-code notranslate htmlHigh">
+        &lt;TAGNAME&gt; Nội dung (hình ảnh, văn bản, v.v.) &lt;/TAGNAME&gt;
+      </div>
+
+      <p>Một số thẻ không có cặp (thẻ mở và đóng), chỉ có thẻ mở. Chúng được gọi là các thẻ rỗng hay thẻ đơn. Ví dụ:
+        &lt;meta&gt; hay &lt;img&gt; không có &lt;/meta&gt; hay &lt;/img&gt;.</p>
+      <h5><b>Chú ý</b></h5>
+      <p>Cần phân biệt khai niệm thẻ (tag) và phần tử (element):</p>
+      <ul>
+        <li>Khi chỉ viết &lt;tagname&gt; ví dụ &lt;p&gt;, &lt;a&gt;,...thì ta gọi là thẻ.</li>
+        <li>Gọi là phần tử khi chỉ cấu trúc &lt;tagname&gt; Nội dung &lt;/tagname&gt;.</li>
+        <li>Để đơn giản người ta hay gọi là thẻ, ví dụ thẻ &lt;p&gt;, thẻ &lt;a&gt;,...</li>
+      </ul>
+      <h5><b>3.2. Thuộc tính của thẻ HTML</b></h5>
+      <p>Nhiều thẻ có kèm các thuộc tính (attributes), cung cấp thêm các tham số chi tiết hơn cho việc thực hiện lệnh.
+        Các
+        thuộc tính được chia làm hai loại: thuộc tính bắt buộc và thuộc tính không bắt buộc hay tuỳ chọn. Một thuộc tính
+        là bắt buộc nếu như phải có nó thì thẻ lệnh mới thực hiện được. Ví dụ, để chèn một hình ảnh vào trang tài liệu
+        ta
+        dùng thẻ
+        &lt;img&gt; (Image). Tuy nhiên, cần chỉ rõ ảnh nào sẽ được hiển thị. Điều này được thiết lập bằng thuộc tính SRC
+        = "địa
+        chỉ của tệp ảnh". Thuộc tính SRC là bắt buộc phải có đối với thẻ &lt;img&gt;.</p>
+      <h4 id="muc4"><b> 4. Cấu trúc trang web HTML tĩnh</b></h4>
+      <p>Cấu trúc cơ bản của một tài liệu HTML như sau:</p>
+      <div class="w3-code notranslate htmlHigh">
+        &lt;!DOCTYPE html&gt;<br>
+        &lt;html&gt;<br>
+
+        &nbsp;&nbsp;&lt;head&gt;<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;Chứa các khai báo như tiêu đề, mã kí tự,...<br>
+        &nbsp;&nbsp;&lt;/head&gt;<br>
+
+        &nbsp;&nbsp;&lt;body&gt;<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;Nội dung trang web<br>
+        &nbsp;&nbsp;&lt;/body&gt;<br>
+
+        &lt;/html&gt;
+
+      </div>
+      <h5><b>4.1. DOCTYPE và HTML</b></h5>
+      <p><b>Thẻ DOCTYPE</b></p>
+      <p>
+        &lt;!DOCTYPE&gt; phải được đặt đầu tiên trong HTML, nó đứng trước thẻ &lt;html&gt;. Khai báo
+        &lt;!DOCTYPE&gt; không phải là 1 thẻ HTML, nó là chỉ dẫn cho trình duyệt biết phiên bản HTML được sử dụng. Trong
+        HTML4.01,
+        &lt;!DOCTYPE&gt; đề cập đến DTD, bởi vì HTML
+        4.01 dựa trên SGML. DTD xác định các quy tắc cho các ngôn ngữ đánh dấu để trình duyệt hiển thị một các chính
+        xác.
+        HTML5 không dựa trên SGML, do đó nó không yêu cầu tham chiếu tới DTD.</p>
+      <p><b> Thẻ html</b></p>
+      <p>Xác định một văn bản dạng HTML. Bắt đầu bằng &lt;html &gt; và kết thúc bằng &lt;/html &gt; </p>
+      <h5><b>4.2. HEAD</b></h5>
+      <p><b>Thẻ head</b></p>
+      <ul>
+        <li>Bên trong phần tử &lt;head&gt; chứa siêu dữ liệu (metadata) - là dữ liệu mô tả dữ liệu.</li>
+        <li>Các phần tử trong &lt;head&gt; dùng để mô tả siêu dữ liệu gồm : &lt;title&gt;, &lt;style&gt;,
+          &lt;meta&gt;, &lt;link&gt;, &lt;script&gt;, &lt;noscript&gt;, &lt;base&gt;.</li>
+        <li> &lt;head&gt;là phần đầu trong cấu trúc tài liệu HTML.</li>
+      </ul>
+      <p><b>Thẻ title</b></p>
+      <ul>
+        <li>Nằm trong &lt;head&gt;.</li>
+        <li>Định nghĩa tiêu đề của trang web. Thẻ &lt;title&gt; là cần thiết trong tất cả các trang "HTML/XHTML".</li>
+      </ul>
+      <p>Tác dụng:</p>
+      <ul>
+        <li>Xác định tiêu đề trên thanh công cụ của trình duyệt</li>
+        <li> Cung cấp tiêu đề cho trang khi nó được bổ sung vào mục yêu thích</li>
+        <li>Hiển thị tiêu đề cho trang web trong kết quả của công cụ tìm kiếm</li>
+      </ul>
+      <p>Ví dụ:</p>
+      <div class="w3-code notranslate htmlHigh">
+        &lt;!DOCTYPE html&gt;<br>
+        &lt;html&gt;<br>
+
+        &nbsp;&nbsp;&lt;head&gt;<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&lt;title&gt;Tiêu đề...&lt;/title&gt;<br>
+        &nbsp;&nbsp;&lt;/head&gt;<br>
+
+        &nbsp;&nbsp;&lt;body&gt;<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;Nội dung trang web<br>
+        &nbsp;&nbsp;&lt;/body&gt;<br>
+
+        &lt;/html&gt;
+
+      </div>
+      <p><b> Thẻ meta</b></p>
+      <ul>
+        <li>Thường được sử dụng để mô tả trang, từ khóa, tác giả của tài liệu, sửa đổi lần cuối...</li>
+        <li>Có thể được sử dụng bởi các trình duyệt (cách để hiển thị nội dung hoặc tải lại trang), các công cụ tìm kiếm
+          (từ khóa), hoặc những dịch vụ web khác.</li>
+        <li>Luôn nằm trong
+          &lt;head&gt;</li>
+        <li>Nội dung thẻ này không được hiển thị trên trang.</li>
+      </ul>
+      <p>Ví dụ:</p>
+      <p>Định nghĩa từ khoá cho các công cụ tìm kiếm</p>
+      <div class="w3-code notranslate htmlHigh">
+        &lt;meta name="keywords" content="HTML, CSS, XML, XHTML, JavaScript"&gt;
+      </div>
+      <p> Định nghĩa một mô tả cho trang web</p>
+
+      <div class="w3-code notranslate htmlHigh">
+        &lt;meta name="description" content="Trang web đầu tiên của tôi"&gt;
+      </div>
+      <p> Định nghĩa tập kí tự được dùng</p>
+      <div class="w3-code notranslate htmlHigh">
+        &lt;meta charset="UTF-8"&gt;
+      </div>
+      <p> Định nghĩa tác giả của trang web</p>
+      <div class="w3-code notranslate htmlHigh">
+        &lt;meta name="author" content="Trần ngọc Minh"&gt;
+      </div>
+      <p><b>Thẻ link</b></p>
+      <ul>
+        <li>Xác định mối quan hệ giữa trang web với các tệp tin bên ngoài.</li>
+        <li>Thường được sử dụng để liên kết đến tập tin CSS.</li>
+        <li>Luôn nằm trong
+          &lt;head&gt;</li>
+      </ul>
+      <p>Ví dụ: liên kết trang web hiện tại với tập tin CSS tên mystyle.css</p>
+      <div class="w3-code notranslate htmlHigh">
+        &lt;!DOCTYPE html&gt;<br>
+        &lt;html&gt;<br>
+
+        &nbsp;&nbsp;&lt;head&gt;<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&lt;title&gt;Tiêu đề...&lt;/title&gt;<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&lt;link rel="stylesheet" href="mystyle.css"&gt;<br>
+        &nbsp;&nbsp;&lt;/head&gt;<br>
+
+        &nbsp;&nbsp;&lt;body&gt;<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;Nội dung trang web<br>
+        &nbsp;&nbsp;&lt;/body&gt;<br>
+
+        &lt;/html&gt;
+
+      </div>
+      <p><b>Thẻ style</b></p>
+      <ul>
+        <li>Được sử dụng để định nghĩa CSS kiểu inline (sẽ tìm hiểu kĩ hơn trong bài 3) cho trang web.</li>
+        <li>Luôn nằm trong
+          &lt;head&gt;</li>
+      </ul>
+      <p>Ví dụ:</p>
+      <div class="w3-code notranslate htmlHigh">
+        &lt;!DOCTYPE html&gt;<br>
+        &lt;html&gt;<br>
+
+        &nbsp;&nbsp;&lt;head&gt;<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&lt;title&gt;Tiêu đề...&lt;/title&gt;<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&lt;link rel="stylesheet" href="mystyle.css"&gt;<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&lt;style&gt;<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;body {background-color:yellow;} <br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;p {color:blue;}<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&lt;/style&gt;<br>
+        &nbsp;&nbsp;&lt;/head&gt;<br>
+
+        &nbsp;&nbsp;&lt;body&gt;<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;Nội dung trang web<br>
+        &nbsp;&nbsp;&lt;/body&gt;<br>
+
+        &lt;/html&gt;
+
+      </div>
+      <p>&#9755; Có thể xem kết quả khi mở trang web bằng cách nhấn nút <b>Chạy thử</b> </p>
+      <form>
+        <textarea name="sourceCode" id="sourceCode2">
+        <!DOCTYPE html>
+        <html>
+          <head>
+              <style>
+                    body {background-color:yellow;} 
+                    p {color:blue;}
+              </style>
+          </head>
+          <body>
+              <h1>Thiết  kế  website  </h1>
+              <p>Đây  là  trang  web  đầu  tiên  của  tôi.</p>          
+          </body>
+        </html>
+      </textarea>
+        <input id="btn2" onclick="runCode2();" type="button" value="Chạy thử">
+      </form>
+      <iframe name="targetCode" id="iframe2"></iframe>
+
+      <div class="w3-code notranslate htmlHigh">
+        <h5><b>&#9755; Bài tập:</b></h5>
+        <h5>Thử thay đổi các giá trị màu của các thuộc tính background-color và color từ khung chứa mã HTML ở trên. Nhấn
+          nút <b>Chạy
+            thử</b> để xem kết quả.</b></h5>
+      </div>
+
+      <p><b>Thẻ script</b></p>
+      <p>Dùng để định nghĩa ngôn ngữ hướng client Javascript (chi tiết về javascript sẽ học ở
+        bài 4).</p>
+      <p>Ví dụ:</p>
+      <div class="w3-code notranslate htmlHigh">
+
+        &lt;head&gt;<br>
+
+
+        &nbsp;&nbsp;&lt;script&gt;<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;function myFunction() {<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;document.getElementById("demo").innerHTML = "Hello
+        JavaScript!";<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br>
+        &nbsp;&nbsp;&lt;/script&gt;<br>
+        &lt;/head&gt;<br>
+
+      </div>
+      <p>&#9755; Có thể xem kết quả khi mở trang web bằng cách nhấn nút <b>Chạy thử</b> </p>
+      <form>
+        <textarea name="sourceCode" id="sourceCode3">
+        <!DOCTYPE html>
+        <html>
+          <head>
+            <script>
+              function myFunction() {
+                document.getElementById("demo").innerHTML = "Hello JavaScript!";
+              }
+            </script>
+          </head>
+          <body>
+              <div id="demo"></div>
+              <button onclick="myFunction();">Nhấn vào đây.</button>          
+          </body>
+        </html>
+      </textarea>
+        <input id="btn3" onclick="runCode3();" type="button" value="Chạy thử">
+      </form>
+      <iframe name="targetCode" id="iframe3"></iframe>
+
+      <div class="w3-code notranslate htmlHigh">
+        <h5><b>&#9755; Bài tập:</b></h5>
+        <h5>Thử thay đổi "Hello JavaScript!" thành một dòng chữ bất kỳ từ khung chứa mã HTML ở trên. Nhấn
+          nút <b>Chạy
+            thử</b> để xem kết quả.</b></h5>
+      </div>
+
+      <h5><b>4.3. BODY</b></h5>
+      <ul>
+        <li>Định nghĩa nội dung chính của trang web.</li>
+        <li>Bao gồm tất cả các thành phần của trang HTML, như text, liên kết, hình ảnh, bảng, danh sách,...</li>
+      </ul>
+      <h4 id="muc5"><b>5. Định dạng văn bản</b></h4>
+      <h5><b>5.1. Văn bản</b></h5>
+      <ul>
+        <li>Là văn bản chưa được định dạng (plain text). </li>
+        <li>Thẻ &lt;p&gt; định nghĩa một đoạn văn bản.</li>
+        <li>Thẻ &lt;p&gt; tự động tạo một khoảng trắng trước và sau nó, khoảng trắng này tùy trình duyệt sẽ khác nhau.
+        </li>
+        <li>Bên trong thẻ &lt;p&gt; có thể chứa các thẻ như &lt;a&gt;, &lt;span&gt;,
+          &lt;img&gt;</li>
+      </ul>
+      <p>Cấu trúc phần tử p:</p>
+      <div class="w3-code notranslate htmlHigh">
+        &lt;p&gt;Nội dung đoạn văn bản&lt;/p&gt;
+      </div>
+      <p>&#9755; Xem ví dụ về các đoạn văn bản. Có thể xem kết quả khi mở trang web bằng cách nhấn nút <b>Chạy thử</b>
+      </p>
+      <form>
+        <textarea name="sourceCode" id="sourceCode4">
+        <!DOCTYPE html>
+        <html>
+          <head>
+            
+          </head>
+          <body>
+              <p>Đoạn văn bản 1</p>
+              <p>Đoạn văn bản 2</p>
+              <p>Đoạn văn bản 3</p>     
+          </body>
+        </html>
+      </textarea>
+        <input id="btn4" onclick="runCode4();" type="button" value="Chạy thử">
+      </form>
+      <iframe name="targetCode" id="iframe4"></iframe>
+
+      <h5><b>5.2. Các thẻ định dạng văn bản</b></h5>
+      <table id="tab">
+        <tr>
+          <th>Thẻ</th>
+          <th>Mô tả</th>
+        </tr>
+        <tr>
+          <td> &lt;b&gt;</td>
+          <td>Tô đậm văn bản</td>
+        </tr>
+        <tr>
+          <td>&lt;i&gt;</td>
+          <td>In nghiêng văn bản</td>
+        </tr>
+        <tr>
+          <td>&lt;em&gt;</td>
+          <td>Xác định đoạn văn bản được nhấn mạnh</td>
+        </tr>
+        <tr>
+          <td>&lt;small&gt;</td>
+          <td>Tạo chữ nhỏ</td>
+        </tr>
+        <tr>
+          <td>&lt;strong&gt;</td>
+          <td>Tạo chữ đậm </td>
+        </tr>
+        <tr>
+          <td>&lt;sub&gt;</td>
+          <td>Tạo văn bản lệch dưới phải, ví dụ H<sub>2</sub></td>
+        </tr>
+        <tr>
+          <td>&lt;sup&gt;</td>
+          <td>Tạo văn bản lệch trên phải, ví dụ X<sup>2</sup></td>
+        </tr>
+        <tr>
+          <td>&lt;ins&gt;</td>
+          <td>Gạch chân văn bản</td>
+        </tr>
+        <tr>
+          <td>&lt;del&gt;</td>
+          <td>Gạch ngang qua văn bản</td>
+        </tr>
+      </table>
+
+      <p>&#9755; Xem ví dụ về các đoạn văn bản. Có thể xem kết quả khi mở trang web bằng cách nhấn nút <b>Chạy thử</b>
+      </p>
+      <form>
+        <textarea name="sourceCode" id="sourceCode5">
+        <!DOCTYPE html>
+        <html>
+          <head>
+            
+          </head>
+          <body>
+              <p><b>In đậm với b</b></p>
+              <p><i>In nghiêng với i</i></p>
+              <p><em>Nhấn mạnh nội dung với em</em> </p>   
+              <p><small>Chữ nhỏ với small</small></p>
+              <p>Chữ đậm với strong</p>
+              <p>Tạo công thức H<sub>2</sub>O với sub</p>
+              <p>Tạo công thức E = mc<sup>2</sup> với sup</p>
+              <p><ins>Gạch chân văn bản với ins</ins></p>
+              <p><del>Gạch ngang qua văn bản với del</del></p>  
+          </body>
+        </html>
+      </textarea>
+        <input id="btn5" onclick="runCode5();" type="button" value="Chạy thử">
+      </form>
+      <iframe name="targetCode" id="iframe5"></iframe>
+
+      <h4 id="muc6"><b>6. Các thẻ định dạng tiêu đề (heading)</b></h4>
+      <p> Trong HTML, các thẻ &lt;h1&gt; đến &lt;h6&gt; được sử dụng để làm tiêu đề.
+        &lt;h1&gt; đến &lt;h6&gt; xác định tiêu đề theo mức độ quan trọng giảm dần.</p>
+
+      <p>&#9755; Xem ví dụ về các tiêu đề. Có thể xem kết quả khi mở trang web bằng cách nhấn nút <b>Chạy thử</b>
+      </p>
+      <form>
+        <textarea name="sourceCode" id="sourceCode6">
+        <!DOCTYPE html>
+        <html>
+          <head>
+            
+          </head>
+          <body>
+            <h1>This  is  a  heading  1</h1>
+            <h2>This  is  a  heading  2</h2>
+            <h3>This  is  a  heading  3</h3>
+            <h4>This  is  a  heading  4</h4>
+            <h5>This  is  a  heading  5</h5>            
+            <h6>This  is  a  heading  6</h6>            
+          </body>
+        </html>
+      </textarea>
+        <input id="btn6" onclick="runCode6();" type="button" value="Chạy thử">
+      </form>
+      <iframe name="targetCode" id="iframe6"></iframe>
+
+      <h4 id="muc7"><b>7. Liên kết</b></h4>
+      <ul>
+        <li>Thẻ &lt;a&gt; định nghĩa một liên kết (link), được sử dụng để liên kết từ trang này đến trang khác.</li>
+        <li>Một liên kết (link) là 1 từ, 1 câu hoặc 1 hình ảnh mà ta có thể click vào để chuyển đến một trang khác.</li>
+        <li>Khi di chuyển con trỏ đến liên kết (link), con trỏ chuột sẽ biến thành bàn tay.</li>
+        <li>Thuộc tính quan trong nhất trong thẻ &lt;a&gt; là thuôc tính "href", nó chỉ ra liên kết tới trang cần chuyển
+          hay một vị trí cùng trang (điểm neo).</li>
+      </ul>
+
+      <p>&#9755; Xem ví dụ về liên kết. Có thể xem kết quả khi mở trang web bằng cách nhấn nút <b>Chạy thử</b>
+      </p>
+      <form>
+        <textarea name="sourceCode" id="sourceCode7">
+        <!DOCTYPE html>
+        <html>
+          <head>
+            
+          </head>
+          <body>
+            <h1>Một ví dụ về liên kết.</h1>
+            <p><a href="Bai01.html">Quay trở lại Bài 1.</a></p>
+          </body>
+        </html>
+      </textarea>
+        <input id="btn7" onclick="runCode7();" type="button" value="Chạy thử">
+      </form>
+      <iframe name="targetCode" id="iframe7"></iframe>
+
+      <h4 id="muc8"><b>8. Thành phần đa phương tiện</b></h4>
+      <h5><b>8.1. Hình ảnh</b></h5>
+      <ul>
+        <li>Sử dụng thẻ img</li>
+        <li>Thẻ img là rỗng, chỉ chứa thuộc tính và không có thẻ đóng.</li>
+        <li>Các thuộc tính cơ bản đi kèm với img:
+          <ul>
+            <li>src - Xác định đường dẫn (url) của hình ảnh. </li>
+            <li>alt - Cung cấp thông tin về hình ảnh cho người xem nếu vì một lý do nào đó mà hình ảnh không được hiển
+              thị. </li>
+            <li>width - Xác định chiều rộng của ảnh. </li>
+            <li>height - XXác định chiều cao của ảnh. </li>
+          </ul>
+        </li>
+      </ul>
+
+      <p>&#9755; Xem ví dụ về đánh dấu hình ảnh. Có thể xem kết quả khi mở trang web bằng cách nhấn nút <b>Chạy
+          thử</b>
+      </p>
+      <form>
+        <textarea name="sourceCode" id="sourceCode8">
+        <!DOCTYPE html>
+        <html>
+          <head>
+            
+          </head>
+          <body>
+            <h1>Tập tin ảnh cat.png có tồn tại.</h1>
+            <p><img src="cat.png" alt="Ảnh không tồn tại"></p>
+            <h1>Tập tin ảnh dog.png không tồn tại.</h1>
+            <p><img src="dog.png" alt="Ảnh không tồn tại"></p>
+          </body>
+        </html>
+      </textarea>
+        <input id="btn8" onclick="runCode8();" type="button" value="Chạy thử">
+      </form>
+      <iframe name="targetCode" id="iframe8"></iframe>
+
+      <h5><b>8.2. Âm thanh</b></h5>
+      <ul>
+        <li>Sử dụng thẻ audio.</li>
+        <li>Tập tin âm thanh có một số định dạng phổ biến hiện nay là mp3, ogg và wav.</li>
+        <li>Các thuộc tính cơ bản đi kèm với audio:
+          <ul>
+            <li>source gồm hai thuộc tính cơ bản:
+              <ul>
+                <li>src - Xác định đường dẫn (url) của tập tin âm thanh. </li>
+                <li>type -Kiểu âm thanh mp3, ogg hay wav. </li>
+              </ul>
+            </li>
+            <li>controls - Các thành phần điều chỉnh âm thanh play, pause, seeking và volume. </li>
+          </ul>
+        </li>
+      </ul>
+      <h5><b>Video</b></h5>
+      <p>Sử dụng thẻ video với các thuộc tính kèm theo tương tự thẻ audio.</p>
+
+      <p>&#9755; Xem ví dụ về chèn âm thanh và video. Có thể xem kết quả khi mở trang web bằng cách nhấn nút <b>Chạy
+          thử</b>
+      </p>
+      <form>
+        <textarea name="sourceCode" id="sourceCode9">
+        <!DOCTYPE html>
+        <html>
+          <head>
+            
+          </head>
+          <body>
+            <h1>Chèn audio</h1>
+            <audio controls autoplay muted>
+              <source src="horse.ogg" type="audio/ogg">
+              <source src="horse.mp3" type="audio/mpeg">
+            Trình duyệt không hỗ trợ audio.
+            </audio>   
+            <h1>Chèn viddeo</h1>
+            <video width="400" controls>
+              <source src="mov_bbb.mp4" type="video/mp4">
+              <source src="mov_bbb.ogg" type="video/ogg">
+              Trình duyệt không hỗ trợ video.
+            </video>
+          </body>
+        </html>
+      </textarea>
+        <input id="btn9" onclick="runCode9();" type="button" value="Chạy thử">
+      </form>
+      <iframe name="targetCode" id="iframe9"></iframe>
+
+      <h4 id="muc9"><b> 9. Danh sách</b></h4>
+
+      <h5><b>9.1. Danh sách không thứ tự</b></h5>
+
+      <p>Danh sách không thứ tự trong HTML được định nghĩa bằng thẻ <b>&lt;ul&gt;</b>; mỗi mục của danh sách bắt đầu
+        bằng
+        thẻ
+        <b>&lt;li&gt;</b>. Măc
+        định, các mục trong danh sách không thứ tự được đánh dấu bởi các dấu chấm tròn đen (bullets).
+      </p>
+      <p>Chúng ta có thể định nghĩa lại các kí hiệu cho các mục trong danh sách với thuộc tính
+        <b>style</b>, cụ thể như sau:
+      </p>
+      <table id="tab">
+        <tr>
+          <th>Style</th>
+          <th>Mô tả</th>
+        </tr>
+        <tr>
+          <td> list-style-type:disc</td>
+          <td>Các mục trong danh sách được đánh dấu bằng các dấu chấm đen tròn.</td>
+        </tr>
+        <tr>
+          <td>list-style-type:circle</td>
+          <td>Các mục trong danh sách được đánh dấu bằng các dấu tròn.</td>
+        </tr>
+        <tr>
+          <td>list-style-type:square</td>
+          <td>Các mục trong danh sách được đánh dấu bằng các dấu vuông.</td>
+        </tr>
+        <tr>
+          <td>list-style-type:none</td>
+          <td>Các mục trong danh sách không được đánh dấu.</td>
+        </tr>
+      </table>
+
+      <h5><b> 9.2. Danh sách có thứ tự</b></h5>
+
+      <p> Danh sách có thứ tự trong HTML được định nghĩa bằng thẻ <b>&lt;ol&gt;</b>; mỗi mục của danh sách bắt đầu bằng
+        thẻ
+        <b>&lt;li&gt;</b>. Măc
+        định, các mục trong danh sách có thứ tự được đánh dấu bởi 1., 2., 3.,...
+      </p>
+      <p> Chúng ta có thể định nghĩa lại các kí hiệu cho các mục trong danh sách với thuộc tính
+        <b>type</b>, cụ thể như sau:
+      </p>
+      <table id="tab">
+        <tr>
+          <th>Type</th>
+          <th>Mô tả</th>
+        </tr>
+        <tr>
+          <td> type="1"</td>
+          <td>Các mục trong danh sách được đánh dấu bằng số (mặc định).</td>
+        </tr>
+        <tr>
+          <td>type="A"</td>
+          <td>Các mục trong danh sách được đánh dấu bằng chữ cái in hoa.</td>
+        </tr>
+        <tr>
+          <td>type="a"</td>
+          <td>Các mục trong danh sách được đánh dấu bằng chữ cái in thường.</td>
+        </tr>
+        <tr>
+          <td>type="I"</td>
+          <td>Các mục trong danh sách được đánh dấu bằng số La Mã in hoa.</td>
+        </tr>
+        <tr>
+          <td>type="i"</td>
+          <td>Các mục trong danh sách được đánh dấu bằng số La Mã in thường.</td>
+        </tr>
+      </table>
+      <h5><b> 9.3. Danh sách định nghĩa</b></h5>
+
+
+      <p>Danh sách định nghĩa bắt đầu bằng các thẻ <b>&lt;dl&gt;</b>, <b>&lt;dt&gt;</b> và <b>&lt;dd&gt;</b>, với:</p>
+      <ul>
+        <li><b>&lt;dl&gt;</b> viết tắt của chữ "definition list" có nghĩa là sự xác định (hay định nghĩa) danh sách.
+        </li>
+        <li><b>&lt;dt&gt;</b> viết tắt của chữ "defines an item" có nghĩa là xác định (hay định nghĩa) một mục.</li>
+        <li><b>&lt;dd&gt;</b> viết tắt của chữ "defines describe an item" có nghĩa là xác định (hay định nghĩa) một mô
+          tả của một mục.</li>
+      </ul>
+
+      <p>&#9755; Xem ví dụ về danh sách có và không có thứ tự. Có thể xem kết quả khi mở trang web bằng cách nhấn nút
+        <b>Chạy
+          thử</b>
+      </p>
+      <form>
+        <textarea name="sourceCode" id="sourceCode10">
+      <!DOCTYPE html>
+      <html>
+        <head>
+          
+        </head>
+        <body>
+          <h1>Danh sách không thứ tự ul</h1>
+          <ul>
+            <li>Coffee</li>
+            <li>Tea</li>
+            <li>Milk</li>
+          </ul>
+          <p>Sử dụng thuộc tính style:</p>
+          <ul style="list-style-type:square">
+            <li>Coffee</li>
+            <li>Tea</li>
+            <li>Milk</li>
+            </ul>
+            <h1>Danh sách có thứ tự ol</h1>
+          <ol>
+            <li>Coffee</li>
+            <li>Tea</li>
+            <li>Milk</li>
+          </ol>
+          <p>Sử dụng thuộc tính type:</p>
+          <ol type="A">
+            <li>Coffee</li>
+            <li>Tea</li>
+            <li>Milk</li>
+            </ol>
+        </body>
+      </html>
+    </textarea>
+        <input id="btn10" onclick="runCode10();" type="button" value="Chạy thử">
+      </form>
+      <iframe name="targetCode" id="iframe10"></iframe>
+
+      <h4 id="muc10"><b>10. Bảng biểu</b></h4>
+      <p> Thẻ <b>&lt;table&gt;</b> được dùng để tạo một bảng HTML. Các thẻ đi kèm <b>&lt;table&gt;</b> để tạo nên hàng
+        và cột cho một bảng biểu gồm:</p>
+      <ul>
+        <li>Thẻ <b>&lt;tr&gt;</b>: Đánh dấu một hàng cho bảng.</li>
+        <li>Thẻ <b>&lt;th&gt;</b>: Đánh dấu một ô tiêu đề cho bảng.</li>
+        <li>Thẻ <b>&lt;td&gt;</b>: Đánh dấu một ô dữ liệu cho bảng.</li>
+      </ul>
+      <p>&#9755; Xem ví dụ về bảng biểu. Có thể xem kết quả khi mở trang web bằng cách nhấn nút
+        <b>Chạy
+          thử</b>
+      </p>
+      <form>
+        <textarea name="sourceCode" id="sourceCode11">
+      <!DOCTYPE html>
+      <html>
+        <head>
+          
+        </head>
+        <body>
+          <table>
+            <tr>  <!--  Hàng  tiêu  đề  -->
+              <th>  Tên  </th>
+              <th>  Tuổi  </th>
+              <th>  Giới  tính  </th>
+            </tr>
+            <tr>  <!--  Hàng  dữ  liệu  thứ  1  -->
+              <td>  Minh  </td>
+              <td>  30  </td>
+              <td>  Nam  </td>
+            </tr>
+            <tr>  <!--  Hàng  dữ  liệu  thứ  2  -->
+              <td>  Dũng  </td>
+              <td>  55  </td>
+              <td>  Nam  </td>
+            </tr>
+            </table>
+            
+        </body>
+      </html>
+    </textarea>
+        <input id="btn11" onclick="runCode11();" type="button" value="Chạy thử">
+      </form>
+      <iframe name="targetCode" id="iframe11"></iframe>
+      <p>Dùng thuộc tính border và style để tạo viền và độ rộng cho bảng.</p>
+
+      <p>&#9755; Xem ví dụ về tạo viền và độ rộng cho bảng. Có thể xem kết quả khi mở trang web bằng cách nhấn nút
+        <b>Chạy
+          thử</b>
+      </p>
+      <form>
+        <textarea name="sourceCode" id="sourceCode12">
+      <!DOCTYPE html>
+      <html>
+        <head>
+          
+        </head>
+        <body>
+          <table border ="1"  style="width:100%">
+            <tr>  <!--  Hàng  tiêu  đề  -->
+              <th>  Tên  </th>
+              <th>  Tuổi  </th>
+              <th>  Giới  tính  </th>
+            </tr>
+            <tr>  <!--  Hàng  dữ  liệu  thứ  1  -->
+              <td>  Minh  </td>
+              <td>  30  </td>
+              <td>  Nam  </td>
+            </tr>
+            <tr>  <!--  Hàng  dữ  liệu  thứ  2  -->
+              <td>  Dũng  </td>
+              <td>  55  </td>
+              <td>  Nam  </td>
+            </tr>
+            </table>
+            
+        </body>
+      </html>
+    </textarea>
+        <input id="btn12" onclick="runCode12();" type="button" value="Chạy thử">
+      </form>
+      <iframe name="targetCode" id="iframe12"></iframe>
+      <h5><b>Chú ý:</b></h5>
+      <p>Định dạng bảng biểu chuyên nghiệp hơn và sử dụng thuộc tính style như ví dụ trên là một dạng của CSS sẽ được đề
+        cập kĩ hơn trong <a href="Bai03.html">bài 3</a>.</p>
+      <h4 id="muc11"><b>11. Biểu mẫu</b></h4>
+      <h5><b>11.1. Tạo biểu mẫu</b></h5>
+      <ul>
+        <li>Thẻ <b>&lt;form&gt;</b> được dùng để tạo một "biểu mẫu" HTML cho người dùng.</li>
+        <li>Thẻ <b>&lt;form&gt;</b> được dùng để truyền dữ liệu lên máy chủ.</li>
+        <li>Thẻ<b>&lt;form&gt;</b> không nên dùng để điều khiển layout.</li>
+      </ul>
+      <h5><b>11.2. Các thành phần của biểu mẫu</b></h5>
+      <p><b>Nhập dữ liệu qua thẻ <b>&lt;textarea&gt;</b></b></p>
+      <ul>
+        <li>Thẻ <b>&lt;textarea&gt;</b> dùng để nhập nhiều dòng văn bản.</li>
+        <li>Thẻ <b>&lt;textarea&gt;</b> có thể chứa được nhiều ký tự và làm cho văn bản có một chiều rộng cố định
+          (thường là font Courier).</li>
+        <li>Kích thước của vùng văn bản có thể được xác định bởi các thuộc tính <b>rows</b> và <b>cols</b>, và cũng có
+          thể điều chỉnh
+          thông qua <b>width</b> và <b>height</b> trong CSS sẽ được tìm hiểu qua <a href="Bai03.html">Bài 2</a>.</li>
+      </ul>
+      <p><b>Nhập dữ liệu qua thẻ <b>&lt;input&gt;</b></b></p>
+      <p>Phụ thuộc vào giá trị thuộc tính type:</p>
+      <table id="tab">
+        <tr>
+          <th>Type</th>
+          <th>Mô tả</th>
+        </tr>
+        <tr>
+          <td> type="text"</td>
+          <td>Sử dụng để nhập các văn bản ngắn và chỉ một hàng.</td>
+        </tr>
+        <tr>
+          <td>type="checkbox"</td>
+          <td>Sử dụng cho nhiều lựa chọn khác nhau.</td>
+        </tr>
+        <tr>
+          <td>type="radio"</td>
+          <td>Sử dụng cho một chọn lựa duy nhất.</td>
+        </tr>
+        <tr>
+          <td>type="password"</td>
+          <td>Các mục trong danh sách được đánh dấu bằng số La Mã in hoa.</td>
+        </tr>
+      </table>
+      <p><b>Nhập dữ liệu qua thẻ <b>&lt;select&gt;</b></b></p>
+      <ul>
+        <li>Thẻ <b>&lt;select&gt;</b> được dùng để tạo một danh sách chọn lựa (danh sách thả xuống).</li>
+        <li>Thẻ <b>&lt;option&gt;</b> bên trong thành phần select, định nghĩa giá trị tùy chọn trong danh sách.</li>
+        <li>Thẻ <b>&lt;select&gt;</b> và <b>&lt;option&gt;</b> được thường được đặt trong <b>&lt;form&gt;</b> cho người
+          dùng lựa chọn danh sách.</li>
+      </ul>
+      <p><b>Các loại nút nhấn (button)</b></p>
+      <p>Phụ thuộc vào giá trị thuộc tính type:</p>
+      <table id="tab">
+        <tr>
+          <th>Type</th>
+          <th>Mô tả</th>
+        </tr>
+        <tr>
+          <td> type="submit"</td>
+          <td>Dùng để gửi dữ liệu lên máy chủ, dữ liệu được gửi thông qua thuộc tính <b>action</b> trong
+            <b>&lt;form&gt;</b>.
+          </td>
+        </tr>
+        <tr>
+          <td>type="reset"</td>
+          <td>Dùng để reset lại giá trị trong <b>&lt;form&gt;</b>.</td>
+        </tr>
+        <tr>
+          <td>type="button"</td>
+          <td>Sử dụng như một nút nhấn thông thường.</td>
+        </tr>
+      </table>
+      <p>&#9755; Xem ví dụ về tạo biểu mẫu (form) và các thành phần biểu mẫu. Có thể xem kết quả khi mở trang web bằng
+        cách nhấn nút
+        <b>Chạy
+          thử</b>
+      </p>
+      <form>
+        <textarea name="sourceCode" id="sourceCode13">
+      <!DOCTYPE html>
+      <html>
+        <head>
+          
+        </head>
+        <body>       
+          <form>
+            <h1>input với type = text</h1> <br>
+            <input type="text" value="" size="30" /><br>
+            <h1>input với type = checbox</h1> <br>
+            <input  type="checkbox">Sport <br>
+            <input  type="checkbox">Music<br>
+            <h1>input với type = radio</h1> <br>
+            <input  type="radio">Male <br>
+            <input  type="radio">Female<br>
+            <h1>select</h1> <br>
+            <select>
+              <option>Danh  sách  01</option>
+              <option>Danh  sách  02</option>
+              <option>Danh  sách  03</option>
+              <option>Danh  sách  03</option>
+              </select>
+              <h1>input với type = submit</h1> <br>
+              <input  type="submit"  name="""  value="Submit"  />
+          </form>
+
+</body>
+
+</html>
+</textarea>
+        <input id="btn13" onclick="runCode13();" type="button" value="Chạy thử">
+      </form>
+      <iframe name="targetCode" id="iframe13"></iframe>
+
+      <h4><b>Tham khảo: Bài giảng Phân vùng trong HTML.</b></h4>
+      <div class="container">
+        <iframe class="responsive-iframe" width="560" height="315" src="https://www.youtube.com/embed/yfzNIBgqCDE"
+          title="YouTube video player" frameborder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allowfullscreen></iframe>
+      </div>
+
+
+
+      <div class="w3-center">
+        <div class="pagination">
+          <a href="Bai01.html">Bài trước</a>
+          <a href="Bai03.html">Bài tiếp theo</a>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- End page content -->
+  </div>
+
+  <script>
+    // Script to open and close sidebar
+    function w3_open() {
+      document.getElementById("mySidebar").style.display = "block";
+      document.getElementById("myOverlay").style.display = "block";
+    }
+
+    function w3_close() {
+      document.getElementById("mySidebar").style.display = "none";
+      document.getElementById("myOverlay").style.display = "none";
+    }
+
+    //Run code 1
+    const code1 = document.getElementById('sourceCode1');
+    const btn1 = document.getElementById('btn1');
+    function runCode1() {
+      var content = document.getElementById('sourceCode1').value;
+      var iframe = document.getElementById('iframe1');
+      iframe = (iframe.contentWindow) ? iframe.contentWindow : (iframe.contentDocument.document) ? iframe.contentDocument.document : iframe.contentDocument;
+      iframe.document.open();
+      iframe.document.write(content);
+      iframe.document.close();
+      return false;
+    }
+
+    //Run code 2
+    const code2 = document.getElementById('sourceCode2');
+    const btn2 = document.getElementById('btn2');
+    function runCode2() {
+      var content = document.getElementById('sourceCode2').value;
+      var iframe = document.getElementById('iframe2');
+      iframe = (iframe.contentWindow) ? iframe.contentWindow : (iframe.contentDocument.document) ? iframe.contentDocument.document : iframe.contentDocument;
+      iframe.document.open();
+      iframe.document.write(content);
+      iframe.document.close();
+      return false;
+    }
+
+    //Run code 3
+    const code3 = document.getElementById('sourceCode3');
+    const btn3 = document.getElementById('btn3');
+    function runCode3() {
+      var content = document.getElementById('sourceCode3').value;
+      var iframe = document.getElementById('iframe3');
+      iframe = (iframe.contentWindow) ? iframe.contentWindow : (iframe.contentDocument.document) ? iframe.contentDocument.document : iframe.contentDocument;
+      iframe.document.open();
+      iframe.document.write(content);
+      iframe.document.close();
+      return false;
+    }
+
+    //Run code 4
+    const code4 = document.getElementById('sourceCode4');
+    const btn4 = document.getElementById('btn4');
+    function runCode4() {
+      var content = document.getElementById('sourceCode4').value;
+      var iframe = document.getElementById('iframe4');
+      iframe = (iframe.contentWindow) ? iframe.contentWindow : (iframe.contentDocument.document) ? iframe.contentDocument.document : iframe.contentDocument;
+      iframe.document.open();
+      iframe.document.write(content);
+      iframe.document.close();
+      return false;
+    }
+    //Run code 5
+    const code5 = document.getElementById('sourceCode5');
+    const btn5 = document.getElementById('btn5');
+    function runCode5() {
+      var content = document.getElementById('sourceCode5').value;
+      var iframe = document.getElementById('iframe5');
+      iframe = (iframe.contentWindow) ? iframe.contentWindow : (iframe.contentDocument.document) ? iframe.contentDocument.document : iframe.contentDocument;
+      iframe.document.open();
+      iframe.document.write(content);
+      iframe.document.close();
+      return false;
+    }
+    //Run code 6
+    const code6 = document.getElementById('sourceCode6');
+    const btn6 = document.getElementById('btn6');
+    function runCode6() {
+      var content = document.getElementById('sourceCode6').value;
+      var iframe = document.getElementById('iframe6');
+      iframe = (iframe.contentWindow) ? iframe.contentWindow : (iframe.contentDocument.document) ? iframe.contentDocument.document : iframe.contentDocument;
+      iframe.document.open();
+      iframe.document.write(content);
+      iframe.document.close();
+      return false;
+    }
+
+    //Run code 7
+    const code7 = document.getElementById('sourceCode7');
+    const btn7 = document.getElementById('btn7');
+    function runCode7() {
+      var content = document.getElementById('sourceCode7').value;
+      var iframe = document.getElementById('iframe7');
+      iframe = (iframe.contentWindow) ? iframe.contentWindow : (iframe.contentDocument.document) ? iframe.contentDocument.document : iframe.contentDocument;
+      iframe.document.open();
+      iframe.document.write(content);
+      iframe.document.close();
+      return false;
+    }
+    //Run code 8
+    const code8 = document.getElementById('sourceCode8');
+    const btn8 = document.getElementById('btn8');
+    function runCode8() {
+      var content = document.getElementById('sourceCode8').value;
+      var iframe = document.getElementById('iframe8');
+      iframe = (iframe.contentWindow) ? iframe.contentWindow : (iframe.contentDocument.document) ? iframe.contentDocument.document : iframe.contentDocument;
+      iframe.document.open();
+      iframe.document.write(content);
+      iframe.document.close();
+      return false;
+    }
+    //Run code 9
+    const code9 = document.getElementById('sourceCode9');
+    const btn9 = document.getElementById('btn9');
+    function runCode9() {
+      var content = document.getElementById('sourceCode9').value;
+      var iframe = document.getElementById('iframe9');
+      iframe = (iframe.contentWindow) ? iframe.contentWindow : (iframe.contentDocument.document) ? iframe.contentDocument.document : iframe.contentDocument;
+      iframe.document.open();
+      iframe.document.write(content);
+      iframe.document.close();
+      return false;
+    }
+    //Run code 10
+    const code10 = document.getElementById('sourceCode10');
+    const btn10 = document.getElementById('btn10');
+    function runCode10() {
+      var content = document.getElementById('sourceCode10').value;
+      var iframe = document.getElementById('iframe10');
+      iframe = (iframe.contentWindow) ? iframe.contentWindow : (iframe.contentDocument.document) ? iframe.contentDocument.document : iframe.contentDocument;
+      iframe.document.open();
+      iframe.document.write(content);
+      iframe.document.close();
+      return false;
+    }
+    //Run code 11
+    const code11 = document.getElementById('sourceCode11');
+    const btn11 = document.getElementById('btn11');
+    function runCode11() {
+      var content = document.getElementById('sourceCode11').value;
+      var iframe = document.getElementById('iframe11');
+      iframe = (iframe.contentWindow) ? iframe.contentWindow : (iframe.contentDocument.document) ? iframe.contentDocument.document : iframe.contentDocument;
+      iframe.document.open();
+      iframe.document.write(content);
+      iframe.document.close();
+      return false;
+    }
+    //Run code 12
+    const code12 = document.getElementById('sourceCode12');
+    const btn12 = document.getElementById('btn12');
+    function runCode12() {
+      var content = document.getElementById('sourceCode12').value;
+      var iframe = document.getElementById('iframe12');
+      iframe = (iframe.contentWindow) ? iframe.contentWindow : (iframe.contentDocument.document) ? iframe.contentDocument.document : iframe.contentDocument;
+      iframe.document.open();
+      iframe.document.write(content);
+      iframe.document.close();
+      return false;
+    }
+    //Run code 13
+    const code13 = document.getElementById('sourceCode13');
+    const btn13 = document.getElementById('btn13');
+    function runCode13() {
+      var content = document.getElementById('sourceCode13').value;
+      var iframe = document.getElementById('iframe13');
+      iframe = (iframe.contentWindow) ? iframe.contentWindow : (iframe.contentDocument.document) ? iframe.contentDocument.document : iframe.contentDocument;
+      iframe.document.open();
+      iframe.document.write(content);
+      iframe.document.close();
+      return false;
+    }
+
+    // Phần button top
+    var mybutton = document.getElementById("myBtn");
+
+
+    window.onscroll = function () { scrollFunction() };
+
+    function scrollFunction() {
+      if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+        mybutton.style.display = "block";
+      } else {
+        mybutton.style.display = "none";
+      }
+    }
+
+
+    function topFunction() {
+      document.body.scrollTop = 0;
+      document.documentElement.scrollTop = 0;
+    }
+
+  </script>
+
+</body>
+
+</html>
