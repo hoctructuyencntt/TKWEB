@@ -1,0 +1,461 @@
+<!DOCTYPE html>
+<html>
+<title>DreamWeaver</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="w3.css">
+<link rel="stylesheet" href="font.css">
+<link rel="stylesheet" href="font-awesome.min.css">
+<style>
+  #myBtn {
+    display: none;
+    position: fixed;
+    bottom: 20px;
+    right: 30px;
+    z-index: 99;
+    font-size: 18px;
+    border: none;
+    outline: none;
+    background-color: pink;
+    color: black;
+    cursor: pointer;
+    padding: 15px;
+    border-radius: 4px;
+  }
+
+  #myBtn:hover {
+    background-color: #555;
+  }
+
+  .w3-main a {
+    background-color: #04AA6D;
+  }
+
+  .pagination {
+    display: inline-block;
+  }
+
+  .pagination a {
+    color: white;
+    float: left;
+    padding: 8px 16px;
+    text-decoration: none;
+    transition: background-color .3s;
+    border: 1px solid #ddd;
+    background-color: gray;
+  }
+
+  .pagination a.active {
+    background-color: gray;
+    color: white;
+    border: 1px solid #4CAF50;
+  }
+
+  .pagination a:hover:not(.active) {
+    background-color: #ddd;
+  }
+
+  body,
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-family: "Raleway", sans-serif
+  }
+
+
+  #tab {
+    font-family: Arial, Helvetica, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+  }
+
+  #tab td,
+  #tab th {
+    border: 1px solid #ddd;
+    padding: 8px;
+  }
+
+  /*
+  #tab tr:nth-child(even) {
+    background-color: #f2f2f2;
+  }
+*/
+  #tab tr:hover {
+    background-color: #ddd;
+  }
+
+  #tab th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: left;
+    background-color: #04AA6D;
+    color: white;
+  }
+
+  .center {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
+  }
+
+  .w3-code a {
+    background-color: transparent;
+    text-decoration: none;
+    color: blue;
+  }
+</style>
+
+<body class="w3-black w3-content" style="max-width:1600px">
+
+  <!-- Sidebar/menu -->
+  <nav class="w3-sidebar w3-collapse w3-white w3-animate-left" style="z-index:3;width:300px;" id="mySidebar"><br>
+    <div class="w3-container">
+      <a href="#" style="text-decoration: none;" onclick="w3_close()"
+        class="w3-hide-large w3-right w3-jumbo w3-padding w3-hover-grey" title="close menu"> X </a>
+      <!--<h4><b>Giáo trình</b></h4>-->
+    </div>
+    <div class="w3-bar-block">
+      <a href="Bai01.html" onclick="w3_close()" class="w3-bar-item w3-button w3-padding ">Bài mở đầu: Tổng
+        quan về World Wide Web </a>
+      <a href="Bai02.html" onclick="w3_close()" class="w3-bar-item w3-button w3-padding">Bài 1: Tạo các
+        trang HTML
+        tĩnh</a>
+      <a href="Bai03.html" onclick="w3_close()" class="w3-bar-item w3-button w3-padding">Bài 2: Thiết kế giao diện với
+        HTML và CSS</a>
+      <a href="Bai04.html" onclick="w3_close()" class="w3-bar-item w3-button w3-padding">Bài 3: Lập trình
+        Javascript</a>
+      <a href="Bai05.html" onclick="w3_close()" class="w3-bar-item w3-button w3-padding w3-text-teal">Bài 4: Thiết kế và
+        quản trị
+        website với công cụ (WordPress, Blogger, Wix) </a>
+      <a href="Thamkhao.html" onclick="w3_close()" class="w3-bar-item w3-button w3-padding">Nguồn tham khảo</a>
+      <a href="https://hoctructuyencntt.com/" onclick="w3_close()"
+        class="w3-bar-item w3-button w3-padding">&copy;hoctructuyencntt.com</a>
+    </div>
+  </nav>
+
+  <!-- Overlay effect when opening sidebar on small screens -->
+  <div class="w3-overlay w3-hide-large w3-animate-opacity" onclick="w3_close()" style="cursor:pointer"
+    title="close side menu" id="myOverlay">=</div>
+
+  <!-- !PAGE CONTENT! -->
+  <div class="w3-main" style="margin-left:300px">
+    <button onclick="topFunction()" id="myBtn" title="Go to top">Lên đầu trang</button>
+    <!-- Header -->
+    <header id="portfolio">
+      <!--<a href="#"><img src="/w3images/avatar_g2.jpg" style="width:65px;"
+          class="w3-circle w3-right w3-margin w3-hide-large w3-hover-opacity"></a>-->
+      <span class="w3-button w3-hide-large w3-xxlarge w3-hover-text-grey" onclick="w3_open()">=</span>
+      <div class="w3-container">
+        <h1><b>Bài 4: Thiết kế và quản trị website với công cụ</b></h1>
+      </div>
+    </header>
+    <div class="w3-container w3-padding-large" style="margin-bottom:32px">
+      <div class="w3-center">
+        <div class="pagination">
+          <a href="Bai05.html">Công cụ khác</a>
+        </div>
+      </div>
+      <div class="w3-code notranslate htmlHigh">
+        <h4>Nội dung bài học</h4>
+        <ol>
+          <li><a href="#muc1">Tổ chức và quản lý website</a>
+            <ul>
+              <li><a href="#muc1_1">Phân tích cấu trúc website</a>
+              <li><a href="#muc1_2">Tạo hệ thống thư mục</a>
+              <li><a href="#muc1_3"> Quản lý website</a>
+            </ul>
+          </li>
+          <li><a href="#muc2">Thiết kế và quản trị website với công cụ (DreamWeaver, WordPress, Blogger,...)</a>
+            <ul>
+              <li><a href="#muc2_1">Giao diện làm việc</a>
+              <li><a href="#muc2_2">Thiết kế trang web</a>
+
+            </ul>
+          </li>
+          <li><a href="#muc3">Xuất bản website</a>
+            <ul>
+              <li><a href="#muc3_1">Chọn dịch vụ hosting</a>
+              <li><a href="#muc3_2">Tải web lên host</a>
+              <li><a href="#muc3_3">Chỉnh sửa các thông số hoạt động cho website</a>
+              <li><a href="#muc3_4">Công khai website</a>
+            </ul>
+          </li>
+        </ol>
+      </div>
+      <h4 id="muc1"><b>1. Tổ chức và quản lý website</b></h4>
+      <p>Adobe Dreamweaver là một công cụ xử lý mạnh mẽ dành cho những người thiết kế web, người dùng có thể tự mình lập
+        trình và phát triển ứng dụng web ở nhiều cấp độ. Nếu
+        chỉ dừng ở mức độ hiểu biết chưa nhiều về các ngôn ngữ lập trình web thì Dreamweaver vẫn đáp ứng được nhu cầu
+        thiết kế Website chuyên nghiệp.</p>
+      <h5 id="muc1_1"><b> 1.1. Phân tích cấu trúc website</b></h5>
+      <p> Người dùng không chuyên chỉ việc cần tìm cho mình một mẫu trang web vừa ý trên Internet, dùng công cụ soạn
+        thảo
+        thông thường để chỉnh sửa hay thêm bớt một số thành phần, rồi tạo ra một Template để áp dụng cho toàn bộ
+        Website.</p>
+      <p>Ngoài những tính năng kéo thả để xây dựng trang web, Dreamweaver còn cung cấp một môi trường viết mã với đầy đủ
+        chức năng bao gồm các công cụ viết mã (như tô màu mã, bổ sung thẻ tag, thanh công cụ mã), hỗ trợ các ngôn ngữ
+        lập
+        trình thông dụng HTML, CSS, Javascript, ASP VBScript, PHP hay XML. Nếu muốn xây dựng các ứng dụng web động chạy
+        trên công nghệ máy chủ ASP.NET, JSP và PHP thì Dreamweaver hoàn toàn có thể đáp ứng được các dự án lớn này.</p>
+      <p> Giao diện sử dụng được bố trí trực quan và thân thiện với người sử dụng, khu vực soạn thảo đoạn mã được đánh
+        số
+        thứ tự ở các dòng và có tô màu theo từng thẻ giúp tiện cho việc theo dõi, kiểm tra. Ngoài giao diện mặc định,
+        chương trình còn hỗ trợ nhiều dạng giao diện với cách bố trí ví trí thanh công cụ khác nhau, tại tính năng
+        Designer (đối với phiên bản Dreamweaver CS5).</p>
+      <p>Adobe Dreamweaver có thể kết hợp các phần mềm khác của hãng Adobe để tạo ra một sản phẩm hoàn hảo, ví dụ như
+        Adobe
+        Photoshop giúp chỉnh sửa và thiết kế hình ảnh cho Website.</p>
+      <h5 id="muc1_2"><b>1.2. Tạo hệ thống thư mục</b></h5>
+      <p>Hệ thống các thư mục được tạo tùy theo mục đích của người thiết kế web. Một số thư mục phổ biến như:</p>
+      <ul>
+        <li>Thư mục Image dùng để chứa toàn bộ hình ảnh của trang web.</li>
+        <li>Thư mục Video dùng để chứa những tập tin flash, video clip,...</li>
+        <li>Thư mục Data dùng để chứa dữ liệu.</li>
+      </ul>
+      <h5 id="muc1_3"><b>1.3. Quản lý website</b></h5>
+      <p> Gồm các công việc sau:</p>
+      <ul>
+        <li>Sắp xếp lại các tập tin và thư mục đã có;</li>
+        <li>Sắp xếp các tập tin và thư mục mới thêm vào.</li>
+      </ul>
+      <h4 id="muc2"><b>2. Thiết kế và quản trị website với công cụ (DreamWeaver, WordPress, Blogger,...)</b></h4>
+      <h5 id="muc2_1"><b>2.1. Giao diện làm việc</b></h5>
+      <h5><b><b>&#9755;</b> Cửa sổ soạn thảo</b></h5>
+      <p>Khi soạn thảo một trang web, DW cung cấp ba chế độ xem: Design (thiết kế), Split
+        (mã và thiết kế) và Code (mã nguồn) như hình sau:</p>
+      <img src="img/bai05_1.jpg" class="center">
+      <p>Chế độ Design (thiết kế) cho phép xây dựng trang web một cách trực quan và quan sát được trang web hiển thị ra
+        sao trên thực tế:</p>
+      <img src="img/bai05_2.jpg" class="center">
+      <p>Chế độ Code thường được các nhà thiết kế web và các lập trình viên có kinh nghiệm sử dụng để tiến hành viết
+        mã HTML trực tiếp cho trang web. Mã nguồn được hiển thị với nhiều màu sắc khác nhau giúp việc đọc mã dễ dàng
+        hơn:</p>
+      <img src="img/bai05_3.jpg" class="center">
+      <p>Ở chế độ Split màn hình được chia làm hai phần để người dùng có thể sử dụng cả hai chế độ Design và
+        Code:</p>
+      <img src="img/bai05_4.jpg" class="center">
+      <h5><b><b>&#9755;</b> Cửa sổ quản lý website</b></h5>
+      <p> Để quản lí website, chúng ta có thể vào mục Manage Sites bên phải màn hình trong giao diện khi chọn tab Files,
+        như
+        sau:</p>
+      <img src="img/bai05_5.jpg" class="center">
+      <p>Cửa sổ Manage Sites</p>
+      <img src="img/bai05_6.jpg" class="center">
+      <h5><b><b>&#9755;</b> Các cửa sổ hỗ trợ khác</b></h5>
+      Bên cạnh các cửa sổ chính như trên, DW còn hỗ trợ các cửa sổ phụ khác tuỳ theo yêu cầu trong quá trình thiết kế.
+      Để mở cửa sổ cần thiết trong quá trình thiết kế, chúng ta vào mục Window và chọn cửa sổ tương ứng:
+      <img src="img/bai05_7.jpg" class="center">
+      <h5 id="muc2_2"><b>2.2. Thiết kế trang web</b></h5>
+      <h5><b>2.2.1. Sửa thông số làm việc</b></h5>
+      <h5><b><b>&#9755;</b> Bảng mã ký tự: UTF-8</b></h5>
+      <p> Để tuỳ chọn bảng mã kí tự, chúng ta có thể vào mục Modify chọn Page Properties và chọn Title/Encoding. Trong
+        mục
+        Title/Encoding chọn bảng mã (UTF-8) trong mục Coding:</p>
+      <img src="img/bai05_8.jpg" class="center">
+      <h5><b><b>&#9755;</b> Chuẩn HTML và CSS</b></h5>
+      <p>Trong cửa sổ Page Properties, mục Title/Encoding chọn Document Type (DTD) để chọn chuẩn HTML, ví dụ chọn HTML5
+      </p>
+      <img src="img/bai05_9.jpg" class="center">
+      <p>Tương tự ta có thể thay đổi các thông số về CSS cho phù hợp trong mục Category của cửa sổ Page Properties.</p>
+
+      <h5><b>2.2.2. Tạo trang HTML</b></h5>
+      <p>Để tạo một trang HTML mới, chúng ta vào mục File/New sẽ xuất hiện cửa sổ New Document như sau:</p>
+      <img src="img/bai05_10.jpg" class="center">
+      <p>Gõ tiêu đề trang trong mục Title, chọn phiên bản HTML (ví dụ HTML5) trong mục Doc Type và nếu có liên kết với
+        tập
+        tin CSS bên ngoài thì trong mục Attach CSS chọn biểu tượng bên phải, cụ thể như hình dưới:</p>
+      <img src="img/bai05_11.jpg" class="center">
+      <p>Sau khi hoàn tất bấm vào nút Create. Sau khi tạo trang HTML mới, để điều chỉnh lại định dạng trang như tiêu đề,
+        mã kí tự hay cách hiển thị,…, chúng
+        ta
+        vào mục Modify chọn Page Properties:</p>
+      <img src="img/bai05_12.jpg" class="center">
+      <p>Trong hộp thoại Page Properties bạn chỉnh các thông số sau:</p>
+      <p>Mục Appearance (HTML)</p>
+      <ul>
+        <li>Background image: Chọn Browse và duyệt đến tập tin ảnh dùng làm nền cho trang web.</li>
+        <li>Background: Bấm vào nút bảng màu và chỉ ra màu nền cho trang web.</li>
+        <li>Text: Chỉ định màu chữ mặc định.</li>
+        <li>Link: Chỉ định màu chữ mặc định khi bạn tạo liên kết cho nó.</li>
+        <li>Left margin: Nhập vào khoảng cách lề trái so với nội dung trang web.</li>
+        <li>Top margin: Nhập vào khoảng cách lề trên so với nội dung trang web.</li>
+        <li>Margin width: nhập vào độ rộng của trang web.</li>
+        <li>Margin height: nhập vào độ cao của trang web.</li>
+      </ul>
+      <p>Mục Title/Encoding</p>
+      <img src="img/bai05_13.jpg" class="center">
+      <ul>
+        <li>Title: Nhập tiêu đề của trang web.</li>
+        <li>Các mục khác cứ để mặc định.</li>
+      </ul>
+      <p>Sau khi tinh chỉnh định dạng trang web xong, chọn OK để thiết lập.</p>
+      <p>Thiết kế trang web: theo hai cách là kéo-thả và dùng code.</p>
+      <p>Sử dụng chức năng kéo-thả, chèn trực tiếp các đối tượng HTML vào trang web từ các thanh công cụ hoặc thực đơn
+        làm việc. Trong khung cửa sổ bên phải chọn tab Insert, bên dưới có mục HTML (mặc định) và dấu mũi tên, như sau:
+      </p>
+      <img src="img/bai05_14.jpg" class="center">
+      <p>Nhấp vào dấu mũi tên để lựa chọn đối tượng cần chèn vào trang web như HTML, Form, Templates,...</p>
+      <img src="img/bai05_15.jpg" class="center">
+      <p>Dùng code hay viết mã trực tiếp trong cửa sổ code:</p>
+      <img src="img/bai05_16.jpg" class="center">
+      <h5><b>2.2.3. Liên kết CSS với trang web HTML</b></h5>
+      <p>Để liên kết CSS vào trang HTML, chúng ta vào mục CSS Designer bên góc phải màn hình và nhấp vào dấu "+" ở dưới
+        để
+        chọn kiểu CSS, như hình sau:</p>
+      <img src="img/bai05_17.jpg" class="center">
+      <p>Thêm internal CSS vào mục Define in Page:</p>
+      <img src="img/bai05_18.jpg" class="center">
+      <p>Trong cửa sổ Code sẽ xuất hiện cặp thẻ <style> </style> như sau:</p>
+      <img src="img/bai05_19.jpg" class="center">
+      <p>Liên kết với file CSS đã tồn tại sẵn: vào Attach Existing CSS File</p>
+      <img src="img/bai05_20.jpg" class="center">
+      <p>Tạo file CSS mới: vào Attach Existing CSS File</p>
+      <img src="img/bai05_21.jpg" class="center">
+      <h4 id="muc3"><b>3. Xuất bản website</b></h4>
+      <h5 id="muc3_1"><b>3.1. Chọn dịch vụ hosting</b></h5>
+      <p>Host trong tiếng Anh dịch ra có rất nhiều nghĩa, trong đó nghĩa dành cho nghành công nghệ thông tin là máy chủ.
+        Host nghĩa là một máy tính có cấu hình rất mạnh, được đặt tại một vị trí chuyên biệt dành cho máy chủ
+        (Datacenter), được kết nối đường truyền internet tốc độ cao để phân tán dữ liệu lên môi trường internet bằng
+        cách
+        cho phép người dùng tải dữ liệu hoặc gửi dữ liệu lên.</p>
+      <p>Website cần được đưa lên một host nào đó để người dùng có thể truy cập được. Thường có 3 loại host:</p>
+      <h5><b><b>&#9755;</b> Tự tạo host</b></h5>
+      <p>Nếu cá nhân hay tổ chức có đủ nguồn kinh phí, cơ sở hạ tầng (máy chủ, đường truyền Internet tốc độ cao,v.v.),
+        nguồn nhân lực IT thì có thể tự tạo host cho riêng mình.</p>
+      <h5><b><b>&#9755;</b> Sử dụng các host miễn phí</b></h5>
+      <p>Host miễn phí nghĩa là một dịch vụ cho phép bạn đăng ký một gói host với chi phí bằng không, thường được những
+        người mới tìm hiểu làm web hoặc chưa có kinh phí thuê host riêng tìm kiếm.</p>
+
+      <p>Ưu điểm duy nhất là bạn có một host riêng trên môi trường internet hoàn toàn miễn phí, không mất tiền thuê hàng
+        tháng để làm website.</p>
+      <p>Nhược điểm của host miễn phí:</p>
+      <ul>
+        <li>Đa phần không hỗ trợ thêm domain riêng.</li>
+        <li>Tài nguyên được phép sử dụng rất thấp.</li>
+        <li>Tốc độ chậm.</li>
+        <li>Bảo mật cực kỳ kém.</li>
+        <li>Nhiều nhà cung cấp bắt bạn phải treo quảng cáo lên website.</li>
+        <li>Cấu hình phần mềm lỗi thời, đa phần đều dễ gặp lỗi.</li>
+      </ul>
+      <h5><b><b>&#9755;</b> Thuê host</b></h5>
+      <p>Có thể thuê host từ các nhà cung cấp trong hay ngoài nước. Mỗi lựa chọn này có ưu, nhược điểm riêng. Khi lựa
+        chọn
+        cần dựa vào đặc điểm của website, khả năng tài chính của cá nhân/doanh nghiệp, số lượng khách truy cập dự kiến,
+        tốc độ đáp ứng yêu cầu, khách địa phương hay quốc tế.</p>
+      <h5 id="muc3_2"><b>3.2. Tải web lên host</b></h5>
+      <h5><b><b>&#9755;</b> Dùng trình duyệt web</b></h5>
+      <p>Dùng File Manager là công cụ quản trị file thông qua môi trường web. Với công cụ này, bạn có thể thực hiện các
+        thao tác: tải lên/ tải xuống các tệp tin, phần quyền file, thư mục...</p>
+      <h5><b><b>&#9755;</b> Dùng phần mềm FTP client</b></h5>
+      <p> FTP là một khái niệm rất quan trọng vì trong suốt thời gian bạn sử dụng host để làm website, có thể bạn sẽ cần
+        sử
+        dụng FTP nhiều hơn là dùng control panel của host vì nó sẽ giúp bạn tiện lợi hơn trong việc upload/quản lý các
+        tập
+        tin và thư mục trên host vì sử dụng tính năng File Manager có trong control panel đôi lúc hơi rườm rà và bất
+        tiện,
+        cũng như ở trên đó bạn sẽ không thấy các tập tin hệ thống có tên là .htaccess, nên chúng ta sẽ cần sử dụng FTP
+        để
+        quản lý dữ liệu trên ổ cứng của host.</p>
+      <p>FTP là gì? FTP là chữ viết tắt của File Transfer Protocol (Giao thức chuyển nhượng tập tin), đây là một giao
+        thức
+        giúp bạn dễ dàng trao đổi các dữ liệu giữa máy tính của bạn với host và ngược lại. Tại FTP, bạn sẽ có quyền quản
+        lý toàn bộ các dữ liệu dạng tập tin và thư mục có trên host ngoại trừ database. Tất cả các gói host bạn mua có
+        hỗ
+        trợ control panel cPanel, DirectAdmin,…đều hỗ trợ sẵn FTP qua cổng kết nối 21.</p>
+      <p> Cách kết nối vào FTP Trước khi kết nối vào FTP trên host, mình cần các bạn đã chắc chắn trỏ tên miền về host
+        mặc
+        dù bước này không cần thiết vì bạn có thể kết nối vào cái hostname của host hoặc dịa chỉ IP của host nhưng ở đây
+        mình sẽ chỉ hướng dẫn kết nối vào FTP qua tên miền trên host để tránh dài dòng.</p>
+      <p>Để kết nối vào FTP trên host bạn cần phải sử dụng một ứng dụng chuyên làm việc này, nó được gọi là FTP Client.
+        Hiện nay, bạn có thể sử dụng phần mềm FileZilla vì đây là FTP Client miễn phí tốt nhất hiện tại, hỗ trợ hầu hết
+        mọi hệ điều hành hiện nay.</p>
+      <h5 id="muc3_3"><b>3.3. Chỉnh sửa các thông số hoạt động cho website</b></h5>
+      <h5><b><b>&#9755;</b> Quyền truy cập, thực thi đến website và các trang web</b></h5>
+      <p>Mỗi trang trên website của bạn đã được thiết lập tính năng mặc định là "Public" để mọi người có thể xem thấy
+        trang
+        của bạn khi bạn nhấn "PUBLISH".</p>
+      <p>Thay đổi thiết lập có nghĩa là bạn giới hạn quyền của những ai đã đăng ký làm thành viên trong trang web của
+        bạn
+        (hay chỉ một nhóm người nào do bạn chỉ định) mới có thể truy cập vào trang mà bạn đã thiết lập. Nếu bạn thiết
+        lập một trang với tính năng Specific Members or Group thì chỉ có nhóm hay thành viên đã đăng ký
+        vào
+        trang của bạn mới có thể xem trang.</p>
+      <p>Khi chọn tính năng này, thì bạn nhấn vào Select Groups để thêm nhóm hay Select Members để thêm thành viên có
+        thể
+        truy cập trang của bạn. Nếu bạn đã có một nhóm hay một vài thành viên thì điều này chỉ thực sự hữu ích. Mỗi khi
+        bạn đã sử dụng tính năng này và nhấn PUBLISH để xuất bản trang web thì chỉ những thành viên hay nhóm
+        mới
+        có thể vào xem trang của bạn.</p>
+      <p>
+        Với tính năng này, bạn hoàn toàn có thể thiết lập một forum hay một trang mà chỉ những ai đăng ký vào website
+        của
+        bạn mới có thể truy cập vào. Đây thực sự là một công cụ hữu ích để mở rộng nhóm và mạng lưới của bạn.</p>
+      <h5><b><b>&#9755;</b> Trỏ domain hoặc IP đến website</b></h5>
+      <p>Bạn hãy đăng nhập vào website của nhà cung cấp hosting và cần thay đổi cấu hình để có thể truy cập tên miền hay
+        IP
+        của website.</p>
+      <h5 id="muc3_4"><b>3.4. Công khai website</b></h5>
+      <p>Tuỳ theo cá nhân hay tổ chức, nội dung website mà có những hình thức quảng bá website đến đối tượng của nó một
+        cách hiệu quả nhất. Tuy nhiên, khi công khai website ra cộng đồng, đối tượng đầu tiên chúng ta nhắm đến là các
+        cỗ
+        máy tìm kiếm (Search Engine) như Google hay Bing. Kĩ thuật tối ưu hoá máy tìm kiếm (gọi tắt là SEO) là một kĩ
+        thuật phổ biến mà bất kì người thiết kế web hay quản trị web đều phải quan tâm.</p>
+      <div class="w3-center">
+        <div class="pagination">
+          <a href="Bai05.html">Công cụ khác</a>
+
+        </div>
+      </div>
+
+    </div>
+
+    <!-- End page content -->
+  </div>
+
+  <script>
+    // Script to open and close sidebar
+    function w3_open() {
+      document.getElementById("mySidebar").style.display = "block";
+      document.getElementById("myOverlay").style.display = "block";
+    }
+
+    function w3_close() {
+      document.getElementById("mySidebar").style.display = "none";
+      document.getElementById("myOverlay").style.display = "none";
+    }
+
+
+
+
+
+
+
+
+    // Phần button top
+    var mybutton = document.getElementById("myBtn");
+
+
+    window.onscroll = function () { scrollFunction() };
+
+    function scrollFunction() {
+      if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+        mybutton.style.display = "block";
+      } else {
+        mybutton.style.display = "none";
+      }
+    }
+
+
+    function topFunction() {
+      document.body.scrollTop = 0;
+      document.documentElement.scrollTop = 0;
+    }
+  </script>
+
+</body>
+
+</html>

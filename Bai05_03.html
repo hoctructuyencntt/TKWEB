@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html>
+<title>wix</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="w3.css">
+<link rel="stylesheet" href="font.css">
+<link rel="stylesheet" href="font-awesome.min.css">
+<style>
+  #myBtn {
+    display: none;
+    position: fixed;
+    bottom: 20px;
+    right: 30px;
+    z-index: 99;
+    font-size: 18px;
+    border: none;
+    outline: none;
+    background-color: pink;
+    color: black;
+    cursor: pointer;
+    padding: 15px;
+    border-radius: 4px;
+  }
+
+  #myBtn:hover {
+    background-color: #555;
+  }
+
+  .w3-main a {
+    background-color: #04AA6D;
+  }
+
+  .pagination {
+    display: inline-block;
+  }
+
+  .pagination a {
+    color: white;
+    float: left;
+    padding: 8px 16px;
+    text-decoration: none;
+    transition: background-color .3s;
+    border: 1px solid #ddd;
+    background-color: gray;
+  }
+
+  .pagination a.active {
+    background-color: gray;
+    color: white;
+    border: 1px solid #4CAF50;
+  }
+
+  .pagination a:hover:not(.active) {
+    background-color: #ddd;
+  }
+
+  body,
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-family: "Raleway", sans-serif
+  }
+
+
+  #tab {
+    font-family: Arial, Helvetica, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+  }
+
+  #tab td,
+  #tab th {
+    border: 1px solid #ddd;
+    padding: 8px;
+  }
+
+  /*
+  #tab tr:nth-child(even) {
+    background-color: #f2f2f2;
+  }
+*/
+  #tab tr:hover {
+    background-color: #ddd;
+  }
+
+  #tab th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: left;
+    background-color: #04AA6D;
+    color: white;
+  }
+
+  .center {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
+  }
+
+  .w3-code a {
+    background-color: transparent;
+    text-decoration: none;
+    color: blue;
+  }
+</style>
+
+<body class="w3-black w3-content" style="max-width:1600px">
+
+  <!-- Sidebar/menu -->
+  <nav class="w3-sidebar w3-collapse w3-white w3-animate-left" style="z-index:3;width:300px;" id="mySidebar"><br>
+    <div class="w3-container">
+      <a href="#" style="text-decoration: none;" onclick="w3_close()"
+        class="w3-hide-large w3-right w3-jumbo w3-padding w3-hover-grey" title="close menu"> X </a>
+      <!--<h4><b>Giáo trình</b></h4>-->
+    </div>
+    <div class="w3-bar-block">
+      <a href="Bai01.html" onclick="w3_close()" class="w3-bar-item w3-button w3-padding ">Bài mở đầu: Tổng
+        quan về World Wide Web </a>
+      <a href="Bai02.html" onclick="w3_close()" class="w3-bar-item w3-button w3-padding">Bài 1: Tạo các
+        trang HTML
+        tĩnh</a>
+      <a href="Bai03.html" onclick="w3_close()" class="w3-bar-item w3-button w3-padding">Bài 2: Thiết kế giao diện với
+        HTML và CSS</a>
+      <a href="Bai04.html" onclick="w3_close()" class="w3-bar-item w3-button w3-padding">Bài 3: Lập trình
+        Javascript</a>
+      <a href="Bai05.html" onclick="w3_close()" class="w3-bar-item w3-button w3-padding w3-text-teal">Bài 4: Thiết kế và
+        quản trị
+        website với công cụ (WordPress, Blogger, Wix) </a>
+      <a href="Thamkhao.html" onclick="w3_close()" class="w3-bar-item w3-button w3-padding">Nguồn tham khảo</a>
+      <a href="https://hoctructuyencntt.com/" onclick="w3_close()"
+        class="w3-bar-item w3-button w3-padding">&copy;hoctructuyencntt.com</a>
+    </div>
+  </nav>
+
+  <!-- Overlay effect when opening sidebar on small screens -->
+  <div class="w3-overlay w3-hide-large w3-animate-opacity" onclick="w3_close()" style="cursor:pointer"
+    title="close side menu" id="myOverlay">=</div>
+
+  <!-- !PAGE CONTENT! -->
+  <div class="w3-main" style="margin-left:300px">
+    <button onclick="topFunction()" id="myBtn" title="Go to top">Lên đầu trang</button>
+    <!-- Header -->
+    <header id="portfolio">
+      <!--<a href="#"><img src="/w3images/avatar_g2.jpg" style="width:65px;"
+          class="w3-circle w3-right w3-margin w3-hide-large w3-hover-opacity"></a>-->
+      <span class="w3-button w3-hide-large w3-xxlarge w3-hover-text-grey" onclick="w3_open()">=</span>
+      <div class="w3-container">
+        <h1><b>Bài 4: Thiết kế và quản trị website với công cụ</b></h1>
+      </div>
+    </header>
+    <div class="w3-container w3-padding-large" style="margin-bottom:32px">
+      <div class="w3-center">
+        <div class="pagination">
+          <a href="Bai05.html">Công cụ khác</a>
+        </div>
+      </div>
+      <div class="w3-code notranslate htmlHigh">
+        <h4>Nội dung bài học</h4>
+        <ol>
+          <li><a href="#muc1">Giới thiệu</a>
+
+          </li>
+          <li><a href="#muc2">Các bước tạo website với Wix</a>
+
+          </li>
+
+        </ol>
+      </div>
+      <h4 id="muc1"><b>1. Giới thiệu</b></h4>
+      <p>WIX hay <a href="https://www.wix.com/">Wix.com</a> là một nền tảng xây dựng website cho phép người dùng khởi
+        tạo website trực tuyến dựa trên thao
+        tác
+        kéo thả. Vậy cơ sở nền tảng xây dựng website WIX là gì? WIX tích hợp với HTML5. Bằng thao tác kéo thả đơn giản,
+        bạn đã có thể thiết kế một website cho riêng mình. Chỉ cần đăng ký tài khoản, bạn đã có thể sử dụng các công cụ
+        của WIX để tạo nên trang web riêng.</p>
+      <p>Về cơ bản, nền tảng WIX là miễn phí. Tuy nhiên, nó cũng cung cấp các gói trả phí với nhiều tính năng nâng cấp.
+        Ví dụ như xóa logo của WIX, thêm các tính năng của trang thương mại điện tử, sử dụng tên miền riêng,… Hiện tại
+        WIX
+        đang được hơn 100 triệu người sử dụng trên phạm vi hơn 190 quốc gia.</p>
+      <p>Bên cạnh các ưu điểm về tính năng và sự tiện dụng, nền tảng WIX cũng tồn tại một số nhược điểm nhất định. Cụ
+        thể
+        như:</p>
+      <ul>
+        <li>Gói miễn phí có nhiều hạn chế: Trên cơ bản WIX là nền tảng miễn phí. Nhưng gói Free này không cho phép bạn
+          được
+          sử dụng tên miền của riêng mình. Domain phải có dạng: username.wix.com/sitename. Đồng thời bị hiển thị quảng
+          cáo
+          thường xuyên và giới hạn một số chức năng quan trọng.</li>
+        <li>Gói trả phí có giá khá đắt: Muốn tạo website với tên miền riêng và sử dụng thêm các tính năng nâng cấp khác,
+          bạn
+          phải dùng bản trả phí. Khoản chi này không hề rẻ một chút nào. Gói nâng cấp rẻ nhất của WIX có giá 4.5
+          USD/tháng
+          nhưng chỉ có 5000MB dung lượng và băng thông 1GB/tháng. Với gói này, bạn có thể dùng tên miền riêng nhưng
+          không
+          thể xóa logo của WIX. Muốn làm website riêng theo ý mình một cách hoàn chỉnh? Bạn phải dùng gói Combo 8.5
+          USD/tháng hoặc gói Unlimited 12.5 USD/tháng.</li>
+        <li>Ít ứng dụng hỗ trợ: Nền tảng WIX đang có khoảng hơn 500 app hỗ trợ, con số này quá nhỏ so với số lượng
+          plugin
+          trên WordPress hiện nay.</li>
+      </ul>
+      <h4 id="muc2"><b>2. Các bước tạo website với Wix</b></h4>
+      <p>Truy cập vào website chính thức của WIX: <a href="https://vi.wix.com">https://vi.wix.com</a></p>
+      <img src="img/wx_1.png" class="center">
+      <p>Nhấp chọn Nút "Bắt đầu"</p>
+      <img src="img/wx_2.png" class="center">
+      <p>Cần 1 tài khoản để thực hiện dễ dàng hơn với WIX, khuyến khích nên sử dụng tài khoản Gmail (Google). Sau khi
+        tạo
+        tài khoản thành công, nhấp chọn Bỏ qua</p>
+      <img src="img/wx_3.png" class="center">
+      <p>Đặt tên cho trang web, ví dụ:</p>
+      <img src="img/wx_4.png" class="center">
+      <p>Nhấp chọn "Đến Trang Tổng Quan"</p>
+      <img src="img/wx_5.png" class="center">
+      <p>Nhấp chọn tên trang wed bên trên góc trái màn hình</p>
+      <img src="img/wx_6.png" class="center">
+      <p>Tiếp tục nhấp chọn Tạo trang web mới</p>
+      <img src="img/wx_7.png" class="center">
+      <p>Chúng ta có thể chọn 1 loại trang web bất kì hoặc nhấn "Bỏ Qua" phía góc tay phải cuối màn hình:</p>
+      <img src="img/wx_8.png" class="center">
+      <p>Tiếp tục "Bỏ Qua" cho đến:</p>
+      <img src="img/wx_9.png" class="center">
+      <p>Ở bước này chúng ta có thể chọn 1 mẫu có sẵn để sửa lại theo đúng ý mình hoặc nhận 1 trang web được thiết kế
+        sẵn, khuyến khích chọn "Chỉnh sửa mẫu". Nếu chọn Chỉnh sửa mẫu:</p>
+      <img src="img/wx_10.png" class="center">
+      <p>Chọn 1 mẫu ưng ý và chỉnh sửa lại theo ý của chúng ta </p>
+      <img src="img/wx_11.png" class="center">
+      <p>Ấn chọn "Chỉnh Sửa". Tại đây chúng ta có thể sửa lại trang web của mình bằng những công cụ có sẵn bên góc trái
+        màn hình</p>
+      <img src="img/wx_12.png" class="center">
+      <p>Sau khi chỉnh sửa hoàn tất nhập "Lưu" và "Xuất Bản" bên góc trên bên phải màn hình</p>
+      <img src="img/wx_13.png" class="center">
+      <p>Nhấn nhận miền với Wix.com miễn phí, chọn lưu và tiếp tục</p>
+      <img src="img/wx_14.png" class="center">
+      <p>Nhấp chọn Xong</p>
+      <img src="img/wx_15.png" class="center">
+      <p>Lưu ý: Khoảng được khoanh vùng đó là đường dẫn đến website. Chúng ta có thể thiết kế web theo chế độ xem trên
+        di
+        động:</p>
+      <img src="img/wx_16.png" class="center">
+      <p>Ấn chọn "Chỉnh sửa trang web di động"</p>
+      <img src="img/wx_17.png" class="center">
+      <p>Đây là chỉnh sửa theo chế độ người dùng ( Di động ) đã được thiết kế sẵn chúng ta có thể sửa lại theo ý muốn
+        bằng
+        những công cụ trên góc trái màn hình</p>
+      <img src="img/wx_18.png" class="center">
+      <p>Bây giờ chúng ta có thể truy cập trang web với tên miền miễn phí có phần mở rộng .wix.com. Tìm hiểu thêm
+        về cách tạo và quản trị website với WIX tại các cộng đồng trên Internet.
+      </p>
+      <div class="w3-center">
+        <div class="pagination">
+          <a href="Bai05.html">Công cụ khác</a>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- End page content -->
+  </div>
+
+  <script>
+    // Script to open and close sidebar
+    function w3_open() {
+      document.getElementById("mySidebar").style.display = "block";
+      document.getElementById("myOverlay").style.display = "block";
+    }
+
+    function w3_close() {
+      document.getElementById("mySidebar").style.display = "none";
+      document.getElementById("myOverlay").style.display = "none";
+    }
+
+    // Phần button top
+    var mybutton = document.getElementById("myBtn");
+
+
+    window.onscroll = function () { scrollFunction() };
+
+    function scrollFunction() {
+      if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+        mybutton.style.display = "block";
+      } else {
+        mybutton.style.display = "none";
+      }
+    }
+
+
+    function topFunction() {
+      document.body.scrollTop = 0;
+      document.documentElement.scrollTop = 0;
+    }
+  </script>
+
+</body>
+
+</html>
